@@ -1,6 +1,10 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Chat, Message, Customer, Language, Market, UserLanguage, UserMarket, Project, ProjectMember,CodingChallenge, UserSolution, ChallengeComments} } = require('../server/db');
+
+const markets = ["Art and Design", "Technology", "Healthcare", "Entertainment and Sports", "Legal", "Social Science", "Finance", "Sales", "Real Estate", "Education","Government"]
+
+const languages = ["Python", "JavaScript", "C#", "C", "C++", "GO", "R", "Swift", "PHP", "Assembly", "Visual Basic", "HTML", "CSS", "Angular", "React", "Elm", "TypeScript", "jQuery", "Vue", "Front End", "Back End", "Database"]
 
 /**
  * seed - this function clears the database, updates tables to
@@ -15,6 +19,26 @@ async function seed() {
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
   ])
+
+
+  //Creating Markets
+  const [ArtAndDesign, Technology, Healthcare, EntertainmentAndSports, Legal, SocialScience, Finance, Sales, RealEstate, Education, Government] = await Promise.all(
+    markets.map(type => {
+      return(
+        Market.create({name:type})
+      )
+    })
+  )
+
+  //Creating Languages
+  const [Python, JavaScript, CSharp, C, CPlusPlus, GO, R, Swift, PHP, Assembly, VisualBasic, HTML, CSS, Angular, React, Elm, TypeScript, jQuery, Vue, FrontEnd, BackEnd, Database]= await Promise.all(
+    languages.map(type => {
+      return(
+        Language.create({name:type})
+      )
+    })
+  )
+
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
