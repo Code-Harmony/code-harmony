@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
+const UserDetails =  require('./UserData');
+
 
 const CodingChallenge = db.define('codingchallenges',{
     level: {
@@ -24,7 +26,16 @@ const UserSolution = db.define('usersolutions',{
       solution: {
         type: Sequelize.STRING
       },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: UserDetails,
+          key: 'id'
+        }
+      },
 });
+
 
 const ChallengeComments = db.define('challengecomments',{
     comment: {
@@ -35,6 +46,22 @@ const ChallengeComments = db.define('challengecomments',{
       },
     thumbsDown: {
         type: Sequelize.INTEGER
+      },
+    userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: UserDetails,
+          key: 'id'
+        }
+      },
+    challengeId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: CodingChallenge,
+          key: 'id'
+        }
       },
 });
 

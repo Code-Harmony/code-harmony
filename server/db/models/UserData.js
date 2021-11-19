@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const Customer = db.define('customer',{
+const UserDetails = db.define('userdetails',{
     name: {
         type: Sequelize.STRING
       },
@@ -32,22 +32,54 @@ const Customer = db.define('customer',{
       },
 });
 
-const Language = db.define('language',{
+const Language = db.define('languages',{
     name: {
         type: Sequelize.STRING
       },
 });
 
-const Market = db.define('market',{
+const Market = db.define('markets',{
     name: {
         type: Sequelize.STRING
       },
 });
 
-const UserMarket = db.define('usermarket',{
+const UserMarket = db.define('usermarkets',{
+  userId: {
+    allowNull: false,
+    type: Sequelize.INTEGER,
+    references: {
+      model: UserDetails,
+      key: 'id'
+    }
+  },
+  marketId: {
+    allowNull: false,
+    type: Sequelize.INTEGER,
+    references: {
+      model: Market,
+      key: 'id'
+    }
+  },
 });
 
-const UserLanguage = db.define('userlanguage',{
+const UserLanguage = db.define('userlanguages',{
+  userId: {
+    allowNull: false,
+    type: Sequelize.INTEGER,
+    references: {
+      model: UserDetails,
+      key: 'id'
+    }
+  },
+  languageId: {
+    allowNull: false,
+    type: Sequelize.INTEGER,
+    references: {
+      model: Language,
+      key: 'id'
+    }
+  },
 });
 
-module.exports = Customer, Language, Market, UserMarket, UserLanguage; 
+module.exports = UserDetails, Language, Market, UserMarket, UserLanguage; 
