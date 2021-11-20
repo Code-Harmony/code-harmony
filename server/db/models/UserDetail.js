@@ -8,7 +8,7 @@ const UserDetail = db.define('userdetails',{
     email: {
         type: Sequelize.STRING
       },
-    job: {
+    industry: {
         type: Sequelize.STRING
       },
     github: {
