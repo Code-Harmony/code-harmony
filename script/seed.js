@@ -1,6 +1,8 @@
-'use strict'
+const {db, models: {User, Chat, Message, UserDetail, Skill, Industry, UserSkill, UserIndustry, Project, ProjectMember,CodingChallenge, UserSolution, ChallengeComments} } = require('../server/db');
 
-const {db, models: {User} } = require('../server/db')
+const industries = ["Art and Design", "Technology", "Healthcare", "Entertainment and Sports", "Legal", "Social Science", "Finance", "Sales", "Real Estate", "Education","Government"]
+
+const skills = ["Python", "JavaScript", "C#", "C", "C++", "GO", "R", "Swift", "PHP", "Assembly", "Visual Basic", "HTML", "CSS", "Angular", "React", "Elm", "TypeScript", "jQuery", "Vue", "Front End", "Back End", "Database"]
 
 /**
  * seed - this function clears the database, updates tables to
@@ -15,6 +17,33 @@ async function seed() {
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
   ])
+
+  //Creating sample User Profile
+  const userDetails = await Promise.all([
+    UserDetail.create({ name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url'
+   }),
+   UserDetail.create({ name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url'
+  }),
+])
+
+  //Creating Markets
+  await Promise.all(
+    industries.map(type => {
+      return(
+        Industry.create({name:type})
+      )
+    })
+  )
+
+  //Creating Languages
+await Promise.all(
+    skills.map(type => {
+      return(
+        Skill.create({name:type})
+      )
+    })
+  )
+
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
