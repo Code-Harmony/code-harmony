@@ -1,10 +1,8 @@
-'use strict'
+const {db, models: {User, Chat, Message, UserDetail, Skill, Industry, UserSkill, UserIndustry, Project, ProjectMember,CodingChallenge, UserSolution, ChallengeComments} } = require('../server/db');
 
-const {db, models: {User, Chat, Message, Customer, Language, Market, UserLanguage, UserMarket, Project, ProjectMember,CodingChallenge, UserSolution, ChallengeComments} } = require('../server/db');
+const skills = ["Art and Design", "Technology", "Healthcare", "Entertainment and Sports", "Legal", "Social Science", "Finance", "Sales", "Real Estate", "Education","Government"]
 
-const markets = ["Art and Design", "Technology", "Healthcare", "Entertainment and Sports", "Legal", "Social Science", "Finance", "Sales", "Real Estate", "Education","Government"]
-
-const languages = ["Python", "JavaScript", "C#", "C", "C++", "GO", "R", "Swift", "PHP", "Assembly", "Visual Basic", "HTML", "CSS", "Angular", "React", "Elm", "TypeScript", "jQuery", "Vue", "Front End", "Back End", "Database"]
+const industries = ["Python", "JavaScript", "C#", "C", "C++", "GO", "R", "Swift", "PHP", "Assembly", "Visual Basic", "HTML", "CSS", "Angular", "React", "Elm", "TypeScript", "jQuery", "Vue", "Front End", "Back End", "Database"]
 
 /**
  * seed - this function clears the database, updates tables to
@@ -20,21 +18,28 @@ async function seed() {
     User.create({ username: 'murphy', password: '123' }),
   ])
 
+  //Creating sample User Profile
+  const userDetails = await Promise.all([
+    UserDetail.create({ name: 'cody', email: 'cody@gmail.com', job:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url'
+   }),
+   UserDetail.create({ name: 'murphy', email: 'murphy@gmail.com', job:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url'
+  }),
+])
 
   //Creating Markets
-  const [ArtAndDesign, Technology, Healthcare, EntertainmentAndSports, Legal, SocialScience, Finance, Sales, RealEstate, Education, Government] = await Promise.all(
-    markets.map(type => {
+  await Promise.all(
+    industries.map(type => {
       return(
-        Market.create({name:type})
+        Industry.create({name:type})
       )
     })
   )
 
   //Creating Languages
-  const [Python, JavaScript, CSharp, C, CPlusPlus, GO, R, Swift, PHP, Assembly, VisualBasic, HTML, CSS, Angular, React, Elm, TypeScript, jQuery, Vue, FrontEnd, BackEnd, Database]= await Promise.all(
-    languages.map(type => {
+await Promise.all(
+    skills.map(type => {
       return(
-        Language.create({name:type})
+        Skill.create({name:type})
       )
     })
   )

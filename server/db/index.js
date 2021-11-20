@@ -4,18 +4,18 @@ const db = require('./db');
 
 //calling in models
 const User = require('./models/User');
-const Chat = require('./models/ChatData');
-const Message = require('./models/ChatData');
-const UserDetails =  require('./models/UserData');
-const Language =  require('./models/UserData');
-const Market =  require('./models/UserData');
-const UserLanguage =  require('./models/UserData');
-const UserMarket =  require('./models/UserData');
-const Project =  require('./models/ProjectData');
-const ProjectMember =  require('./models/ProjectData');
-const CodingChallenge =  require('./models/CodingChallengeData');
-const UserSolution =  require('./models/CodingChallengeData');
-const ChallengeComments =  require('./models/CodingChallengeData');
+const Chat = require('./models/Chat');
+const Message = require('./models/Message');
+const UserDetail =  require('./models/UserDetail');
+const Skill =  require('./models/Skill');
+const Industry =  require('./models/Industry');
+const UserSkill =  require('./models/UserSkill');
+const UserIndustry =  require('./models/UserIndustry');
+const Project =  require('./models/Project');
+const ProjectMember =  require('./models/ProjectMember');
+const CodingChallenge =  require('./models/CodingChallenge');
+const UserSolution =  require('./models/UserSolution');
+const ChallengeComment =  require('./models/ChallengeComment');
 
 module.exports = {
   db,
@@ -23,15 +23,15 @@ module.exports = {
     User,
     Chat,
     Message,
-    UserDetails,
-    Language,
-    Market,
-    UserLanguage,
-    UserMarket,
+    UserDetail,
+    Skill,
+    Industry,
+    UserSkill,
+    UserIndustry,
     Project,
     ProjectMember,
     CodingChallenge,
     UserSolution,
-    ChallengeComments
+    ChallengeComment
   },
 }
