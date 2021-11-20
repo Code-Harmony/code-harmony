@@ -7,6 +7,7 @@ const Messages = props => {
   return (
     <div>
       <h1>Messages</h1>
+      <h2>Direct Messages and Project Groups</h2>
     </div>
   )
 
