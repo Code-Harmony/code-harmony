@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const UserDetail =  require('./UserDetail');
+const User =  require('./User');
 const Chat =  require('./Chat');
 
 const Message = db.define('messages',{
@@ -11,7 +11,7 @@ const Message = db.define('messages',{
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: UserDetail,
+          model: User,
           key: 'id'
         }
       },
