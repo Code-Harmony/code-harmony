@@ -6,7 +6,6 @@ const db = require('./db');
 const User = require('./models/User');
 const Chat = require('./models/Chat');
 const Message = require('./models/Message');
-const UserDetail =  require('./models/UserDetail');
 const Skill =  require('./models/Skill');
 const Industry =  require('./models/Industry');
 const UserSkill =  require('./models/UserSkill');
@@ -23,7 +22,6 @@ module.exports = {
     User,
     Chat,
     Message,
-    UserDetail,
     Skill,
     Industry,
     UserSkill,

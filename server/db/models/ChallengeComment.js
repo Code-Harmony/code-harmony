@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const UserDetail =  require('./UserDetail');
+const User =  require('./User');
 const CodingChallenge =  require('./CodingChallenge');
 
 
@@ -18,7 +18,7 @@ const ChallengeComment = db.define('challengecomments',{
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: UserDetail,
+          model: User,
           key: 'id'
         }
       },

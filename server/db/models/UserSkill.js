@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const UserDetail =  require('./UserDetail');
+const User =  require('./User');
 const Skill =  require('./Skill');
 
 
@@ -9,7 +9,7 @@ const UserSkill = db.define('userskills',{
       allowNull: false,
       type: Sequelize.INTEGER,
       references: {
-        model: UserDetail,
+        model: User,
         key: 'id'
       }
     },

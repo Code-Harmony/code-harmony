@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const UserDetail =  require('./UserDetail');
+const User =  require('./User');
 
 const UserSolution = db.define('usersolutions',{
     solution: {
@@ -10,7 +10,7 @@ const UserSolution = db.define('usersolutions',{
       allowNull: false,
       type: Sequelize.INTEGER,
       references: {
-        model: UserDetail,
+        model: User,
         key: 'id'
       }
     },
