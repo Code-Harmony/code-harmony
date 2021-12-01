@@ -8,6 +8,7 @@ import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
 import LookingFor from "./components/LookingFor";
 import Messages from "./components/Messages";
+import MyPeers from "./components/MyPeers";
 
 /**
  * COMPONENT
@@ -29,6 +30,7 @@ class Routes extends Component {
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
             <Route path="/messages" exact component={ Messages } />
+            <Route path="/mypeers" exact component={ MyPeers } />
             <Redirect to="/home" />
           </Switch>
         ) : (
