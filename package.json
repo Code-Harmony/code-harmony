@@ -24,8 +24,10 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.1.0",
     "@mui/material": "^5.1.0",
+    "ace-builds": "^1.4.13",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
+    "brace": "^0.11.1",
     "compression": "^1.7.3",
     "express": "^4.16.4",
     "history": "^4.9.0",
@@ -34,6 +36,7 @@
     "pg": "^8.5.1",
     "postgresql": "^0.0.1",
     "psql": "^0.0.1",
+    "react-ace": "^9.5.0",
     "sequelize": "^6.9.0"
   },
   "devDependencies": {

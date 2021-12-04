@@ -1,8 +1,5 @@
-const router = require('express').Router();
-const { models: { CodingChallenge }} = require('../db');
-module.exports = router;
+const {expect} = require('chai')
 
-const specTest = `const {expect} = require('chai')
 //map to upper case level 1
 describe('useMapToUpperCase', () => {
     it('takes a string and returns an array', () => {
@@ -29,26 +26,4 @@ describe('useMapToUpperCase', () => {
         'METHOD',
       ]);
     });
-  });`
-
-// POST /api/levelup
-// handles -create new code submission
-router.post('/', async (req, res, next) => {
-  const { userSolution } = req.body;
-  try {
-    const testData = {
-      code: userSolution,
-      spec: specTest,
-    }
-    // const testDataObj = JSON.parse(testData);
-    // const code = JSON.parse(userSolution)
-    console.log(typeof testData)
-    // console.log(testData)
-    // console.log(userSolution.suit)
-    const error = testData.suites;
-    console.log(error);
-  }
-  catch (error) {
-    next(error);
-  }
-});
+  });
