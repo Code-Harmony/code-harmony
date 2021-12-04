@@ -8,6 +8,7 @@ import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
 import LookingFor from "./components/LookingFor";
 import Messages from "./components/Messages";
+
 import {_loadAccounts, loadAccounts} from './store/account'
 import {_loadIndustries, loadIndustries} from './store/industries'
 import {_loaduserIndustries, loaduserIndustries} from './store/userIndustries'
@@ -21,7 +22,6 @@ import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'
 import LookingForr from "./components/LookingForr";
 import MyPeers from "./components/MyPeers";
-
 
 /**
  * COMPONENT
@@ -49,11 +49,11 @@ class Routes extends Component {
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
             <Route path="/messages" exact component={ Messages } />
+
             <Route exact path="/viewProfile" component={SingleProfile}/>
             <Route exact path="/updateProfile" component={UpdateProfile}/>
             <Route exact path="/lookingForr" component={LookingForr}/>
             <Route exact path="/mypeers" component={MyPeers}/>
-
             <Redirect to="/home" />
           </Switch>
         ) : (

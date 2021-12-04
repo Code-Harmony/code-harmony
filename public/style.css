@@ -47,7 +47,8 @@ form div {
   border: 0;
 }
 .user::after {
-  content: '';
+  content: "";
+
   width: 92px;
   height: 2px;
   background: #fff;
@@ -75,7 +76,8 @@ form div {
 .user-info h4 {
   margin: 0;
 }
-.user-info p{
+.user-info p {
+
   margin-top: 7px;
   color: #676767;
   font-size: 14px;
@@ -110,7 +112,7 @@ li {
   border-radius: 4px;
   height: 42px;
   font-size: 14px;
-  background-color: #283E4A;
+  background-color: #283e4a;
   color: #ffffff;
 }
 .textarea {
@@ -120,7 +122,9 @@ li {
 .current-user-container {
   width: 28%;
 }
-.current-user-container>div {
+.current-user-container > div {
+
+
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -146,7 +150,59 @@ li {
 .chatbox-container {
   position: absolute;
   bottom: 0;
-  height: 400px;
+
+  height: 40%;
   right: 5%;
-  width: 300px;
+  width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+  .users {
+    margin: 0;
+  }
+  .center-stage {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .chatbox-container {
+    width: 100%;
+    right: 0;
+  }
+  .Inbox.chat-only .center-stage {
+    width: 100% !important;
+  }
+}
+.center-stage {
+  max-width: 1000px !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media not all and (max-width: 640px) {
+  .Inbox.chat-only .center-stage {
+    max-width: 1000px !important;
+  }
+  .Inbox.mobile-prefer-chat .center-stage,
+  .Inbox.chat-only .center-stage {
+    max-width: 1000px !important;
+  }
+}
+  
+@media (max-width: 640px) {
+  .Inbox.mobile-prefer-chat .center-stage,
+  .Inbox.chat-only .center-stage {
+    max-width: 1000px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .Inbox.mobile-prefer-chat .center-stage,
+  .Inbox.chat-only .center-stage {
+    max-width: 1000px !important;
+  }
+}
+
+
+.Inbox.mobile-prefer-chat .center-stage, .Inbox.chat-only .center-stage {
+  max-width: 1000px !important;
 }
