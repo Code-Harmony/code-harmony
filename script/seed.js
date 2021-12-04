@@ -12,7 +12,7 @@ async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
-  // Creating Users
+  // Creating Users // Amata to join industries and Skills to the users table
   const users = await Promise.all([
     User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url', talkjsobject:{ name: 'cody', image:'url', role:'member,', description: 'Fullstack engineer' } }),
     User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' ,talkjsobject:{ name: 'murphy', image:'url', role:'member', description: 'Fullstack engineer'} }),
