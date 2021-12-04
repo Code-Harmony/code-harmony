@@ -14,8 +14,8 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url' }),
-    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' }),
+    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url', talkjsobject:{ name: 'cody', image:'url', role:'member,', description: 'Fullstack engineer' } }),
+    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' ,talkjsobject:{ name: 'murphy', image:'url', role:'member', description: 'Fullstack engineer'} }),
   ])
 
   //creating one friends link
