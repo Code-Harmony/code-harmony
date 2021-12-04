@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const UserDetail =  require('./UserDetail');
+const User =  require('./User');
 
 
 const Project = db.define('projects',{
@@ -14,7 +14,7 @@ const Project = db.define('projects',{
         allowNull: true,
         type: Sequelize.INTEGER,
         references: {
-          model: UserDetail,
+          model: User,
           key: 'id'
         }
       },
