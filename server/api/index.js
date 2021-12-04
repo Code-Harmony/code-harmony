@@ -9,6 +9,8 @@ router.use('/account', require('./account'))
 // router.use('/messages', require('./messages'))
 router.use('/industries', require('./industries'))
 router.use('/skills', require('./skills'))
+router.use('/friend', require('./friend'))
+
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')

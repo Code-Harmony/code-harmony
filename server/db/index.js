@@ -4,8 +4,6 @@ const db = require('./db');
 
 //calling in models
 const User = require('./models/User');
-const Chat = require('./models/Chat');
-const Message = require('./models/Message');
 const Skill =  require('./models/Skill');
 const Industry =  require('./models/Industry');
 const UserSkill =  require('./models/UserSkill');
@@ -15,13 +13,12 @@ const ProjectMember =  require('./models/ProjectMember');
 const CodingChallenge =  require('./models/CodingChallenge');
 const UserSolution =  require('./models/UserSolution');
 const ChallengeComment =  require('./models/ChallengeComment');
+const Friend = require('./models/FriendsList');
 
 module.exports = {
   db,
   models: {
     User,
-    Chat,
-    Message,
     Skill,
     Industry,
     UserSkill,
@@ -30,6 +27,7 @@ module.exports = {
     ProjectMember,
     CodingChallenge,
     UserSolution,
-    ChallengeComment
+    ChallengeComment,
+    Friend
   },
 }

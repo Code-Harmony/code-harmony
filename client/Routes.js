@@ -8,18 +8,20 @@ import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
 import LookingFor from "./components/LookingFor";
 import Messages from "./components/Messages";
+
 import {_loadAccounts, loadAccounts} from './store/account'
 import {_loadIndustries, loadIndustries} from './store/industries'
 import {_loaduserIndustries, loaduserIndustries} from './store/userIndustries'
 import {_loadSkills, loadSkills} from './store/skills'
 import {_loaduserSkills, loaduserSkills} from './store/userSkills'
+import {_loadFriends, loadFriends} from './store/friends'
 
 
 
 import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'
 import LookingForr from "./components/LookingForr";
-
+import MyPeers from "./components/MyPeers";
 
 /**
  * COMPONENT
@@ -32,6 +34,7 @@ class Routes extends Component {
     this.props._loaduserIndustries();
     this.props._loadSkills();
     this.props._loaduserSkills();
+    this.props._loadFriends();
   }
 
   render() {
@@ -46,9 +49,11 @@ class Routes extends Component {
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
             <Route path="/messages" exact component={ Messages } />
+
             <Route exact path="/viewProfile" component={SingleProfile}/>
             <Route exact path="/updateProfile" component={UpdateProfile}/>
             <Route exact path="/lookingForr" component={LookingForr}/>
+            <Route exact path="/mypeers" component={MyPeers}/>
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -93,6 +98,9 @@ const mapDispatch = (dispatch) => {
     },
     _loaduserSkills: async ()=> {
       dispatch(loaduserSkills());
+    },
+    _loadFriends: async ()=> {
+      dispatch(loadFriends());
     },
   };
 };

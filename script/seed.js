@@ -1,4 +1,4 @@
-const {db, models: {User, Chat, Message, Skill, Industry, UserSkill, UserIndustry, Project, ProjectMember,CodingChallenge, UserSolution, ChallengeComments} } = require('../server/db');
+const {db, models: {User, Skill, Industry, UserSkill, UserIndustry, CodingChallenge, UserSolution, ChallengeComments, Friend} } = require('../server/db');
 
 const industries = ["Art and Design", "Technology", "Healthcare", "Entertainment and Sports", "Legal", "Social Science", "Finance", "Sales", "Real Estate", "Education","Government"]
 
@@ -12,10 +12,17 @@ async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
-  // Creating Users
+  // Creating Users // Amata to join industries and Skills to the users table
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url' }),
-    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' }),
+    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url', talkjsobject:{ name: 'cody', image:'url', role:'member,', description: 'Fullstack engineer' } }),
+    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' ,talkjsobject:{ name: 'murphy', image:'url', role:'member', description: 'Fullstack engineer'} }),
+  ])
+
+  //creating one friends link
+  const friendslist = await Promise.all([
+    Friend.create({ user1id: 2, user2id: 1  }),
+    Friend.create({ user1id: 1, user2id: 2  }),
+
   ])
 
   //Creating Markets
