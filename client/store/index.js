@@ -6,9 +6,24 @@ import auth from './auth'
 import account from './account'
 import lookingfor from './lookingfor'
 import messages from './messages'
+import industries from './industries'
+import userIndustries from './userIndustries'
+import skills from './skills'
+import userSkills from './userSkills'
+
 
 // const reducer = combineReducers({ auth })
-const reducer = combineReducers({ auth, account, lookingfor, messages })
+const reducer = combineReducers({ 
+  auth, 
+  accounts: account, 
+  lookingfor, 
+  messages,
+  industries: industries,
+  userIndustries: userIndustries,
+  skills: skills,
+  userSkills: userSkills,
+})
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

@@ -8,6 +8,19 @@ import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
 import LookingFor from "./components/LookingFor";
 import Messages from "./components/Messages";
+
+import {_loadAccounts, loadAccounts} from './store/account'
+import {_loadIndustries, loadIndustries} from './store/industries'
+import {_loaduserIndustries, loaduserIndustries} from './store/userIndustries'
+import {_loadSkills, loadSkills} from './store/skills'
+import {_loaduserSkills, loaduserSkills} from './store/userSkills'
+import {_loadFriends, loadFriends} from './store/friends'
+
+
+
+import SingleProfile from './components/SingleProfile'
+import UpdateProfile from './components/UpdateProfile'
+import LookingForr from "./components/LookingForr";
 import MyPeers from "./components/MyPeers";
 
 /**
@@ -16,6 +29,12 @@ import MyPeers from "./components/MyPeers";
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
+    this.props._loadAccounts();
+    this.props._loadIndustries();
+    this.props._loaduserIndustries();
+    this.props._loadSkills();
+    this.props._loaduserSkills();
+    this.props._loadFriends();
   }
 
   render() {
@@ -30,7 +49,11 @@ class Routes extends Component {
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
             <Route path="/messages" exact component={ Messages } />
-            <Route path="/mypeers" exact component={ MyPeers } />
+
+            <Route exact path="/viewProfile" component={SingleProfile}/>
+            <Route exact path="/updateProfile" component={UpdateProfile}/>
+            <Route exact path="/lookingForr" component={LookingForr}/>
+            <Route exact path="/mypeers" component={MyPeers}/>
             <Redirect to="/home" />
           </Switch>
         ) : (
@@ -60,6 +83,24 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData() {
       dispatch(me());
+    },
+    _loadAccounts: async ()=> {
+      dispatch(loadAccounts());
+    },
+    _loadIndustries: async ()=> {
+      dispatch(loadIndustries());
+    },
+    _loaduserIndustries: async ()=> {
+      dispatch(loaduserIndustries());
+    },
+    _loadSkills: async ()=> {
+      dispatch(loadSkills());
+    },
+    _loaduserSkills: async ()=> {
+      dispatch(loaduserSkills());
+    },
+    _loadFriends: async ()=> {
+      dispatch(loadFriends());
     },
   };
 };

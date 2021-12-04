@@ -2,7 +2,6 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
-const axios = require('axios');
 
 const SALT_ROUNDS = 5;
 
@@ -14,7 +13,38 @@ const User = db.define('user', {
   },
   password: {
     type: Sequelize.STRING,
-  }
+  },
+  name: {
+    type: Sequelize.STRING
+  },
+email: {
+    type: Sequelize.STRING
+  },
+industry: {
+    type: Sequelize.STRING
+  },
+github: {
+    type: Sequelize.STRING
+  },
+description: {
+    type: Sequelize.STRING
+  },
+
+looking_for: {
+    type: Sequelize.STRING
+  },
+challenge_points: {
+    type: Sequelize.INTEGER
+  },
+address: {
+    type: Sequelize.STRING
+  },
+image: {
+  type: Sequelize.STRING
+},
+talkjsobject:{
+  type: Sequelize.JSON
+}
 })
 
 module.exports = User

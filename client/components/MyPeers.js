@@ -13,9 +13,16 @@ const MyPeers = (props) => {
     setCurrentUser(loggedInUser);
     console.log("this is the props:", currentUser);
   }, []);
-
   
   let container;
+
+
+  console.log(props.auth)
+  //const {accounts, friends} = this.props;
+  /*let firstFriendId = friends.find((user) => user.user1id === currentUser.id)
+  let secondFriendId = firstFriendId.find((user) => user.user2id === currentUser.id)
+  let friendslist = accounts.find((friend) => friend.id === secondFriendId.id)
+*/
 
   const handleClick = (userId) => {
     /* Retrieve the other user who will participate in the conversation */
@@ -89,6 +96,7 @@ const MyPeers = (props) => {
         </ul>
         <div className="chatbox-container" ref={chatboxContainer}>
           <div id="talkjs-container" style={{ width: "100%" }}>
+
             <i></i>
           </div>
         </div>
