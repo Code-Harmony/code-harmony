@@ -4,8 +4,8 @@ const db = require('./db');
 
 //calling in models
 const User = require('./models/User');
-const Chat = require('./models/Chat');
-const Message = require('./models/Message');
+// const Chat = require('./models/Chat');
+// const Message = require('./models/Message');
 const Skill =  require('./models/Skill');
 const Industry =  require('./models/Industry');
 const UserSkill =  require('./models/UserSkill');
@@ -20,8 +20,8 @@ module.exports = {
   db,
   models: {
     User,
-    Chat,
-    Message,
+    // Chat,
+    // Message,
     Skill,
     Industry,
     UserSkill,

@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import { me } from "./store";
 import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
-import LookingFor from "./components/LookingFor";
+
 import Messages from "./components/Messages";
 import {_loadAccounts, loadAccounts} from './store/account'
 import {_loadIndustries, loadIndustries} from './store/industries'
@@ -18,7 +18,8 @@ import {_loaduserSkills, loaduserSkills} from './store/userSkills'
 
 import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'
-import LookingForr from "./components/LookingForr";
+import LookingFor from "./components/LookingFor";
+import ProfileResults from "./components/ProfileResults";
 
 
 /**
@@ -48,7 +49,8 @@ class Routes extends Component {
             <Route path="/messages" exact component={ Messages } />
             <Route exact path="/viewProfile" component={SingleProfile}/>
             <Route exact path="/updateProfile" component={UpdateProfile}/>
-            <Route exact path="/lookingForr" component={LookingForr}/>
+            <Route exact path="/lookingFor" component={LookingFor}/>
+            <Route exact path='/profileResults/:filter?' component={ProfileResults}/>
             <Redirect to="/home" />
           </Switch>
         ) : (
