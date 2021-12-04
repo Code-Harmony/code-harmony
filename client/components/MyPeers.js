@@ -88,7 +88,7 @@ const MyPeers = (props) => {
           ))}
         </ul>
         <div className="chatbox-container" ref={chatboxContainer}>
-          <div id="talkjs-container" style={{ height: "300px" }}>
+          <div id="talkjs-container" style={{ width: "100%" }}>
             <i></i>
           </div>
         </div>
