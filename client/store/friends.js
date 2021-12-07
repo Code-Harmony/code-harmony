@@ -2,10 +2,11 @@ import axios from 'axios';
 import { auth } from './auth';
 
 
+
 const LOAD_FRIENDS = 'LOAD_FRIENDS';
 
 const friendsReducers = (state = [], action) =>{
-    if(action.type === LOAD.FRIENDS){
+    if(action.type === LOAD_FRIENDS){
         state = action.friends;
     }
     return state;
@@ -22,16 +23,15 @@ const loadFriends = () =>{
     return async (dispatch) =>{
         const friendRelations = (await axios.get('/api/friend')).data;
         const accounts = (await axios.get('/api/account')).data;
-
-        const userOneFriends = friendRelations.filter( ({ user1id }) => auth.id === user1id.id);
-        const userTwoFriends = friendRelations.filter( ({ user2id }) => auth.id === user2id.id);
-
+        const userOneFriends = friendRelations.filter( (user1) => 1 === user1.user1id);
+        const userTwoFriends = friendRelations.filter( (user2) => 1 === user2.user2id);
         const friendIds = userTwoFriends.reduce((result, userTwo) => {
-            if (userOneFriends.findIndex( userOneFriend => userOneFriend.user2id === userTwo.user1id.id) !== -1) {
-                result.push(userTwo.user1id.id)
+            if (userOneFriends.findIndex( userOneFriend => userOneFriend.user2id === userTwo.user1id) !== -1) {
+                result.push(userTwo.user1id)
             } 
             return result;
         },[]);
+        
         const friends = accounts.reduce( (result, account) => {
             if (friendIds.findIndex( friendId => friendId === account.id) !== -1) {
                 result.push(account)
