@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { dummyUsers } from "./TestUsers";
 import Talk from "talkjs";
-
+import { ThemeProvider, Button } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
+import theme from "./Theme";
 const MyPeers = (props) => {
   let chatboxContainer = React.createRef();
 
@@ -26,7 +28,7 @@ const MyPeers = (props) => {
 
   const handleClick = (userId) => {
     /* Retrieve the other user who will participate in the conversation */
-    console.log(userId)
+    console.log(userId);
     const user = friends.find((user) => user.id === userId);
 
     /* Session initialization code */
@@ -62,51 +64,60 @@ const MyPeers = (props) => {
   };
   console.log("loaded friends:", friends);
   return (
-    <div className="users">
-      <div className="current-user-container">
-        {currentUser && friends && (
-          <div>
-            <div className="current-user-info">
-              <h3>{currentUser.username}</h3>
-              <p> User ID: {currentUser.id}</p>
-              <button onClick={() => console.log(currentUser)}>
-                console log user
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-      <div className="users-container">
-        <ul>
-          {friends.map((user) => {
-            let userId = user.id
-            return(
-            <li key={userId} className="user">
-              <picture className="user-picture">
-                <img src={user.photoUrl} alt={`${user.name}`} />
-              </picture>
-              <div className="user-info-container">
-                <div className="user-info">
-                  <h4>{user.name}</h4>
-                  <p>{user.info}, {user.id}</p>
-                </div>
-                <div className="user-action">
-                  <button onClick={(userId) => handleClick(user.id)}>
-                    Message
-                  </button>
-                </div>
+    <ThemeProvider theme={theme}>
+      <div className="users">
+        <div className="current-user-container">
+          {currentUser && friends && (
+            <div>
+              <div className="current-user-info">
+                <h3>{currentUser.username}</h3>
+                <p> User ID: {currentUser.id}</p>
+                <button onClick={() => console.log(currentUser)}>
+                  console log user
+                </button>
               </div>
-            </li>
-            )
-          })}
-        </ul>
-        <div className="chatbox-container" ref={chatboxContainer}>
-          <div id="talkjs-container" style={{ width: "100%" }}>
-            <i></i>
+            </div>
+          )}
+        </div>
+        <div className="users-container">
+          <ul>
+            {friends.map((user) => {
+              return (
+                <li key={user.name} className="user">
+                  <picture
+                    onClick={(userId) => handleClick(user.id)}
+                    className="user-picture"
+                  >
+                    <img src={user.photoUrl} alt={`${user.name}`} />
+                  </picture>
+                  <div className="user-info-container">
+                    <div className="user-info">
+                      <h4>{user.name}</h4>
+                      <p>
+                        {user.info}, {user.id}
+                      </p>
+                      <Button onClick={(userId) => handleClick(user.id)} color="primary" variant="contained" endIcon={<SendIcon/>}>
+                        Message
+                      </Button>
+                    </div>
+                    <div className="user-action">
+                      <button onClick={(userId) => handleClick(user.id)}>
+                        Message
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="chatbox-container" ref={chatboxContainer}>
+            <div id="talkjs-container" style={{ width: "100%" }}>
+              <i></i>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 

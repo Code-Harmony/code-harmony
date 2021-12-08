@@ -23,6 +23,7 @@ import UpdateProfile from './components/UpdateProfile'
 import LookingFor from "./components/LookingFor";
 import ProfileResults from "./components/ProfileResults";
 import MyPeers from "./components/MyPeers";
+import PeerRequests from "./components/PeerRequests";
 
 /**
  * COMPONENT
@@ -56,6 +57,7 @@ class Routes extends Component {
             <Route exact path="/lookingFor" component={LookingFor}/>
             <Route exact path='/profileResults/:filter?' component={ProfileResults}/>
             <Route exact path="/mypeers" component={MyPeers}/>
+            <Route exact path="/requests" component={PeerRequests}/>
             <Redirect to="/home" />
           </Switch>
         ) : (

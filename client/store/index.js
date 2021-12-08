@@ -11,6 +11,7 @@ import userIndustries from './userIndustries'
 import skills from './skills'
 import userSkills from './userSkills'
 import friends from './friends'
+import friendRequest from './friendRequest'
 
 
 // const reducer = combineReducers({ auth })
@@ -24,6 +25,7 @@ const reducer = combineReducers({
   userIndustries: userIndustries,
   skills: skills,
   userSkills: userSkills,
+  friendRequest,
 })
 
 const middleware = composeWithDevTools(
@@ -34,3 +36,4 @@ const store = createStore(reducer, middleware)
 export default store
 export * from './auth'
 export * from './friends'
+export * from './friendRequest'

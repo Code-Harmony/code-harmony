@@ -206,3 +206,11 @@ li {
 .Inbox.mobile-prefer-chat .center-stage, .Inbox.chat-only .center-stage {
   max-width: 1000px !important;
 }
+
+.user-action > *{
+  cursor: pointer;
+}
+
+.friendlink{
+  cursor: pointer;
+}
