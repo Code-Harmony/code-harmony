@@ -36,8 +36,8 @@ looking_for: {
 challenge_points: {
     type: Sequelize.INTEGER
   },
-address: {
-    type: Sequelize.STRING
+zipcode: {
+    type: Sequelize.INTEGER
   },
 image: {
   type: Sequelize.STRING

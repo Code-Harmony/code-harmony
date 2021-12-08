@@ -3,7 +3,7 @@ const db = require('../db');
 const User =  require('./User');
 const Industry =  require('./Industry');
 
-const UserIndustry = db.define('usermarkets',{
+const UserIndustry = db.define('userindustries',{
     userId: {
       allowNull: false,
       type: Sequelize.INTEGER,
