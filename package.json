@@ -39,8 +39,8 @@
     "react-router": "^6.0.2",
     "sequelize": "^6.11.0",
     "talkjs": "^0.15.1",
-    "util": "^0.12.4",
-    "react-ace": "^9.5.0"
+    "util": "^0.12.4"
+    "react-ace": "^9.5.0",
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

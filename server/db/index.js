@@ -2,7 +2,6 @@
 
 const db = require('./db');
 
-
 //calling in models
 const User = require('./models/User');
 const Skill =  require('./models/Skill');

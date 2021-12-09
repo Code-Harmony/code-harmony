@@ -12,6 +12,12 @@ async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
+  // Creating Users // Amata to join industries and Skills to the users table
+  const users = await Promise.all([
+    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url', talkjsobject:{ name: 'cody', image:'url', role:'member,', description: 'Fullstack engineer' } }),
+    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' ,talkjsobject:{ name: 'murphy', image:'url', role:'member', description: 'Fullstack engineer'} }),
+  ])
+
   //creating one friends link
   const friendslist = await Promise.all([
     Friend.create({ user1id: 2, user2id: 1  }),
@@ -19,7 +25,7 @@ async function seed() {
 
   ])
 
-//Creating Industries
+  //Creating Markets
   await Promise.all(
     industries.map(type => {
       return(
@@ -28,7 +34,7 @@ async function seed() {
     })
   )
 
-//Creating Skills
+  //Creating Languages
 await Promise.all(
     skills.map(type => {
       return(
@@ -36,37 +42,6 @@ await Promise.all(
       )
     })
   )
-
-   // Creating Users 
-   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry: null, github: '@cody', description: null, looking_for:'product designer', challenge_points: 3, zipcode: 10025, image:'url', talkjsobject:{ name: 'cody', image:'url', role:'member,', description: null } }),
-    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry: null, github: '@murphy', description: null, looking_for:'product designer', challenge_points: 1, zipcode: 19610, image:'url' ,talkjsobject:{ name: 'murphy', image:'url', role:'member', description: null } }),
-  ]) 
-
-//Creating UserIndustries join
-  async function joinUserIndustry(userId, industryId) {
-    const userIndustry = await UserIndustry.create({
-      userId: userId,
-      industryId: industryId,
-  })
-  return userIndustry;
-  }
-
-  joinUserIndustry(1,3);
-  joinUserIndustry(2,6);
-
-  //Creating UserSkills join
-  async function joinUserSkills(userId, skillId) {
-    const userSkill = await UserSkill.create({
-      userId: userId,
-      skillId: skillId,
-  })
-  return userSkill;
-  }
-
-  joinUserSkills(1,3);
-  joinUserSkills(2,6);
-
 
  //Creating coding challenges
  const codingChallenges = await Promise.all([
@@ -85,6 +60,12 @@ CodingChallenge.create({ level: 3, prompt: 'The twice function can only invoke t
 ])
 
   console.log(`seeded successfully`)
+  return {
+    users: {
+      cody: users[0],
+      billy: users[1]
+    }
+  }
 }
 
 /*
@@ -106,6 +87,14 @@ async function runSeed() {
   }
 }
 
-runSeed()
+/*
+  Execute the `seed` function, IF we ran this module directly (`node seed`).
+  `Async` functions always return a promise, so we can use `catch` to handle
+  any errors that might occur inside of `seed`.
+*/
+if (module === require.main) {
+  runSeed()
+}
 
+// we export the seed function for testing purposes (see `./seed.spec.js`)
 module.exports = seed
