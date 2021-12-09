@@ -126,16 +126,25 @@ class ProfileResults extends Component{
         })
         
         //Check which user is in both filters.
-        const both = []
-        skillUserId.map(userSkillId =>{
-            industryUserId.map(userIndustryId =>{
-                if(userSkillId === userIndustryId){
-                    both.push(userSkillId)
-                    console.log(both)
-                }
+        let both = []
+        if(skillUserId.length === 0 && industryUserId.length !== 0){
+            both = industryUserId
+        }
+        else if(industryUserId.length === 0 && skillUserId !== 0){
+            both = skillUserId
+        }
+        else{
+            skillUserId.map(userSkillId =>{
+                industryUserId.map(userIndustryId =>{
+                    if(userSkillId === userIndustryId){
+                        both.push(userSkillId)
+                        console.log(both)
+                    }
+                })
             })
-        })
-
+        }
+        console.log(both)
+        
         const accounts = 
         [
             {
