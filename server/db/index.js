@@ -8,8 +8,6 @@ const Skill =  require('./models/Skill');
 const Industry =  require('./models/Industry');
 const UserSkill =  require('./models/UserSkill');
 const UserIndustry =  require('./models/UserIndustry');
-const Project =  require('./models/Project');
-const ProjectMember =  require('./models/ProjectMember');
 const CodingChallenge =  require('./models/CodingChallenge');
 const UserSolution =  require('./models/UserSolution');
 const ChallengeComment =  require('./models/ChallengeComment');
@@ -23,8 +21,6 @@ module.exports = {
     Industry,
     UserSkill,
     UserIndustry,
-    Project,
-    ProjectMember,
     CodingChallenge,
     UserSolution,
     ChallengeComment,

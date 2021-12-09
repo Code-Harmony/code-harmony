@@ -14,18 +14,17 @@ async function seed() {
 
   // Creating Users // Amata to join industries and Skills to the users table
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry:'HR', github: '@cody', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 3, address:'brooklyn', image:'url', talkjsobject:{ name: 'cody', image:'url', role:'member,', description: 'Fullstack engineer' } }),
-    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry:'FinanceBro', github: '@murphy', description:'Fullstack engineer', looking_for:'product designer', challenge_points: 1, address:'manhattan', image:'url' ,talkjsobject:{ name: 'murphy', image:'url', role:'member', description: 'Fullstack engineer'} }),
+    User.create({ username: 'cody', password: '123', name: 'cody', email: 'cody@gmail.com', industry: null, github: '@cody', description: null, looking_for:'product designer', challenge_points: 3, zipcode:10242, image:'url'}),
+    User.create({ username: 'murphy', password: '123', name: 'murphy', email: 'murphy@gmail.com', industry: null, github: '@murphy', description: null, looking_for:'product designer', challenge_points: 1, zipcode:10242, image:'url' }),
   ])
 
   //creating one friends link
   const friendslist = await Promise.all([
     Friend.create({ user1id: 2, user2id: 1  }),
     Friend.create({ user1id: 1, user2id: 2  }),
-
   ])
 
-  //Creating Markets
+  //Creating industries
   await Promise.all(
     industries.map(type => {
       return(
@@ -34,7 +33,7 @@ async function seed() {
     })
   )
 
-  //Creating Languages
+  //Creating skills
 await Promise.all(
     skills.map(type => {
       return(
@@ -42,6 +41,16 @@ await Promise.all(
       )
     })
   )
+
+  // create user industries
+  async function joinUserIndustry(userId, industryId) {
+    UserIndustry.create(userId,industryId)
+  }
+
+  //create user skills
+  async function joinUserSkill (userId, skillId) {
+    UserIndustry.create(userId,skillId)
+  }
 
  //Creating coding challenges
  const codingChallenges = await Promise.all([

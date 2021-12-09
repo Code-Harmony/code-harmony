@@ -6,14 +6,14 @@ import {updateAccount} from '../store/account';
 class UpdateProfile extends Component{
     constructor(props){
         super(props);
-        const {auth} = this.props;
+        const {auth, account} = this.props;
         this.state = {
             id: auth ? auth.id : '',
-            name: '',
-            email: '',
-            industry: '',
+            name: auth ? auth.name : '',
+            email: auth? auth.email : '',
+            industry: auth? auth.industry : '',
             // gitHub: '',
-            description: '',
+            description: auth? auth.description : '',
             zipcode: '',
         }
         this.onChange = this.onChange.bind(this);
@@ -38,9 +38,10 @@ class UpdateProfile extends Component{
     }
     render(){
         const {name, email, industry, description, zipcode} = this.state;
-        const {industries, auth} = this.props;
+        const {industries, auth, accounts} = this.props;
         const {onChange, onSubmit} = this
         console.log(auth.id)
+        // console.log(accounts)
         return(
             <div>
                 <form name='updateAccount' onSubmit={onSubmit}>
