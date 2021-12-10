@@ -214,7 +214,6 @@ async function seed() {
       address: "Fullstack Academy",
       role: "Member",
     })
-}
     
   //creating one friends link
   const friendslist = await Promise.all([
@@ -248,6 +247,7 @@ await Promise.all(
     skills.map(type => {
       return(
         Skill.create({name:type})
+      )  
     })
   );
 
@@ -276,14 +276,7 @@ CodingChallenge.create({ level: 3, prompt: "The alternate function returns funct
 CodingChallenge.create({ level: 3, prompt: 'The twice function can only invoke the function passed to it a total of two times.', description:'', testcode: "const twice = (func) => {et count = 1; return function() {if (count <= 2){ count++;return func();} else { return 0;}};};"
 }),
 ])
-
   console.log(`seeded successfully`);
-  return {
-    users: {
-      cody: users[0],
-      billy: users[1],
-    },
-  };
 }
 
 /*
