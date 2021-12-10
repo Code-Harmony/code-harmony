@@ -54,6 +54,7 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "esm": "^3.2.25",
     "mocha": "^6.2.3",
+    "mochawesome": "^7.0.1",
     "nodemon": "^1.19.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
