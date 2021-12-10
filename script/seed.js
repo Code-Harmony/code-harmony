@@ -213,10 +213,9 @@ async function seed() {
       challenge_points: 3,
       address: "Fullstack Academy",
       role: "Member",
-    }),
+    })
+}
     
-  ]);
-
   //creating one friends link
   const friendslist = await Promise.all([
     Friend.create({ user1id: 2, user2id: 1 }),

@@ -40,11 +40,7 @@
     "react-router": "^6.0.2",
     "sequelize": "^6.11.0",
     "talkjs": "^0.15.1",
-    "util": "^0.12.4",
-    "mocha": "^6.2.3",
-    "mochawesome": "^7.0.1",
-    "supertest": "^4.0.2",
-    "esm": "^3.2.25"
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
