@@ -43,7 +43,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          color: "inherit"
+          textTransform: "none",
         },
       },
     },

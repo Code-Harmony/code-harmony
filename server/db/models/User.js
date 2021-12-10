@@ -29,7 +29,9 @@ github: {
 description: {
     type: Sequelize.STRING
   },
-
+info: {
+  type: Sequelize.STRING
+},
 looking_for: {
     type: Sequelize.STRING
   },
@@ -39,7 +41,11 @@ challenge_points: {
 address: {
     type: Sequelize.STRING
   },
-image: {
+photoUrl: {
+  type: Sequelize.STRING,
+  defaultValue: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+},
+role: {
   type: Sequelize.STRING
 },
 talkjsobject:{
