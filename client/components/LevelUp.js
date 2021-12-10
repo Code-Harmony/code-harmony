@@ -16,18 +16,17 @@ const LevelUp = props => {
   const onChange = (newValue) => {
     // userCode = newValue;
     setUserSolution(newValue);
-    console.log("change", userSolution);
   }
 
   const onClick = async () => {
-    // await axios.post(`/api/levelup`, {
-    //   userSolution: userSolution,
-    //   // challengeId: challengeId
-    // });
+    await axios.post(`/api/levelup`, {
+      userSolution: userSolution,
+      // challengeId: challengeId
+    });
     // dispatch(gotResults(data))
 
-    var result = eval(userSolution);
-    console.log(result);
+    // var result = eval(userSolution);
+    // console.log(result);
   }
 
   // useEffect(() => {
