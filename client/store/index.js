@@ -12,6 +12,7 @@ import skills from './skills'
 import userSkills from './userSkills'
 import friends from './friends'
 import friendRequest from './friendRequest'
+import levelup from './levelup'
 
 
 // const reducer = combineReducers({ auth })
@@ -26,6 +27,7 @@ const reducer = combineReducers({
   skills: skills,
   userSkills: userSkills,
   friendRequest,
+  levelup,
 })
 
 const middleware = composeWithDevTools(
