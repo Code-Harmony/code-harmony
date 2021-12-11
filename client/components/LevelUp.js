@@ -8,7 +8,9 @@ import 'brace/mode/javascript';
 import 'brace/theme/github';
 
 
-const LevelUp = props => {
+const LevelUp = ({ username, userlevel, levelup }) => {
+  const currentChallenge = levelup.find(chanllenge => chanllenge.level == userlevel);
+
   // const { username } = props;
   const [ userSolution, setUserSolution ] = useState('');
 
@@ -37,6 +39,8 @@ const LevelUp = props => {
     <div>
       <h1>Level Up</h1>
       <h2> Instructions </h2>
+      <h4> { currentChallenge.prompt} </h4>
+      <h4> { currentChallenge.description} </h4>
 
       < AceEditor
         mode = "javascript"
@@ -73,8 +77,12 @@ const LevelUp = props => {
 }
 
 const mapState = state => {
+  console.log('in mapState')
+  console.log(state)
   return {
-    username: state.auth.username
+    username: state.auth.username,
+    userlevel: state.auth.challenge_points,
+    levelup: state.levelup
   }
 }
 

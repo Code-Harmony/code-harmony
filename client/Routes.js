@@ -15,7 +15,7 @@ import {_loaduserIndustries, loaduserIndustries} from './store/userIndustries'
 import {_loadSkills, loadSkills} from './store/skills'
 import {_loaduserSkills, loaduserSkills} from './store/userSkills'
 import {_loadFriends, loadFriends} from './store/friends'
-
+import {loadChallenges} from './store/levelup'
 
 
 import SingleProfile from './components/SingleProfile'
@@ -30,13 +30,16 @@ import PeerRequests from "./components/PeerRequests";
  */
 class Routes extends Component {
   componentDidMount() {
-    this.props.loadInitialData();
-    this.props._loadAccounts();
-    this.props._loadIndustries();
-    this.props._loaduserIndustries();
-    this.props._loadSkills();
-    this.props._loaduserSkills();
-    this.props._loadFriends();
+    this.props._loadChallenges();
+    setTimeout(() => {
+      this.props.loadInitialData();
+      this.props._loadAccounts();
+      this.props._loadIndustries();
+      this.props._loaduserIndustries();
+      this.props._loadSkills();
+      this.props._loaduserSkills();
+      this.props._loadFriends();
+    }, 50);
   }
 
   render() {
@@ -105,6 +108,9 @@ const mapDispatch = (dispatch) => {
     },
     _loadFriends: async ()=> {
       dispatch(loadFriends());
+    },
+    _loadChallenges: async ()=> {
+      dispatch(loadChallenges());
     },
   };
 };

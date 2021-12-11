@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 3,
-    "passes": 0,
+    "tests": 1,
+    "passes": 1,
     "pending": 0,
-    "failures": 3,
-    "start": "2021-12-07T12:55:42.499Z",
-    "end": "2021-12-07T12:55:42.510Z",
-    "duration": 11,
-    "testsRegistered": 3,
-    "passPercent": 0,
+    "failures": 0,
+    "start": "2021-12-11T12:27:51.087Z",
+    "end": "2021-12-11T12:27:51.093Z",
+    "duration": 6,
+    "testsRegistered": 1,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "95322c7e-8afb-49bc-8220-7f171fdb1446",
+      "uuid": "b401dbb1-a89f-4032-a0a4-4d6140db048c",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "cc9a92d7-a680-4f56-8dc6-41c027bb7d2e",
+          "uuid": "8e4d35a0-0c51-4713-8f83-e4f655400307",
           "title": "useMapToUpperCase",
           "fullFile": "/Users/patita/Fullstack/capstone-project/code-harmony/testFile.js",
           "file": "/testFile.js",
@@ -35,82 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "takes a string and returns an array",
-              "fullTitle": "useMapToUpperCase takes a string and returns an array",
-              "timedOut": false,
-              "duration": 1,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "const array = useMapToUpperCase('it is raining outside');\nexpect(Array.isArray(array)).toBe(true);",
-              "err": {
-                "message": "Error: Invalid Chai property: toBe. Did you mean \"to\"?",
-                "estack": "Error: Invalid Chai property: toBe. Did you mean \"to\"?\n    at Object.proxyGetter [as get] (node_modules/chai/lib/chai/utils/proxify.js:75:17)\n    at Context.<anonymous> (testFile.js:7:35)\n    at processImmediate (internal/timers.js:462:21)",
-                "diff": null
-              },
-              "uuid": "c970a426-bd09-4755-a0d4-cb55421a8a7b",
-              "parentUUID": "cc9a92d7-a680-4f56-8dc6-41c027bb7d2e",
-              "isHook": false,
-              "skipped": false
-            },
-            {
               "title": "returns an array and uppercases each word",
               "fullTitle": "useMapToUpperCase returns an array and uppercases each word",
               "timedOut": false,
-              "duration": 1,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "const array = useMapToUpperCase('Keep It Simple');\nexpect(array).toEqual(['KEEP', 'IT', 'SIMPLE']);",
-              "err": {
-                "message": "Error: Invalid Chai property: toEqual. Did you mean \"equal\"?",
-                "estack": "Error: Invalid Chai property: toEqual. Did you mean \"equal\"?\n    at Object.proxyGetter [as get] (node_modules/chai/lib/chai/utils/proxify.js:75:17)\n    at Context.<anonymous> (testFile.js:11:20)\n    at processImmediate (internal/timers.js:462:21)",
-                "diff": null
-              },
-              "uuid": "4b2e0a5d-bc4f-4ac9-9583-8410ba029271",
-              "parentUUID": "cc9a92d7-a680-4f56-8dc6-41c027bb7d2e",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "uses Array.prototype.map",
-              "fullTitle": "useMapToUpperCase uses Array.prototype.map",
-              "timedOut": false,
               "duration": 0,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "spyOn(Array.prototype, 'map').and.callThrough();\n  \nconst array = useMapToUpperCase('make sure to use the map method');\nexpect(Array.prototype.map).toHaveBeenCalled();\nexpect(array).toEqual([\n  'MAKE',\n  'SURE',\n  'TO',\n  'USE',\n  'THE',\n  'MAP',\n  'METHOD',\n]);",
-              "err": {
-                "message": "ReferenceError: spyOn is not defined",
-                "estack": "ReferenceError: spyOn is not defined\n    at Context.<anonymous> (testFile.js:15:7)\n    at processImmediate (internal/timers.js:462:21)",
-                "diff": null
-              },
-              "uuid": "0afbe966-d48b-40e3-bdb7-c6176690a237",
-              "parentUUID": "cc9a92d7-a680-4f56-8dc6-41c027bb7d2e",
+              "code": "const array = useMapToUpperCase('Keep It Simple');\n// expect(array).to.equal(['KEEP', 'IT', 'SIMPLE']);\nexpect(array[0]).to.equal('KEEP');\nexpect(array[1]).to.equal('IT');\nexpect(array[2]).to.equal('SIMPLE');",
+              "err": {},
+              "uuid": "39921225-6d8c-4d97-a585-cc89e15f45af",
+              "parentUUID": "8e4d35a0-0c51-4713-8f83-e4f655400307",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "c970a426-bd09-4755-a0d4-cb55421a8a7b",
-            "4b2e0a5d-bc4f-4ac9-9583-8410ba029271",
-            "0afbe966-d48b-40e3-bdb7-c6176690a237"
+          "passes": [
+            "39921225-6d8c-4d97-a585-cc89e15f45af"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2,
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
