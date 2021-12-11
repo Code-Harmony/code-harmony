@@ -53,7 +53,7 @@ class Routes extends Component {
             <Route path="/account" exact component={ Account } />
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
-            <Route path="/messages" exact component={ Messages } />
+            <Route exact path="/messages" exact component={ MyPeers } />
 
             <Route exact path="/viewProfile" component={SingleProfile}/>
             <Route exact path="/updateProfile" component={UpdateProfile}/>

@@ -24,6 +24,9 @@ const theme = createTheme({
     info: {
       main: '#bf820f',
     },
+    cardIcon: {
+      main: 'blue'
+    }
   },
   typography: {
     fontWeightLight: 400,
@@ -53,6 +56,16 @@ const theme = createTheme({
           font: "small"
         },
       },
+    },
+    MuiCard: {
+      variants: [
+        {
+          props: { variant: 'home'},
+          style: {
+            background: '#258ea6',
+          }
+        }
+      ]
     },
     MuiPaper: {
       styleOverrides: {

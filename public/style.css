@@ -6,6 +6,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 a:visited {
@@ -213,4 +214,12 @@ li {
 
 .friendlink{
   cursor: pointer;
+}
+
+.cardIcon{
+  font-size: 3em;
+}
+
+.cardLabel{
+  color: #faf9f1;
 }
