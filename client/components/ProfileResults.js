@@ -11,27 +11,8 @@ class ProfileResults extends Component{
     }
 
     render(){
-        // const {accounts, userIndustries, userSkills, industries, skills, match} = this.props;
-        const { industries, skills, match} = this.props;
-
-        const userIndustries = [
-            {userId: 1, industryId: 1}, 
-            {userId: 1, industryId: 2},
-            {userId: 2, industryId: 2},
-            {userId: 3, industryId: 2},
-            {userId: 1, industryId: 9},
-            {userId: 5, industryId: 6}
-        ]
-
-        const userSkills = [
-            {userId: 1, skillId: 1}, 
-            {userId: 1, skillId: 2},
-            {userId: 2, skillId: 2},
-            {userId: 5, skillId: 3}, 
-            {userId: 1, skillId: 9},
-            {userId: 2, skillId: 12},
-        ]
-
+        const {accounts, userIndustries, userSkills, industries, skills, match} = this.props;
+        //const { industries, skills, match} = this.props;
 
         const matchFilter = match.params.filter;
         let arr = []
@@ -51,7 +32,6 @@ class ProfileResults extends Component{
             )
         }
 
-
         // matches the industry name from match param to the industryId - put in arr
         const industryArrId = []
         arr.map(item =>{
@@ -63,7 +43,6 @@ class ProfileResults extends Component{
                 // )
             }
         })
-
 
         // matches the skill name from match param to the skillId - put in arr
         const skillsArrId = []
@@ -88,7 +67,6 @@ class ProfileResults extends Component{
                     // )
                 }
             }
-
             // All else
             const skillFound = skills.find(skill => skill.name === item)
             if(skillFound){
@@ -102,7 +80,6 @@ class ProfileResults extends Component{
         console.log("skills", skillsArrId)
         console.log("industries", industryArrId)
         
-
         //Takes arr of skill ids - matches to userId of users with that skill
         const skillUserId = []
         userSkills.map(userSkillPair =>{
@@ -144,77 +121,6 @@ class ProfileResults extends Component{
             })
         }
         console.log(both)
-        
-        const accounts = 
-        [
-            {
-            id: 1,
-            username: "murphy",
-            password: "$2b$05$GfhHS2F55nXkbsYGehsgZesBsTSm/bRZJ0E95EzgMjfXNPr8MbOK.",
-            name: "murphy",
-            email: "murphy@gmail.com",
-            industry: "FinanceBro",
-            github: "@murphy",
-            description: "Fullstack engineer",
-            looking_for: "product designer",
-            challenge_points: 1,
-            address: "manhattan",
-            image: "url",
-            talkjsobject: {
-            name: "murphy",
-            image: "url",
-            role: "member",
-            description: "Fullstack engineer"
-            },
-            createdAt: "2021-12-04T17:57:38.365Z",
-            updatedAt: "2021-12-04T17:57:38.365Z"
-            },
-            {
-            id: 2,
-            username: "cody",
-            password: "$2b$05$UIdRCJ/1lPmoQprmxgWPAezE862WnRjju8vt5/yCiuYLEsgmW8G4C",
-            name: "cody",
-            email: "cody@gmail.com",
-            industry: "HR",
-            github: "@cody",
-            description: "Fullstack engineer",
-            looking_for: "product designer",
-            challenge_points: 3,
-            address: "brooklyn",
-            image: "url",
-            talkjsobject: {
-            name: "cody",
-            image: "url",
-            role: "member,",
-            description: "Fullstack engineer"
-            },
-            createdAt: "2021-12-04T17:57:38.365Z",
-            updatedAt: "2021-12-04T17:57:38.365Z"
-            },
-            {
-            id: 5,
-            username: "Jamie",
-            password: "$2b$05$UIdRCJ/1lPmoQprmxgWPAezE862WnRjju8vt5/yCiuYLEsgmW8G4C",
-            name: "jamie",
-            email: "jamie@gmail.com",
-            industry: "HR",
-            github: "@cody",
-            description: "Fullstack student",
-            looking_for: "product designer",
-            challenge_points: 3,
-            address: "brooklyn",
-            image: "url",
-            talkjsobject: {
-            name: "cody",
-            image: "url",
-            role: "member,",
-            description: "Fullstack student"
-            },
-            createdAt: "2021-12-04T17:57:38.365Z",
-            updatedAt: "2021-12-04T17:57:38.365Z"
-            }
-        ]
-
 
         return(
             <div>
@@ -247,10 +153,7 @@ class ProfileResults extends Component{
                 </div>
             </div>
         )
-
-
     }
-
 }
 
 const mapStateToProps = (state) =>{

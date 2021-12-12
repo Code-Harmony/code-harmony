@@ -26,7 +26,7 @@
     });
   });
   
-  //use Filter level 1
+  //use Filter level 2
   describe('useFilter', () => {
     it('takes an array and returns an array', () => {
       const array = useFilter(['kdsd@aol.com', 'test@apple.com']);
@@ -61,7 +61,7 @@
     });
   });
 
-  //find object keys level 2
+  //find object keys level 3
 describe('findObjKeys', () => {
     const rectanglePrototype = {
       getArea: function () {
@@ -106,7 +106,7 @@ describe('findObjKeys', () => {
     });
   });
 
-//multiplication table level 2
+//multiplication table level 4
   describe('multiplicationTable', () => {
     it('returns an array', () => {
       const table = multiplicationTable(5, 10);
@@ -159,7 +159,7 @@ describe('findObjKeys', () => {
   });
 
 
-  //alternate function level 3
+  //alternate function level 5
   describe('alternate', () => {
     let message;
     beforeEach(() => {
@@ -188,7 +188,7 @@ describe('findObjKeys', () => {
     });
   });
   
-  //twice function level 3
+  //twice function level 6
   describe('twice', () => {
     it('should return a function object', () => {
       const funcReturned = twice(() => {

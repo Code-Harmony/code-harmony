@@ -3,9 +3,9 @@ const db = require('../db');
 const User =  require('./User');
 const Industry =  require('./Industry');
 
-const UserIndustry = db.define('usermarkets',{
+const UserIndustry = db.define('userindustries',{
     userId: {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.INTEGER,
       references: {
         model: User,
@@ -13,7 +13,7 @@ const UserIndustry = db.define('usermarkets',{
       }
     },
     industryId: {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.INTEGER,
       references: {
         model: Industry,

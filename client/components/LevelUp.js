@@ -9,7 +9,7 @@ import 'brace/theme/github';
 
 
 const LevelUp = ({ username, userlevel, levelup }) => {
-  const currentChallenge = levelup.find(chanllenge => chanllenge.level == userlevel);
+  const currentChallenge = levelup.find(challenge => challenge.level == userlevel);
 
   // const { username } = props;
   const [ userSolution, setUserSolution ] = useState('');

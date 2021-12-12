@@ -71,7 +71,7 @@ async function seed() {
       info: "Fullstack engineer",
       looking_for: "product designer",
       challenge_points: 3,
-      address: "brooklyn",
+      zipcode: 10025,
       role: "Member",
     }),
     User.create({
@@ -85,7 +85,7 @@ async function seed() {
       info: "Fullstack engineer",
       looking_for: "product designer",
       challenge_points: 1,
-      address: "manhattan",
+      zipcode: 19610,
       role: "Member",
     }),
     User.create({
@@ -99,7 +99,7 @@ async function seed() {
       info: "Fullstack engineer",
       looking_for: "product designer",
       challenge_points: 1,
-      address: "brooklyn",
+      zipcode: 111100,
       role: "Member",
     }),
     User.create({
@@ -113,7 +113,7 @@ async function seed() {
       info: "real estate consultant",
       looking_for: "backend developer",
       challenge_points: 3,
-      address: "long island city",
+      zipcode: 12345,
       role: "Member",
     }),
     User.create({
@@ -126,8 +126,8 @@ async function seed() {
       description: "web communications developer",
       info: "web communications developer",
       looking_for: "backend developer",
-      challenge_points: 3,
-      address: "austin texas",
+      challenge_points: 5,
+      zipcode: 54321,
       role: "Member",
     }),
     User.create({
@@ -141,7 +141,7 @@ async function seed() {
       info: "data engineer",
       looking_for: "front end engineer",
       challenge_points: 3,
-      address: "morningside heights",
+      zipcode: 13579,
       role: "Member",
     }),
     User.create({
@@ -154,8 +154,8 @@ async function seed() {
       description: "structural engineer",
       info: "structural engineer",
       looking_for: "ux researcher",
-      challenge_points: 3,
-      address: "downtown brooklyn",
+      challenge_points: 4,
+      zipcode: 30293,
       role: "Member",
     }),
     User.create({
@@ -169,7 +169,7 @@ async function seed() {
       info: "Professional Athletic Trainer",
       looking_for: "front end engineer",
       challenge_points: 2,
-      address: "downtown",
+      zipcode: 90210,
       role: "Member",
     }),
     User.create({
@@ -182,8 +182,8 @@ async function seed() {
       description: "Biomedical Engineer",
       info: "Biomedical Engineer",
       looking_for: "back end engineer",
-      challenge_points: 2,
-      address: "downtown",
+      challenge_points: 6,
+      zipcode: 11111,
       role: "Member",
     }),
     User.create({
@@ -196,8 +196,8 @@ async function seed() {
       description: "fullstack engineer",
       info: "fullstack engineer",
       looking_for: "students",
-      challenge_points: 3,
-      address: "Staten Island",
+      challenge_points: 5,
+      zipcode: 03928,
       role: "Member",
     }),
     User.create({
@@ -210,8 +210,8 @@ async function seed() {
       description: "instructor",
       info: "instructor",
       looking_for: "students",
-      challenge_points: 3,
-      address: "Fullstack Academy",
+      challenge_points: 4,
+      zipcode: 11123,
       role: "Member",
     })
     
@@ -261,6 +261,19 @@ await Promise.all(
     UserIndustry.create(userId,skillId)
   }
 
+  joinUserIndustry(1,1)
+  joinUserIndustry(1,2)
+  joinUserIndustry(3,1)
+  joinUserIndustry(1,9)
+  joinUserIndustry(5,6)
+
+  joinUserSkill(1,1)
+  joinUserSkill(1,2)
+  joinUserSkill(2,2)
+  joinUserSkill(5,3)
+  joinUserSkill(1,9)
+  joinUserSkill(2,12)
+  
  //Creating coding challenges
  const codingChallenges = await Promise.all([
   CodingChallenge.create({ level: 1, prompt: 'useMapToUpperCase - use the Array.protoype.map within the useMapToUpperCase function', description:"Remember, the map method can only be called on arrays (so you may need to convert the argument to an array). Map each element so the strings are all upper case.", testcode: "const useMapToUpperCase = str => {return str.split(' ').map((word) => {return word.toUpperCase();})}"
