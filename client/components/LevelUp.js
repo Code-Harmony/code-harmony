@@ -35,6 +35,21 @@ const LevelUp = ({ username, userlevel, levelup }) => {
   //   console.log(userSolution)
   // },[userSolution]); 
 
+
+  // render(){    
+  //   if (!this.props.students.length || !this.props.campuses.length) return (
+  //     <div className="load-wrapper">
+  //       <h1>...LOADING MY STACK UNIVERSITY DASHBOARD</h1>
+  //       <div className="loader"></div>
+  //       </div>
+  //     )      
+  //   return(
+  //     <div>
+        
+  //       <Router>
+  //         <div id="main-content">
+  //           <Main />
+  
   return (
     <div>
       <h1>Level Up</h1>

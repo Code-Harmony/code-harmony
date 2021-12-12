@@ -53,25 +53,31 @@ const createUserTestFile = (code, spec) => {
 }
 
 const testUserCode = (testFile) => {
-  try {
+  // try {
     console.log('running testUserCode')
-    return new Promise((resolve, reject) => {
-      exec(`mocha ${testFile} --reporter mochawesome`,
-          { timeout: 100000 },
-          (err, stdout, stderr) => {
-            if (err !== null && stdout === '') {
-              // const output = stderr !== '' ? stderr : 'Timed out';
-              // reject(output);
-              reject(stderr || 'Timed out')
-            }
-            resolve(stdout);
-          }
-      );
-    });
-  }
-  catch (err) {
-    console.log(err)
-  }
+    // const myExec = exec(`mocha ${testFile}`);
+    // setTimeout(() => {
+    exec('npx mocha testFile.js --reporter mochawesome');
+    // }, 5000);
+    return 'ran';
+
+    // return new Promise((resolve, reject) => {
+    //   exec(`npx mocha testFile.js --reporter mochawesome`,
+    //       { timeout: 10000 },
+    //       (err, stdout, stderr) => {
+    //         if (err !== null && stdout === '') {
+    //           const output = stderr !== '' ? stderr : 'Timed out';
+    //           reject(output);
+    //           // reject(stderr || 'Timed out')
+    //         }
+    //         resolve(stdout);
+    //       }
+    //   );
+    // });
+  // }
+  // catch (err) {
+  //   console.log(err)
+  // }
 }
 
 const getUserResults = () => {
@@ -111,12 +117,25 @@ router.post('/', async (req, res, next) => {
   const { userSolution } = req.body;
   try {
     const testFile = await createUserTestFile(userSolution, specTest);
-    await testUserCode(testFile);
-    const userResult = await getUserResults(testFile);
+
+    console.log('after createUserTestFile ran')
+    console.log(testFile)
+
+    // await testUserCode(testFile);
+    testUserCode(testFile);
+
+    console.log('after testUserCode ran')
+
+    // const userResult = await getUserResults(testFile);
+
     console.log('in post levelup')
-    console.log(userResult);
+    // console.log(userResult);
     // res.send(muPromise);
-    res.json(userResult);
+
+    // res.json(userResult);
+    setTimeout(() => {
+      res.send('hi')
+    }, 50000);
 
   }
   catch (error) {
