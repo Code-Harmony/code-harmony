@@ -6,7 +6,7 @@ const Skill =  require('./Skill');
 
 const UserSkill = db.define('userskills',{
     userId: {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.INTEGER,
       references: {
         model: User,
@@ -14,7 +14,7 @@ const UserSkill = db.define('userskills',{
       }
     },
     skillId: {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.INTEGER,
       references: {
         model: Skill,

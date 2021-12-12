@@ -8,8 +8,6 @@ const SALT_ROUNDS = 5;
 const User = db.define('user', {
   username: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
   },
   password: {
     type: Sequelize.STRING,
@@ -38,8 +36,8 @@ looking_for: {
 challenge_points: {
     type: Sequelize.INTEGER
   },
-address: {
-    type: Sequelize.STRING
+zipcode: {
+    type: Sequelize.INTEGER
   },
 photoUrl: {
   type: Sequelize.STRING,
@@ -48,9 +46,6 @@ photoUrl: {
 role: {
   type: Sequelize.STRING
 },
-talkjsobject:{
-  type: Sequelize.JSON
-}
 })
 
 module.exports = User
