@@ -7,7 +7,6 @@ import axios from 'axios';
 import 'brace/mode/javascript';
 import 'brace/theme/github';
 
-
 const LevelUp = ({ username, userlevel, levelup }) => {
   const currentChallenge = levelup.find(challenge => challenge.level == userlevel);
 

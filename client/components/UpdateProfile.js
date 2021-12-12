@@ -15,7 +15,7 @@ class UpdateProfile extends Component{
             industry: auth? auth.industry : '',
             // gitHub: '',
             description: auth? auth.description : '',
-            zipcode: auth? auth.address : '',
+            zipcode: auth? auth.zipcode : '',
         }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
