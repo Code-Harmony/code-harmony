@@ -13,6 +13,7 @@ import userSkills from './userSkills'
 import friends from './friends'
 import friendRequest from './friendRequest'
 import levelup from './levelup'
+import loadFriendRequests from './loadFriendRequests'
 
 
 // const reducer = combineReducers({ auth })
@@ -28,6 +29,7 @@ const reducer = combineReducers({
   userSkills: userSkills,
   friendRequest,
   levelup,
+  loadFriendRequests
 })
 
 const middleware = composeWithDevTools(
@@ -39,3 +41,4 @@ export default store
 export * from './auth'
 export * from './friends'
 export * from './friendRequest'
+export * from './loadFriendRequests'

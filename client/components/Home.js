@@ -14,10 +14,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import ChatIcon from "@mui/icons-material/Chat";
 import { Link } from "react-router-dom";
+// Styling checklist: 1. Import these things first
 import { makeStyles, createStyles } from "@mui/styles";
+// Styling optional checklist: 1. import clsx
 import clsx from "clsx";
 import theme from "./Theme";
 
+// Styling checklist: 2. Use this hook to create your classes
 const useStyles = makeStyles(() =>
   createStyles({
     foo: {
@@ -39,10 +42,12 @@ const useStyles = makeStyles(() =>
  */
 export const Home = (props) => {
   const { username } = props;
+  // Styling checklist: 3. call useStyles() and store in a variable. You can call it anything.
   const classes = useStyles();
   return (
     <div>
       <h3
+        // Styling optional checklist: 2. see conditional format syntax
         className={clsx({
           [classes.foo]: username === "stephen",
         })}
@@ -56,6 +61,7 @@ export const Home = (props) => {
         align="center"
       >
         <Grid item xs={12} md={6}>
+         {/* Styling checklist: 4. assign the custom style to the 'className' prop */}
           <Card sx={{ maxWidth: 4 / 5 }} className={classes.homeCardMain}>
             <CardActionArea>
               <CardContent>

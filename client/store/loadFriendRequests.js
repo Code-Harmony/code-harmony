@@ -1,34 +1,17 @@
 import axios from "axios";
+import { ids } from "webpack";
 
-const ADD_FRIEND = "ADD_FRIEND";
 const LOAD_REQUESTS = "LOAD_REQUESTS";
 
 // actions
-
-export const createNewFriendRequest = (friendRequest) => {
-  return { type: ADD_FRIEND, friendRequest };
-};
 
 export const loadFriendRequests = (requests) => {
   return { type: LOAD_REQUESTS, requests };
 };
 
 // thunks
-export const addFriend = (myId, otherId) => {
-  const friendRequest = {
-    user1id: myId,
-    user2id: otherId,
-  };
-  return async (dispatch) => {
-    const { data: newFriendRequest } = await axios.post(
-      "/api/friend",
-      friendRequest
-    );
-    dispatch(createNewFriendRequest(newFriendRequest));
-  };
-};
 
-export const friendRequests = (myId) => {
+export const loadAllFriendRequests = (myId) => {
   return async (dispatch) => {
     const friendRelations = (await axios.get("/api/friend")).data;
     const accounts = (await axios.get("/api/account")).data;
@@ -37,15 +20,17 @@ export const friendRequests = (myId) => {
     const followers = friendRelations.filter((user) => myId === user.user2id);
 
     const friendRequestIds = followers.reduce((ids, follower) => {
-      if (
-        followees.findIndex(
-          (followee) => followee.user2id === follower.user1id
-        ) === -1
+      if ( followees.findIndex(
+          (followee) => followee.user2id === follower.user1id) !== -1
       ) {
         ids.push(follower.user1id);
       }
       return ids;
     }, []);
+
+    // const friendRequestIds = followers.filter((follower) => {
+    //   if (!(followees.find(follower.user2id))) return true;
+    // })
 
     const friendRequestUsers = accounts.reduce((users, user) => {
       if (
@@ -66,8 +51,6 @@ const initialState = [];
 // reducer
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_FRIEND:
-      return action.friendRequest;
     case LOAD_REQUESTS:
       return action.requests;
     default:
