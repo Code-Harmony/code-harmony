@@ -214,3 +214,8 @@ li {
 .friendlink{
   cursor: pointer;
 }
+
+.accountImg{
+  width: 75px;
+  height: 75px;
+}
