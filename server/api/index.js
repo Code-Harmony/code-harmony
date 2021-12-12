@@ -10,7 +10,8 @@ router.use('/account', require('./account'))
 router.use('/industries', require('./industries'))
 router.use('/skills', require('./skills'))
 router.use('/friend', require('./friend'))
-
+router.use('/userSkills', require('./userSkills'))
+router.use('/userIndustries', require('./userIndustries'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
