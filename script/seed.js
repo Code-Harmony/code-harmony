@@ -7,8 +7,6 @@ const {
     UserSkill,
     UserIndustry,
     CodingChallenge,
-    UserSolution,
-    ChallengeComments,
     Friend,
   },
 } = require("../server/db");
@@ -43,13 +41,10 @@ const skills = [
   "CSS",
   "Angular",
   "React",
-  "Elm",
   "TypeScript",
   "jQuery",
   "Vue",
-  "Front End",
-  "Back End",
-  "Database",
+  "SQL"
 ];
 
 /**
@@ -214,7 +209,132 @@ async function seed() {
       zipcode: 11123,
       role: "Member",
     })
-    
+    User.create({
+      username: "sean",
+      password: "123",
+      name: "sean",
+      email: "sean@gmail.com",
+      industry: "tech",
+      github: "@sean",
+      description: "software engineer",
+      info: "software engineer",
+      looking_for: "product managers",
+      challenge_points: 6,
+      zipcode: 10013,
+      role: "Member",
+    })    
+    User.create({
+      username: "leslie",
+      password: "123",
+      name: "leslie",
+      email: "leslie@gmail.com",
+      industry: "healthcare",
+      github: "@leslie",
+      description: "UX researcher",
+      info: "UX researcher",
+      looking_for: "fullstack engineers",
+      challenge_points: 2,
+      zipcode: 12345,
+      role: "Member",
+    })
+    User.create({
+      username: "justice",
+      password: "123",
+      name: "Justice",
+      email: "justice@gmail.com",
+      industry: "tech",
+      github: "@justice",
+      description: "QA engineer",
+      info: "QA engineer",
+      looking_for: "product designers",
+      challenge_points: 4,
+      zipcode: 19610,
+      role: "Member",
+    })
+    User.create({
+      username: "betty",
+      password: "123",
+      name: "Betty",
+      email: "prof@gmail.com",
+      industry: "education",
+      github: "@prof",
+      description: "intern",
+      info: "intern",
+      looking_for: "software engineers",
+      challenge_points: 1,
+      zipcode: 19043,
+      role: "Member",
+    })
+    User.create({
+      username: "luka",
+      password: "123",
+      name: "Luka",
+      email: "luka@gmail.com",
+      industry: "consulting",
+      github: "@luka",
+      description: "consultant",
+      info: "consultant",
+      looking_for: "engineers",
+      challenge_points: 3,
+      zipcode: 11111,
+      role: "Member",
+    })
+    User.create({
+      username: "Michael",
+      password: "123",
+      name: "Michael",
+      email: "Michael@gmail.com",
+      industry: "tech",
+      github: "@Michael",
+      description: "software engineer",
+      info: "software engineer",
+      looking_for: "software engineers",
+      challenge_points: 2,
+      zipcode: 22222,
+      role: "Member",
+    })
+    User.create({
+      username: "abey",
+      password: "123",
+      name: "Abey",
+      email: "abey@gmail.com",
+      industry: "tech",
+      github: "@abey",
+      description: "backend engineer",
+      info: "backend engineer",
+      looking_for: "frontend engineers",
+      challenge_points: 6,
+      zipcode: 11123,
+      role: "Member",
+    })
+    User.create({
+      username: "bfong",
+      password: "123",
+      name: "Brian",
+      email: "bfong@gmail.com",
+      industry: "finance",
+      github: "@bfong",
+      description: "data analyst",
+      info: "data analyst",
+      looking_for: "data engineers",
+      challenge_points: 4,
+      zipcode: 12343,
+      role: "Member",
+    })
+    User.create({
+      username: "qinke",
+      password: "123",
+      name: "Kiki",
+      email: "kiki@gmail.com",
+      industry: "consulting",
+      github: "@qinke",
+      description: "consultant",
+      info: "consultant",
+      looking_for: "engineers",
+      challenge_points: 4,
+      zipcode: 44444,
+      role: "Member",
+    })
   //creating one friends link
   const friendslist = await Promise.all([
     Friend.create({ user1id: 2, user2id: 1 }),
@@ -258,7 +378,7 @@ await Promise.all(
 
   //create user skills
   async function joinUserSkill (userId, skillId) {
-    UserIndustry.create(userId,skillId)
+    UserSkill.create(userId,skillId)
   }
 
   joinUserIndustry(1,1)
