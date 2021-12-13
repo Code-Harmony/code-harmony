@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { exec } = require('child_process');
+const { exec, execSync } = require('child_process');
 const fs = require('fs');
 const { models: { CodingChallenge }} = require('../db');
 module.exports = router;
@@ -56,13 +56,10 @@ const testUserCode = (testFile) => {
   // try {
     console.log('running testUserCode')
     // const myExec = exec(`mocha ${testFile}`);
-    // setTimeout(() => {
-    exec('npx mocha testFile.js --reporter mochawesome');
-    // }, 5000);
-    return 'ran';
+    return execSync(`mocha ${testFile} --reporter mochawesome`);
 
     // return new Promise((resolve, reject) => {
-    //   exec(`npx mocha testFile.js --reporter mochawesome`,
+    //   execSync(`mocha ${testFile} --reporter mochawesome`,
     //       { timeout: 10000 },
     //       (err, stdout, stderr) => {
     //         if (err !== null && stdout === '') {
@@ -121,8 +118,7 @@ router.post('/', async (req, res, next) => {
     console.log('after createUserTestFile ran')
     console.log(testFile)
 
-    // await testUserCode(testFile);
-    testUserCode(testFile);
+    await testUserCode(testFile);
 
     console.log('after testUserCode ran')
 
@@ -133,10 +129,7 @@ router.post('/', async (req, res, next) => {
     // res.send(muPromise);
 
     // res.json(userResult);
-    setTimeout(() => {
-      res.send('hi')
-    }, 50000);
-
+    res.send(testFile)
   }
   catch (error) {
     next(error);
