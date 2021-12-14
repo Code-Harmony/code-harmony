@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Group";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ForumIcon from "@mui/icons-material/Forum";
+import PersonAdd from "@mui/icons-material/PersonAdd";
 import { Link } from "react-router-dom";
 
 /**
@@ -42,12 +42,12 @@ export const Home = (props) => {
             <CardActionArea>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  <GroupsIcon /> <br />
+                  <GroupsIcon /> 
+                  <br />
                   <Link to="/lookingfor">Looking For</Link>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  <br />
-                  Looking for people
+                  Looking for people?
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -64,6 +64,22 @@ export const Home = (props) => {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Direct Messages, Project Messages
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+          <Card sx={{ maxWidth: 4/5 }}>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  <PersonAdd /> 
+                  <br />
+                  <Link to="/requests">Friend Requests</Link>
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  View everyone who added you
                 </Typography>
               </CardContent>
             </CardActionArea>
