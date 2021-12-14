@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 import theme from "./Theme";
-
 import {
   ThemeProvider,
   AppBar,
@@ -16,14 +15,13 @@ import {
   Avatar,
   Divider,
   IconButton,
-  Paper
+  Paper,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -43,7 +41,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
   const handleCloseBurger = () => {
     setBurgerEl(null);
   };
-  //ask if we want to get rid of lots of stuff in the profile part
+
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -76,6 +74,10 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 <MenuItem>
                 <Link to="/mypeers">Messages</Link>
                 </MenuItem>
+                <Divider />
+                <MenuItem>
+                <Link to="/requests">Friend Requests</Link>
+                </MenuItem>
                 </Paper>
               </Menu>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -98,24 +100,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   >
                     <Paper>
                     <MenuItem>
-                      <Avatar /> <Link to="/updateProfile">Profile</Link>
+                      <AccountCircleOutlinedIcon/>
+                      <Link to="/updateProfile"> &nbsp Profile</Link>
                     </MenuItem> 
-                    <MenuItem>
-                      <Avatar /> My account
-                    </MenuItem>
-                    <Divider />
-                    <MenuItem>
-                      <ListItemIcon>
-                        <PersonAdd />
-                      </ListItemIcon>
-                      Add another account
-                    </MenuItem>
-                    <MenuItem>
-                      <ListItemIcon>
-                        <Settings />
-                      </ListItemIcon>
-                      Settings
-                    </MenuItem>
                     <MenuItem onClick={handleClick}>
                       <ListItemIcon>
                         <Logout />
