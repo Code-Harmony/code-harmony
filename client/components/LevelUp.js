@@ -8,6 +8,9 @@ import 'brace/mode/javascript';
 import 'brace/theme/github';
 
 
+import { Grid, Button, ListItem } from '@mui/material';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+
 const LevelUp = ({ username, userlevel, levelup }) => {
   const currentChallenge = levelup.find(chanllenge => chanllenge.level == userlevel);
 
@@ -26,7 +29,6 @@ const LevelUp = ({ username, userlevel, levelup }) => {
       // challengeId: challengeId
     });
     // dispatch(gotResults(data))
-
     // var result = eval(userSolution);
     // console.log(result);
   }
@@ -34,58 +36,59 @@ const LevelUp = ({ username, userlevel, levelup }) => {
   // useEffect(() => {
   //   console.log(userSolution)
   // },[userSolution]); 
-
-
-  // render(){    
-  //   if (!this.props.students.length || !this.props.campuses.length) return (
-  //     <div className="load-wrapper">
-  //       <h1>...LOADING MY STACK UNIVERSITY DASHBOARD</h1>
-  //       <div className="loader"></div>
-  //       </div>
-  //     )      
-  //   return(
-  //     <div>
-        
-  //       <Router>
-  //         <div id="main-content">
-  //           <Main />
   
   return (
     <div>
-      <h1>Level Up</h1>
-      <h2> Instructions </h2>
-      <h4> { currentChallenge.prompt} </h4>
-      <h4> { currentChallenge.description} </h4>
+      <Grid container spacing={2}>
+        {/* <Grid container spacing={2} item xs={4} md={12}>    */}
+          {/* <Grid item xs={6} md={6}>  */}
+          <Grid item xs={12} md={12}>
+            <ListItem>Level Up</ListItem>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ListItem>Prompt</ListItem>
+            <ListItem>{ currentChallenge.prompt}</ListItem>
+            <ListItem>Description</ListItem>
+            <ListItem>{ currentChallenge.description}</ListItem>
+          </Grid> 
+            {/* <h1>Level Up</h1>
+            <h2> Instructions </h2>
+            <h4> { currentChallenge.prompt} </h4>
+            <h4> { currentChallenge.description} </h4> */}
 
-      < AceEditor
-        mode = "javascript"
-        theme = "github"
-        // name = "testando"
-        //////////
-        onChange={ onChange }
-        //////////////////
-        // onSelectionChange={this.onSelectionChange}
-        // onCursorChange={this.onCursorChange}
-        fontSize = { 16 }
-        // showPrintMargin = { true }
-        showGutter = { true } // shows in-line numbers
-        highlightActiveLine = { true }
-        // value={this.props.value}
-        // enableBasicAutocompletion = { false }
-        // enableLiveAutocompletion = { false }
-        // tabSize = { 50 }
-        wrapEnabled = { true }
-        // readOnly={this.props.readOnly}
-        // maxLines={this.props.maxLines}
-        // setOptions={{
-          //   showLineNumbers: this.props.showLineNumbers
-          // }}
-          width = '60%'
-          // height = '100%'
-          />
-      <button onClick = { onClick }>
+
+        <Grid item xs={12} md={6}> 
+          < AceEditor
+            mode = "javascript"
+            theme = "github"
+            // name = "testando"
+            //////////
+            onChange={ onChange }
+            //////////////////
+            // onSelectionChange={this.onSelectionChange}
+            // onCursorChange={this.onCursorChange}
+            fontSize = { 16 }
+            // showPrintMargin = { true }
+            showGutter = { true } // shows in-line numbers
+            highlightActiveLine = { true }
+            // value={this.props.value}
+            // enableBasicAutocompletion = { false }
+            // enableLiveAutocompletion = { false }
+            // tabSize = { 50 }
+            wrapEnabled = { true }
+            // readOnly={this.props.readOnly}
+            // maxLines={this.props.maxLines}
+            // setOptions={{
+              //   showLineNumbers: this.props.showLineNumbers
+              // }}
+              width = '95%'
+              // height = '100%'
+              />
+        </Grid>
+        <Button variant="contained" color="primary" size="medium" style={{ height: 40 }} startIcon={<ArrowRightIcon />} onClick = { onClick }>
             RUN CODE
-      </button>
+        </Button>
+      </Grid>
     </div>
   )
 
