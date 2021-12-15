@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Group";
@@ -13,6 +12,7 @@ import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import PersonIcon from "@mui/icons-material/Person";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import ChatIcon from "@mui/icons-material/Chat";
+import PersonAdd from "@mui/icons-material/PersonAdd";
 import { Link } from "react-router-dom";
 // Styling checklist: 1. Import these things first
 import { makeStyles, createStyles } from "@mui/styles";
@@ -40,6 +40,7 @@ const useStyles = makeStyles(() =>
 /**
  * COMPONENT
  */
+
 export const Home = (props) => {
   const { username } = props;
   // Styling checklist: 3. call useStyles() and store in a variable. You can call it anything.
@@ -101,6 +102,7 @@ export const Home = (props) => {
                 </Link>
               </CardContent>
             </CardActionArea>
+            </Link>
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -138,6 +140,7 @@ export const Home = (props) => {
                 </Link>
               </CardContent>
             </CardActionArea>
+            </Link>
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -175,6 +178,25 @@ export const Home = (props) => {
                 </Link>
               </CardContent>
             </CardActionArea>
+            </Link> 
+          </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+          <Card sx={{ maxWidth: 4/5 }}>
+          <Link to="/requests">
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  <PersonAdd /> 
+                  <br />
+                  Friend Requests
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  View everyone who added you
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            </Link>
           </Card>
         </Grid>
       </Grid>

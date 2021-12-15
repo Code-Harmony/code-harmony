@@ -236,3 +236,8 @@ li {
   font-size: .8em;
   font-style: italic;
 }
+
+.accountImg{
+  width: 75px;
+  height: 75px;
+}

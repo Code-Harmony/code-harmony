@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 
+// We may be able to remove line 7 and bring theme in from props, now that the Theme Provider is wrapping our entire app in index.js
+import theme from "./Theme";
 import {
   AppBar,
   Box,
@@ -19,9 +21,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,6 +42,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
   const handleCloseBurger = () => {
     setBurgerEl(null);
   };
+
   return (
     <div>
       {/* <h1>Code Harmony</h1> */}
@@ -61,14 +63,17 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 <MenuItem>
                   <Link to="/levelup">Level Up</Link>
                 </MenuItem>
-
                 <Divider />
                 <MenuItem>
                   <Link to="/lookingfor">Looking For</Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem>
-                  <Link to="/messages">Messages</Link>
+                <Link to="/messages">Messages</Link>
+                </MenuItem>
+                <Divider />
+                <MenuItem>
+                <Link to="/requests">Friend Requests</Link>
                 </MenuItem>
               </Paper>
             </Menu>
@@ -89,24 +94,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 >
                   <Paper>
                     <MenuItem>
-                      <Avatar /> Profile
-                    </MenuItem>
-                    <MenuItem>
-                      <Avatar /> My account
-                    </MenuItem>
-                    <Divider />
-                    <MenuItem>
-                      <ListItemIcon>
-                        <PersonAdd />
-                      </ListItemIcon>
-                      Add another account
-                    </MenuItem>
-                    <MenuItem>
-                      <ListItemIcon>
-                        <Settings />
-                      </ListItemIcon>
-                      Settings
-                    </MenuItem>
+                      <AccountCircleOutlinedIcon/>
+                      <Link to="/updateProfile"> &nbsp Profile</Link>
+                    </MenuItem> 
                     <MenuItem onClick={handleClick}>
                       <ListItemIcon>
                         <Logout />

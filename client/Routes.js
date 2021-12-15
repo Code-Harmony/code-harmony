@@ -6,7 +6,6 @@ import Home from "./components/Home";
 import { me } from "./store";
 import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
-
 import Messages from "./components/Messages";
 
 import {_loadAccounts, loadAccounts} from './store/account'
@@ -17,7 +16,6 @@ import {_loaduserSkills, loaduserSkills} from './store/userSkills'
 import {_loadFriends, loadFriends} from './store/friends'
 import {loadChallenges} from './store/levelup'
 import { loadAllFriendRequests } from './store/loadFriendRequests'
-
 
 import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'
@@ -39,7 +37,7 @@ class Routes extends Component {
       this.props._loaduserIndustries();
       this.props._loadSkills();
       this.props._loaduserSkills();
-    }, 50);
+    }, 500);
     // setTimeout(()=>{
     //   this.props._loadFriends(this.props.id);
     // }, 100)

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createProfileAccoun} from '../store/account';
-
 
 class CreateProfile extends Component{
     constructor(props){
@@ -79,6 +77,5 @@ const mapDispatchToProps = (dispatch, {history}) =>{
         }
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateProfile)

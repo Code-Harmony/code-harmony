@@ -1,4 +1,4 @@
-const useMapToUpperCase = str => {return str.split(' ').map((word) => {return word.toUpperCase();})}
+console.log("hello");
 const {expect} = require('chai')
 // const chai = require('chai')
 // chai.use(require('sinon-chai'));
@@ -18,19 +18,19 @@ describe('useMapToUpperCase', () => {
     });
 
     // it('uses Array.prototype.map', () => {
-    //   // spyOn(Array.prototype, 'map').and.callThrough();
+    //   spyOn(Array.prototype, 'map').and.callThrough();
   
-    //   // const array = useMapToUpperCase('make sure to use the map method');
+    //   const array = useMapToUpperCase('make sure to use the map method');
     //   expect(Array.prototype.map).to.have.been.called();
       
-    //   // expect(array).to.equal([
-    //   //   'MAKE',
-    //   //   'SURE',
-    //   //   'TO',
-    //   //   'USE',
-    //   //   'THE',
-    //   //   'MAP',
-    //   //   'METHOD',
-    //   // ]);
+    //   expect(array).to.equal([
+    //     'MAKE',
+    //     'SURE',
+    //     'TO',
+    //     'USE',
+    //     'THE',
+    //     'MAP',
+    //     'METHOD',
+    //   ]);
     // });
   });

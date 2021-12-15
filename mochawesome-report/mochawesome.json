@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2021-12-11T12:27:51.087Z",
-    "end": "2021-12-11T12:27:51.093Z",
+    "failures": 1,
+    "start": "2021-12-15T00:27:42.651Z",
+    "end": "2021-12-15T00:27:42.657Z",
     "duration": 6,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "b401dbb1-a89f-4032-a0a4-4d6140db048c",
+      "uuid": "8692f5ed-8811-4092-8a67-6eceeb3dc11e",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8e4d35a0-0c51-4713-8f83-e4f655400307",
+          "uuid": "c94f3327-6aee-4508-be6f-8eccfe0b3899",
           "title": "useMapToUpperCase",
           "fullFile": "/Users/patita/Fullstack/capstone-project/code-harmony/testFile.js",
           "file": "/testFile.js",
@@ -38,29 +38,33 @@
               "title": "returns an array and uppercases each word",
               "fullTitle": "useMapToUpperCase returns an array and uppercases each word",
               "timedOut": false,
-              "duration": 0,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "const array = useMapToUpperCase('Keep It Simple');\n// expect(array).to.equal(['KEEP', 'IT', 'SIMPLE']);\nexpect(array[0]).to.equal('KEEP');\nexpect(array[1]).to.equal('IT');\nexpect(array[2]).to.equal('SIMPLE');",
-              "err": {},
-              "uuid": "39921225-6d8c-4d97-a585-cc89e15f45af",
-              "parentUUID": "8e4d35a0-0c51-4713-8f83-e4f655400307",
+              "err": {
+                "message": "ReferenceError: useMapToUpperCase is not defined",
+                "estack": "ReferenceError: useMapToUpperCase is not defined\n    at Context.<anonymous> (testFile.js:13:21)\n    at processImmediate (internal/timers.js:462:21)",
+                "diff": null
+              },
+              "uuid": "8b0b4acd-c390-4bbe-8465-436a3890e2f1",
+              "parentUUID": "c94f3327-6aee-4508-be6f-8eccfe0b3899",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "39921225-6d8c-4d97-a585-cc89e15f45af"
+          "passes": [],
+          "failures": [
+            "8b0b4acd-c390-4bbe-8465-436a3890e2f1"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 0,
+          "duration": 1,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

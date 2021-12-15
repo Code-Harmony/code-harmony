@@ -1,6 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { Redirect } from 'react-router';
+
+import { FormGroup } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
+import { Checkbox } from '@mui/material';
+
+
+import { Button } from '@mui/material';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+
+
+import { Card } from '@mui/material';
+
+import { Accordion } from '@mui/material';
+import { AccordionDetails } from '@mui/material';
+import { AccordionSummary } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Typography } from '@mui/material';
+
+import Grid from '@mui/material/Grid';
+
+
 
 class LookingFor extends Component{
     constructor(props){
@@ -15,6 +35,10 @@ class LookingFor extends Component{
         const {lookingFor} = this.state;
         if(lookingFor.find(value => value === name) === undefined){
             lookingFor.push(name)
+        }
+        else{
+            const indxDelete = lookingFor.indexOf(name)
+            lookingFor.splice(indxDelete, 1)
         }
         this.setState(lookingFor);
     }
@@ -55,37 +79,50 @@ class LookingFor extends Component{
         }
         return(
             <div>
-                <form>
+                {/* <form> */}
+                <Grid container spacing={1} columns={16}>
+                    <Grid item xs={8}>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+                                    <Typography>Filter By Industry:</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                <FormGroup>
+                                    {industries.map((industry, idx) =>{
+                                        return(
+                                            <FormControlLabel control={<Checkbox  onClick={() =>{onClick(industry.name)}}/>} label={industry.name} />
+                                            )
+                                        })}
+                                </FormGroup>
+                                </AccordionDetails>
+                            </Accordion>
 
-                <ul>
-                {industries.map((industry, idx) =>{
-                    return(
-                        <li key={idx} onClick={() =>{onClick(industry.name)}}>
-                        {industry.name}
-                    </li>
-                    )
-                })}
-                </ul>
-                <ul>
-                {skills.map((skill, idx) =>{
-                    return(
-                        <li key={idx} onClick={() =>{onClick(skill.name)}}>
-                        {skill.name}
-                    </li>
-                    )
-                })}
-                </ul>
-                <button onClick={onSubmit}>Lets find people!</button>
-                </form>
+                    </Grid>
+                    <Grid item xs={8}>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+                                    <Typography>Filter By Skill:</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                <FormGroup>
+                                {skills.map((skill, idx) =>{
+                                    return(
+                                        <FormControlLabel control={<Checkbox  onClick={() =>{onClick(skill.name)}}/>} label={skill.name} />
+                                        )
+                                    })}
+                                </FormGroup>
+                                </AccordionDetails>
+                            </Accordion>
+                    </Grid>
+                </Grid>
+                <Button variant="contained" endIcon={<PersonSearchIcon />} onClick={onSubmit}>
+                    Lets find people!
+                </Button>
+                {/* </form> */}
 
             </div>
         )
-
-
     }
-
-
-
 }
 
 const mapStateToProps = (state) =>{

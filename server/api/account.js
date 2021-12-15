@@ -34,6 +34,7 @@ router.put('/:id', async (req, res, next) =>{
         const account = await User.findByPk(req.params.id)
         console.log(req.body)
         res.send(await account.update({
+            photoUrl: req.body.photoUrl,
             name: req.body.name,
             email: req.body.email, 
             industry: req.body.industry, 
