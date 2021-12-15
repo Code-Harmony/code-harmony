@@ -102,7 +102,6 @@ export const Home = (props) => {
                 </Link>
               </CardContent>
             </CardActionArea>
-            </Link>
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -140,7 +139,6 @@ export const Home = (props) => {
                 </Link>
               </CardContent>
             </CardActionArea>
-            </Link>
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -178,7 +176,6 @@ export const Home = (props) => {
                 </Link>
               </CardContent>
             </CardActionArea>
-            </Link> 
           </Card>
           </Grid>
           <Grid item xs={12} md={6}>
