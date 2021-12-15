@@ -3,7 +3,7 @@ const db = require('../db');
 
 
 const CodingChallenge = db.define('codingchallenges',{
-    level: {
+      level: {
         type: Sequelize.INTEGER
       },
       prompt: {
@@ -15,8 +15,14 @@ const CodingChallenge = db.define('codingchallenges',{
       solution: {
         type: Sequelize.STRING
       },
-      testcode: {
-        type: Sequelize.STRING
+      codespec: {
+        type: Sequelize.TEXT
+      },
+      title: {
+        type: Sequelize.TEXT
+      },
+      example: {
+        type: Sequelize.TEXT
       },
 
 });

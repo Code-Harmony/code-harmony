@@ -37,7 +37,7 @@ class Routes extends Component {
       this.props._loadSkills();
       this.props._loaduserSkills();
       this.props._loadFriends();
-    }, 50);
+    }, 500);
   }
 
   render() {
