@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { exec, execSync, spawn, spawnSync } = require('child_process');
+const { exec } = require('child_process');
 const fs = require('fs');
-const nodemon = require('nodemon')
 const { models: { CodingChallenge }} = require('../db');
 module.exports = router;
 
