@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
+
+// We may be able to remove line 7 and bring theme in from props, now that the Theme Provider is wrapping our entire app in index.js
 import theme from "./Theme";
 import {
-  ThemeProvider,
   AppBar,
   Box,
   Toolbar,
@@ -43,25 +44,21 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        {/* <h1>Code Harmony</h1> */}
-        {/* <hr /> */}
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton
-              onClick={handleBurger}
-                aria-label="menu"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                anchorEl={burgerEl}
-                open={openBurger}
-                onClose={handleCloseBurger}
-                onClick={handleCloseBurger}
-              >
+    <div>
+      {/* <h1>Code Harmony</h1> */}
+      {/* <hr /> */}
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton onClick={handleBurger} aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              anchorEl={burgerEl}
+              open={openBurger}
+              onClose={handleCloseBurger}
+              onClick={handleCloseBurger}
+            >
               <Paper>
                 <MenuItem>
                   <Link to="/levelup">Level Up</Link>
@@ -72,33 +69,30 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 </MenuItem>
                 <Divider />
                 <MenuItem>
-                <Link to="/mypeers">Messages</Link>
+                <Link to="/messages">Messages</Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem>
                 <Link to="/requests">Friend Requests</Link>
                 </MenuItem>
-                </Paper>
-              </Menu>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/home">Code Harmony</Link>
-              </Typography>
-              {isLoggedIn ? (
-                <div>
-                  {/* The navbar will show these links after you log in */}
-                  <IconButton
-                    onClick={handleMenu}
-                    aria-label="user"
-                  >
-                    <AccountCircleIcon />
-                  </IconButton>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    onClick={handleClose}
-                  >
-                    <Paper>
+              </Paper>
+            </Menu>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Link to="/home">Code Harmony</Link>
+            </Typography>
+            {isLoggedIn ? (
+              <div>
+                {/* The navbar will show these links after you log in */}
+                <IconButton onClick={handleMenu} aria-label="user">
+                  <AccountCircleIcon />
+                </IconButton>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  onClick={handleClose}
+                >
+                  <Paper>
                     <MenuItem>
                       <AccountCircleOutlinedIcon/>
                       <Link to="/updateProfile"> &nbsp Profile</Link>
@@ -109,25 +103,24 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                       </ListItemIcon>
                       Logout
                     </MenuItem>
-                    </Paper>
-                  </Menu>
-                </div>
-              ) : (
-                <div>
-                  {/* The navbar will show these links before you log in */}
-                  <Button>
-                    <Link to="/login">Login</Link>
-                  </Button>
-                  <Button>
-                    <Link to="/signup">Sign Up</Link>
-                  </Button>
-                </div>
-              )}
-            </Toolbar>
-          </AppBar>
-        </Box>
-      </div>
-    </ThemeProvider>
+                  </Paper>
+                </Menu>
+              </div>
+            ) : (
+              <div>
+                {/* The navbar will show these links before you log in */}
+                <Button>
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button>
+                  <Link to="/signup">Sign Up</Link>
+                </Button>
+              </div>
+            )}
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </div>
   );
 };
 

@@ -6,6 +6,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 a:visited {
@@ -213,6 +214,27 @@ li {
 
 .friendlink{
   cursor: pointer;
+  border-radius: 3px;
+  background-color: seagreen;
+  color:rgb(243, 243, 243);
+  width: 25%;
+  min-height: 65px;
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+.cardIcon{
+  font-size: 3em;
+}
+
+.cardLabel{
+  color: #faf9f1;
+}
+
+.subtext{
+  color: white;
+  font-size: .8em;
+  font-style: italic;
 }
 
 .accountImg{

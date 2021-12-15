@@ -12,6 +12,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ForumIcon from "@mui/icons-material/Forum";
 import { Link } from "react-router-dom";
 import { addFriend } from "../store";
+import { friendRequests } from "../store";
 
 /**
  * COMPONENT
@@ -21,6 +22,7 @@ export const PeerRequests = (props) => {
   // const { friendRequests } = props;
   const { accounts } = props;
   const { auth } = props;
+  const { loadFriendRequests } = props;
 
   const handleAddPeer = (userId) => {
     const { addFriend } = props;
@@ -31,13 +33,13 @@ export const PeerRequests = (props) => {
     <div>
       <h3>Friend Requests</h3>
         <ul>
-        {/* {friendRequests.map((user) => { */}
-        {accounts.map((user) => {
+        {loadFriendRequests.map((user) => {
+        // {accounts.map((user) => {
           return (
             <li key={user.id}>
               {user.name}
               <br />
-              <span className={'friendlink'} onClick={(userId) => handleAddPeer(user.id)}>add friend</span>
+              <div className={'friendlink'} onClick={(userId) => handleAddPeer(user.id)}>add friend <br /><span className="subtext">(will add ID: {user.id})</span></div>
               <br /> {`  `}
             </li>
           );
@@ -55,10 +57,12 @@ const mapState = (state) => {
     username: state.auth.username,
     auth: state.auth,
     friends: state.friends,
+    loadFriendRequests: state.loadFriendRequests,
     accounts: state.account || [
-      { id: 5, name: "bob" },
+      { id: 3, name: "stephen" },
       { id: 6, name: "liana" },
     ],
+    friendRequests: state.friendRequests
   };
 };
 

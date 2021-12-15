@@ -15,6 +15,7 @@ import {_loadSkills, loadSkills} from './store/skills'
 import {_loaduserSkills, loaduserSkills} from './store/userSkills'
 import {_loadFriends, loadFriends} from './store/friends'
 import {loadChallenges} from './store/levelup'
+import { loadAllFriendRequests } from './store/loadFriendRequests'
 
 import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'
@@ -36,10 +37,18 @@ class Routes extends Component {
       this.props._loaduserIndustries();
       this.props._loadSkills();
       this.props._loaduserSkills();
-      this.props._loadFriends();
     }, 500);
+    // setTimeout(()=>{
+    //   this.props._loadFriends(this.props.id);
+    // }, 100)
   }
-
+  componentDidUpdate(prevProps){
+    if (!prevProps.id && this.props.id){
+      console.log('auth:', this.props.id)
+      this.props._loadFriends(this.props.id)
+      this.props.loadAllFriendRequests(this.props.id)
+    }
+  }
   render() {
     const { isLoggedIn } = this.props;
 
@@ -51,7 +60,7 @@ class Routes extends Component {
             <Route path="/account" exact component={ Account } />
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
-            <Route path="/messages" exact component={ Messages } />
+            <Route exact path="/messages" exact component={ MyPeers } />
 
             <Route exact path="/viewProfile" component={SingleProfile}/>
             <Route exact path="/updateProfile" component={UpdateProfile}/>
@@ -81,10 +90,12 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
+    id: state.auth.id
   };
 };
 
 const mapDispatch = (dispatch) => {
+  console.log(dispatch)
   return {
     loadInitialData() {
       dispatch(me());
@@ -104,11 +115,14 @@ const mapDispatch = (dispatch) => {
     _loaduserSkills: async ()=> {
       dispatch(loaduserSkills());
     },
-    _loadFriends: async ()=> {
-      dispatch(loadFriends());
+    _loadFriends: async (id)=> {
+      dispatch(loadFriends(id));
     },
     _loadChallenges: async ()=> {
       dispatch(loadChallenges());
+    },
+    loadAllFriendRequests: async (id)=> {
+      dispatch(loadAllFriendRequests(id));
     },
   };
 };
