@@ -28,7 +28,7 @@ export const Home = (props) => {
                 <Typography gutterBottom variant="h5" component="div">
                   <ArrowUpwardIcon />
                   <br />
-                  Level Up
+                  <Link to="/levelup">Level Up</Link>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Level Up your skills?
@@ -43,7 +43,7 @@ export const Home = (props) => {
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   <GroupsIcon /> <br />
-                  Looking For
+                  <Link to="/lookingfor">Looking For</Link>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   <br />
@@ -60,7 +60,7 @@ export const Home = (props) => {
                 <Typography gutterBottom variant="h5" component="div">
                   <ForumIcon />
                   <br />
-                  Messages
+                  <Link to="/mypeers">Messages</Link>  
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Direct Messages, Project Messages

@@ -27,9 +27,9 @@ const _loadAccounts = (accounts) =>{
     }
 }
 
-const updateAccount = (id, name, email, industry, description, zipcode) =>{
+const updateAccount = (id, photoUrl, name, email, industry, description, zipcode) =>{
     return async (dispatch) =>{
-        const account = (await axios.put(`/api/account/${id}`, {name, email, industry, description, zipcode})).data;
+        const account = (await axios.put(`/api/account/${id}`, {photoUrl, name, email, industry, description, zipcode})).data;
         dispatch(_updateAccount(account));
     }
 }

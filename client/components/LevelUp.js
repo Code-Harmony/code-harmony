@@ -8,13 +8,12 @@ import 'brace/mode/javascript';
 import 'brace/theme/github';
 import 'brace/theme/monokai'
 
-
 import { Grid, Button, Typography, CardContent } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import DoubleArrowSharpIcon from '@mui/icons-material/DoubleArrowSharp';
 
 const LevelUp = ({ username, userlevel, levelup }) => {
-  const currentChallenge = levelup.find(chanllenge => chanllenge.level == userlevel);
+  const currentChallenge = levelup.find(challenge => challenge.level == userlevel);
 
   // const { username } = props;
   const [ userSolution, setUserSolution ] = useState('');

@@ -43,6 +43,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
   const handleCloseBurger = () => {
     setBurgerEl(null);
   };
+  //ask if we want to get rid of lots of stuff in the profile part
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -67,15 +68,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 <MenuItem>
                   <Link to="/levelup">Level Up</Link>
                 </MenuItem>
-
                 <Divider />
                 <MenuItem>
                   <Link to="/lookingfor">Looking For</Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem>
-                
-                <Link to="/messages">Messages</Link>
+                <Link to="/mypeers">Messages</Link>
                 </MenuItem>
                 </Paper>
               </Menu>
@@ -99,8 +98,8 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   >
                     <Paper>
                     <MenuItem>
-                      <Avatar /> Profile
-                    </MenuItem>
+                      <Avatar /> <Link to="/updateProfile">Profile</Link>
+                    </MenuItem> 
                     <MenuItem>
                       <Avatar /> My account
                     </MenuItem>

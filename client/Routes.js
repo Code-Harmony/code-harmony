@@ -6,7 +6,6 @@ import Home from "./components/Home";
 import { me } from "./store";
 import Account from "./components/Account";
 import LevelUp from "./components/LevelUp";
-
 import Messages from "./components/Messages";
 
 import {_loadAccounts, loadAccounts} from './store/account'
@@ -16,7 +15,6 @@ import {_loadSkills, loadSkills} from './store/skills'
 import {_loaduserSkills, loaduserSkills} from './store/userSkills'
 import {_loadFriends, loadFriends} from './store/friends'
 import {loadChallenges} from './store/levelup'
-
 
 import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'

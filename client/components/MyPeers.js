@@ -15,16 +15,7 @@ const MyPeers = (props) => {
     setCurrentUser(loggedInUser);
   }, []);
 
-  let container;
-
   const { friends } = props;
-
-  // console.log('TESTING WITH AMATA AND STEPHEN. Friends:', friends)
-  /*
-    let firstFriendId = friends.find((user) => user.user1id === currentUser.id)
-    let secondFriendId = firstFriendId.find((user) => user.user2id === currentUser.id)
-    let friendslist = accounts.find((friend) => friend.id === secondFriendId.id)
-  */
 
   const handleClick = (userId) => {
     /* Retrieve the other user who will participate in the conversation */
