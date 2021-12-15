@@ -18,6 +18,12 @@ const CodingChallenge = db.define('codingchallenges',{
       codespec: {
         type: Sequelize.TEXT
       },
+      title: {
+        type: Sequelize.TEXT
+      },
+      example: {
+        type: Sequelize.TEXT
+      },
 
 });
 

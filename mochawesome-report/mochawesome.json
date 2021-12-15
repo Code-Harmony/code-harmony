@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-12-15T00:27:42.651Z",
+    "end": "2021-12-15T00:27:42.657Z",
+    "duration": 6,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8692f5ed-8811-4092-8a67-6eceeb3dc11e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c94f3327-6aee-4508-be6f-8eccfe0b3899",
+          "title": "useMapToUpperCase",
+          "fullFile": "/Users/patita/Fullstack/capstone-project/code-harmony/testFile.js",
+          "file": "/testFile.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "returns an array and uppercases each word",
+              "fullTitle": "useMapToUpperCase returns an array and uppercases each word",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const array = useMapToUpperCase('Keep It Simple');\n// expect(array).to.equal(['KEEP', 'IT', 'SIMPLE']);\nexpect(array[0]).to.equal('KEEP');\nexpect(array[1]).to.equal('IT');\nexpect(array[2]).to.equal('SIMPLE');",
+              "err": {
+                "message": "ReferenceError: useMapToUpperCase is not defined",
+                "estack": "ReferenceError: useMapToUpperCase is not defined\n    at Context.<anonymous> (testFile.js:13:21)\n    at processImmediate (internal/timers.js:462:21)",
+                "diff": null
+              },
+              "uuid": "8b0b4acd-c390-4bbe-8465-436a3890e2f1",
+              "parentUUID": "c94f3327-6aee-4508-be6f-8eccfe0b3899",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8b0b4acd-c390-4bbe-8465-436a3890e2f1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}
