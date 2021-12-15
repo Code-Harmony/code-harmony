@@ -225,7 +225,7 @@ async function seed() {
       info: "fullstack engineer",
       looking_for: "students",
       challenge_points: 5,
-      zipcode: 03928,
+      zipcode: 30928,
       role: "Member",
     }),
     User.create({
@@ -405,13 +405,13 @@ await Promise.all(
   );
 
   // create user industries
-  async function joinUserIndustry(userId, industryId) {
-    UserIndustry.create(userId,industryId)
+  async function joinUserIndustry(userIdD, industryIdD) {
+    await UserIndustry.create({userId: userIdD,industryId: industryIdD})
   }
 
-  //create user skills
-  async function joinUserSkill (userId, skillId) {
-    UserSkill.create(userId,skillId)
+  // create user skills
+  async function joinUserSkill (userIdD, skillIdD) {
+    await UserSkill.create({userId: userIdD,skillId: skillIdD})
   }
 
   joinUserIndustry(1,1)

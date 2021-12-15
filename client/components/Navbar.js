@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 // We may be able to remove line 7 and bring theme in from props, now that the Theme Provider is wrapping our entire app in index.js
 import theme from "./Theme";
@@ -93,9 +94,17 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   onClick={handleClose}
                 >
                   <Paper>
+                    <MenuItem >
+                      <ListItemIcon>
+                        <AccountCircleOutlinedIcon/>
+                      </ListItemIcon>
+                      <Link to="/updateProfile"> My Profile</Link>
+                    </MenuItem> 
                     <MenuItem>
-                      <AccountCircleOutlinedIcon/>
-                      <Link to="/updateProfile"> &nbsp Profile</Link>
+                      <ListItemIcon>
+                        <ManageAccountsIcon/>
+                      </ListItemIcon>
+                      <Link to="/updateProfile"> Edit Profile</Link>
                     </MenuItem> 
                     <MenuItem onClick={handleClick}>
                       <ListItemIcon>

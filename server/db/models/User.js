@@ -34,7 +34,8 @@ looking_for: {
     type: Sequelize.STRING
   },
 challenge_points: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 1
   },
 zipcode: {
     type: Sequelize.INTEGER
