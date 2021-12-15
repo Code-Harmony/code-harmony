@@ -22,6 +22,7 @@ export const PeerRequests = (props) => {
   // const { friendRequests } = props;
   const { accounts } = props;
   const { auth } = props;
+  const { loadFriendRequests } = props;
 
   const handleAddPeer = (userId) => {
     const { addFriend } = props;
@@ -32,8 +33,8 @@ export const PeerRequests = (props) => {
     <div>
       <h3>Friend Requests</h3>
         <ul>
-        {/* {friendRequests.map((user) => { */}
-        {accounts.map((user) => {
+        {loadFriendRequests.map((user) => {
+        // {accounts.map((user) => {
           return (
             <li key={user.id}>
               {user.name}
@@ -56,6 +57,7 @@ const mapState = (state) => {
     username: state.auth.username,
     auth: state.auth,
     friends: state.friends,
+    loadFriendRequests: state.loadFriendRequests,
     accounts: state.account || [
       { id: 3, name: "stephen" },
       { id: 6, name: "liana" },

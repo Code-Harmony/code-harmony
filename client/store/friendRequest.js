@@ -1,16 +1,11 @@
 import axios from "axios";
 
 const ADD_FRIEND = "ADD_FRIEND";
-const LOAD_REQUESTS = "LOAD_REQUESTS";
 
 // actions
 
 export const createNewFriendRequest = (friendRequest) => {
   return { type: ADD_FRIEND, friendRequest };
-};
-
-export const loadFriendRequests = (requests) => {
-  return { type: LOAD_REQUESTS, requests };
 };
 
 // thunks
@@ -68,8 +63,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_FRIEND:
       return action.friendRequest;
-    case LOAD_REQUESTS:
-      return action.requests;
     default:
       return state;
   }

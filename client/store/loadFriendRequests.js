@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ids } from "webpack";
 
 const LOAD_REQUESTS = "LOAD_REQUESTS";
 
@@ -20,27 +19,37 @@ export const loadAllFriendRequests = (myId) => {
     const followers = friendRelations.filter((user) => myId === user.user2id);
 
     const friendRequestIds = followers.reduce((ids, follower) => {
-      if ( followees.findIndex(
-          (followee) => followee.user2id === follower.user1id) !== -1
-      ) {
+      if ( followees.findIndex((followee) => followee.user2id === follower.user1id) === -1) {
         ids.push(follower.user1id);
       }
       return ids;
     }, []);
+    
+    console.log('followers', followers)
+    console.log('followees', followees)
+    console.log('requestIds:', friendRequestIds)
 
     // const friendRequestIds = followers.filter((follower) => {
     //   if (!(followees.find(follower.user2id))) return true;
     // })
 
-    const friendRequestUsers = accounts.reduce((users, user) => {
-      if (
-        friendRequestIds.findIndex((requesterId) => requesterId === user.id) !==
-        1
-      ) {
-        users.push(user);
+    // const friendRequestUsers = accounts.reduce((users, user) => {
+    //   if ( friendRequestIds.findIndex((requesterId) => requesterId === user.id) !== myId
+    //   ) {
+    //     users.push(user);
+    //   }
+    //   return users;
+    // }, []);
+
+    const friendRequestUsers = accounts.filter( account => {
+      if (friendRequestIds.findIndex( requestId => requestId === account.id ) !== -1){
+        return true
       }
-      return users;
-    }, []);
+      else {
+        return false
+      }
+    })
+    console.log('asdfadsfadf',friendRequestUsers)
 
     dispatch(loadFriendRequests(friendRequestUsers));
   };
