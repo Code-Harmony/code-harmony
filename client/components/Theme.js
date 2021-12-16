@@ -1,45 +1,69 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    type: 'light',
+    type: "light",
     primary: {
-      main: '#258ea6',
-      contrastText: '#eaf3ea',
+      main: "#258ea6",
+      contrastText: "#eaf3ea",
     },
     secondary: {
-      main: '#f9a03f',
-      dark: '#f9a03f',
+      main: "#f9a03f",
+      dark: "#f9a03f",
     },
     background: {
-      default: '#e9e9e9',
-      paper: '#f7f7f7',
+      default: "#e9e9e9",
+      paper: "#f7f7f7",
     },
     success: {
-      main: '#1F8A70',
+      main: "#1F8A70",
     },
     text: {
-      primary: '#3d3d3d',
+      primary: "#3d3d3d",
     },
     info: {
-      main: '#bf820f',
+      main: "#bf820f",
     },
     cardIcon: {
-      main: 'blue'
-    }
+      main: "blue",
+    },
   },
   typography: {
     fontWeightLight: 400,
     fontWeightRegular: 500,
+    h1: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+    },
+    h2: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+    },
+    h3: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+    },
+    h4: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+    },
+    h5: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+    },
+    h6: {
+      fontFamily: ["Spartan", "sans-serif"].join(","),
+    },
+    body1: {
+      fontFamily: ["Jost", "sans-serif"].join(","),
+    },
+    body2: {
+      fontFamily: ["Jost", "sans-serif"].join(","),
+    }
   },
   components: {
     MuiIconButton: {
       styleOverrides: {
         root: {
-          size : "large",
-          edge : "start",
+          size: "large",
+          edge: "start",
           color: "inherit",
-          mr: 2 
+          mr: 2,
         },
       },
     },
@@ -53,19 +77,19 @@ const theme = createTheme({
     MuiListItemIcon: {
       styleOverrides: {
         root: {
-          font: "small"
+          font: "small",
         },
       },
     },
     MuiCard: {
       variants: [
         {
-          props: { variant: 'home'},
+          props: { variant: "home" },
           style: {
-            background: '#258ea6',
-          }
-        }
-      ]
+            background: "#258ea6",
+          },
+        },
+      ],
     },
     MuiPaper: {
       styleOverrides: {
@@ -94,28 +118,27 @@ const theme = createTheme({
               zIndex: 0,
               sx: {
                 p: 50,
-              }
+              },
             },
           },
-        }
+        },
       },
     },
-  MuiMenu: {
-    styleOverrides: {
-      root:{
-        transformOrigin:{
-          horizontal: "right", 
-          vertical: "top"
+    MuiMenu: {
+      styleOverrides: {
+        root: {
+          transformOrigin: {
+            horizontal: "right",
+            vertical: "top",
+          },
+          anchorOrigin: {
+            horizontal: "right",
+            vertical: "bottom",
+          },
         },
-        anchorOrigin:{
-          horizontal: "right", 
-          vertical: "bottom"
-        }
-      }
-    },  
-  },
+      },
+    },
   },
 });
 
-
-export default theme
+export default theme;
