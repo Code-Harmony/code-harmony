@@ -51,8 +51,8 @@ const getUserResults = () => {
       passes: JSON.parse(resultJSON).stats.passes,
       failures: JSON.parse(resultJSON).stats.failures,
     }
-    // return [ resultJSON, userResults];
-    return [ resultHTML, userResults];
+    return [ resultJSON, userResults];
+    // return [ resultHTML, userResults];
   }
   catch (err) {
     console.log(err)
@@ -93,12 +93,9 @@ router.post('/', async (req, res, next) => {
     const testFile = await createUserTestFile(userSolution, specFile);        
     await testUserCode(testFile);
     
-    // const [ resultJSON, userResult ] = await getUserResults(testFile);
-    const [ resultHTML, userResult ] = await getUserResults(testFile);
-
-    // console.log(resultHTML.toString())
+    const [ resultJSON, userResults] = await getUserResults(testFile);
     
-    if (userResult.failures === 0) { // change back to 0
+    if (userResults.failures === 0) {
       userlevel++;
     };
 
@@ -106,9 +103,7 @@ router.post('/', async (req, res, next) => {
       challenge_points: userlevel,
     })
 
-    // res.send(resultJSON)
-    res.send(resultHTML)
-    // res.sendFile('../mochawesome-report/mochawesome-report.html')
+    res.send(userResults)
   }
   catch (err) {
     res.json(err);

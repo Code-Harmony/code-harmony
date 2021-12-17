@@ -1,37 +1,36 @@
-console.log('testing something')
+const useMapToUpperCase = str => {return str.split(' ').map((word) => {return word.toUpperCase();})}
 const {expect} = require('chai')
+// const chai = require('chai')
+// chai.use(require('sinon-chai'));
 
-  //use Filter level 2
-  describe('useFilter', () => {
-    /*it('takes an array and returns an array', () => {
-      const array = useFilter(['kdsd@aol.com', 'test@apple.com']);
-      expect(Array.isArray(array)).toBe(true);
-    }); */
-    it('returns all words in the array that have an @', () => {
-      const array = useFilter([
-        'emilie.io',
-        'trace.google.com',
-        'kellyscott2@aol.com',
-        'helloWorld.com',
-        'test@apple.com',
-        'snowman@iceland.com',
-      ]);
-        expect(array[0]).to.equal('kellyscott2@aol.com');
-        expect(array[1]).to.equal('test@apple.com');
-        expect(array[2]).to.equal('snowman@iceland.com');
-      });
-      
-    it('uses Array.prototype.filter', () => {
-      spyOn(Array.prototype, 'filter').and.callThrough();
-  
-      const array = useFilter([
-        'omri@aol.com',
-        'jess@fs.com',
-        'test.com',
-        'myEmail.com',
-      ]);
-      //expect(Array.prototype.filter).toHaveBeenCalled();
-      expect(array[0]).to.equal('omri@aol.com');
-      expect(array[1]).to.equal('jess@fs.com');
+//map to upper case level 1
+describe('useMapToUpperCase', () => {
+    // it('takes a string and returns an array', () => {
+    //   const array = useMapToUpperCase('it is raining outside');
+    //   expect(Array.isArray(array)).to.be.a(true);
+    // });
+    it('returns an array and uppercases each word', () => {
+      const array = useMapToUpperCase('Keep It Simple');
+      // expect(array).to.equal(['KEEP', 'IT', 'SIMPLE']);
+      expect(array[0]).to.equal('KEEP');
+      expect(array[1]).to.equal('IT');
+      expect(array[2]).to.equal('SIMPLE');
     });
+
+    // it('uses Array.prototype.map', () => {
+    //   spyOn(Array.prototype, 'map').and.callThrough();
+  
+    //   const array = useMapToUpperCase('make sure to use the map method');
+    //   expect(Array.prototype.map).to.have.been.called();
+      
+    //   expect(array).to.equal([
+    //     'MAKE',
+    //     'SURE',
+    //     'TO',
+    //     'USE',
+    //     'THE',
+    //     'MAP',
+    //     'METHOD',
+    //   ]);
+    // });
   });

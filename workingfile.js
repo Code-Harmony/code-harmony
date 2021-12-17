@@ -166,3 +166,30 @@ module.exports = {
     ],
   },
 };
+
+
+
+
+    // console.log('this is userOutput:')
+    // console.log(userOutput)
+
+    // setUserOutput(htmlDecode(data));
+    // dispatch(gotResults(data))
+    // var result = eval(userSolution);
+    // console.log(result);
+
+
+
+        {/* <div dangerouslySetInnerHTML={{__html: userOutput}} /> */}
+        {/* <iframe src='http://localhost:8080/home' title="Iframe Example"></iframe> */}
+        {/* <iframe srcDoc={testVar} title="Iframe Example"></iframe> */}
+
+
+        {/* <iframe id="inlineFrameExample"
+                title="Inline Frame Example"
+                width="300"
+                height="200"
+                src="file:///Users/patita/Fullstack/capstone-project/code-harmony/mochawesome-report/mochawesome.html">
+        </iframe> */}
+
+        {/* <iframe id="serviceFrameSend" src="../../mochawesome-report/mochawesome.html" width="1000" height="1000"  frameborder="0"></iframe> */}
