@@ -79,7 +79,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
               </Paper>
             </Menu>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/home">Code Harmony</Link>
+              <Link to="/home" className="h1">Code Harmony</Link>
             </Typography>
             {isLoggedIn ? (
               <div>

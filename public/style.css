@@ -242,3 +242,42 @@ li {
   height: 150px;
   border-radius: 50%;
 }
+
+.cardSubHeading{
+  font-size: .3em;
+}
+
+.main-content{
+  padding: .5em
+}
+
+.goArrow{
+  transition: 1s ease-out;
+  padding-top: .4em;
+}
+.viewProfileText{
+  transition: .1s ease-out;
+  font-size: .8em;
+}
+
+.viewProfile {
+  cursor: pointer;
+  transition: .1s ease-out;
+  color:dimgrey;
+  font-size: .5rem;
+}
+
+.viewProfile:hover .goArrow{
+  transition: .1s ease-in;
+  /* transform: translateX(4px); */
+  padding-left: .4em;
+}
+
+.viewProfile:hover .viewProfileText{
+  transition: .1s ease-in;
+  margin-left: -.1em;
+}
+
+.friendButton{
+  width: 55%;
+}

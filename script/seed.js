@@ -131,7 +131,7 @@ async function seed() {
       challenge_points: 1,
       zipcode: 111100,
       role: "Member",
-      photoUrl: 'https://planetary.s3.amazonaws.com/web/assets/pictures/20190611_bill-nye-profile-cropped.jpg'
+      photoUrl: "https://media.istockphoto.com/photos/be-so-good-you-become-your-own-source-of-inspiration-picture-id1290528178?b=1&k=20&m=1290528178&s=170667a&w=0&h=ILOZEnHzV2WGCGHWzOl-nIgKsk_-GiysByzZ3ZGIFpk="
     }),
     User.create({
       username: "jamie",
@@ -218,7 +218,7 @@ async function seed() {
       challenge_points: 6,
       zipcode: 11111,
       role: "Member",
-      photoUrl: 'https://variety.com/wp-content/uploads/2019/05/walk-of-fame-lucy-liu.jpg'
+      photoUrl: "https://www.byrdie.com/thmb/UQ6X1oyssVKca543GhansJjFYgw=/735x0/smiling-861cf088a0974d41bbfa9a7f7eddf2e2.jpg"
     }),
     User.create({
       username: "stannie-lim",
@@ -278,7 +278,6 @@ async function seed() {
       zipcode: 12345,
       role: "Member",
       photoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/34/Leslie_Knope_%28played_by_Amy_Poehler%29.png'
-
     })
     User.create({
       username: "justice",
@@ -321,6 +320,7 @@ async function seed() {
       challenge_points: 3,
       zipcode: 11111,
       role: "Member",
+      photoUrl: "https://media.istockphoto.com/photos/portrait-of-a-taiwanese-man-picture-id1149504274"
     })
     User.create({
       username: "michael",
@@ -350,6 +350,7 @@ async function seed() {
       challenge_points: 6,
       zipcode: 11123,
       role: "Member",
+      photoUrl: "https://media.gettyimages.com/photos/confident-businesswoman-over-gray-background-picture-id682897825?s=2048x2048"
     })
     User.create({
       username: "bfong",

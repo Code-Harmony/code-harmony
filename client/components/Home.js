@@ -43,18 +43,23 @@ const useStyles = makeStyles(() =>
 
 export const Home = (props) => {
   const { username } = props;
+  const { name } = props;
+
   // Styling checklist: 3. call useStyles() and store in a variable. You can call it anything.
   const classes = useStyles();
   return (
-    <div>
-      <h3
+    <div style={{padding: '1em .5em 1em .5em'}}>
+      <Typography variant="h6">
+        Welcome, {name}
+      </Typography>
+      {/* <h3
         // Styling optional checklist: 2. see conditional format syntax
         className={clsx({
           [classes.foo]: username === "stephen",
         })}
       >
-        Welcome, {username}
-      </h3>
+        Welcome, {name}
+      </h3> */}
       <Grid
         container
         rowSpacing={1}
@@ -62,7 +67,7 @@ export const Home = (props) => {
         align="center"
       >
         <Grid item xs={12} md={6}>
-         {/* Styling checklist: 4. assign the custom style to the 'className' prop */}
+          {/* Styling checklist: 4. assign the custom style to the 'className' prop */}
           <Card sx={{ maxWidth: 4 / 5 }} className={classes.homeCardMain}>
             <CardActionArea>
               <CardContent>
@@ -177,23 +182,42 @@ export const Home = (props) => {
               </CardContent>
             </CardActionArea>
           </Card>
-          </Grid>
-          <Grid item xs={12} md={6}>
-          <Card sx={{ maxWidth: 4/5 }}>
-          <Link to="/requests">
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Card sx={{ maxWidth: 4 / 5 }} className={classes.homeCardMain}>
             <CardActionArea>
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  <PersonAdd /> 
-                  <br />
-                  Friend Requests
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  View everyone who added you
-                </Typography>
+                <Link to="/requests">
+                  <Grid
+                    container
+                    rowSpacing={1}
+                    columnSpacing={{ xs: 2, sm: 2, md: 3 }}
+                    direction="column"
+                  >
+                    <Grid item xs={12} md={12} lg={12}>
+                      <PersonAdd
+                        fontSize="large"
+                        className="cardIcon cardLabel"
+                        style={{ fontSize: "4rem" }}
+                      />
+                    </Grid>
+                    <Grid item xs={4} md={6}>
+                      <Typography
+                        gutterBottom
+                        className="cardLabel"
+                        variant="h5"
+                        component="div"
+                      >
+                        Friend Requests
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        View everyone who has added you
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Link>
               </CardContent>
             </CardActionArea>
-            </Link>
           </Card>
         </Grid>
       </Grid>
@@ -207,6 +231,7 @@ export const Home = (props) => {
 const mapState = (state) => {
   return {
     username: state.auth.username,
+    name: state.auth.name
   };
 };
 
