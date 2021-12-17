@@ -11,7 +11,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import WorkIcon from '@mui/icons-material/Work';
 import InfoIcon from '@mui/icons-material/Info';
 
-class SingleProfile extends Component{
+
+class MyProfile extends Component{
     constructor(props){
         super(props);
     }
@@ -24,7 +25,7 @@ class SingleProfile extends Component{
                 </div>
             )
         }
-        const account = accounts.find(account => account.id === match.params.id*1)
+        const account = accounts.find(account => account.id === auth.id)
         if(account === undefined){
             return(
             <div>
@@ -65,4 +66,4 @@ const mapStateToProps = (state) =>{
     return state;
 }
 
-export default connect(mapStateToProps)(SingleProfile)
+export default connect(mapStateToProps)(MyProfile)

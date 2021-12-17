@@ -98,7 +98,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                       <ListItemIcon>
                         <AccountCircleOutlinedIcon/>
                       </ListItemIcon>
-                      <Link to="/updateProfile"> My Profile</Link>
+                      <Link to="/myProfile"> My Profile</Link>
                     </MenuItem> 
                     <MenuItem>
                       <ListItemIcon>

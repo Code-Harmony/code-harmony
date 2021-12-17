@@ -17,6 +17,7 @@ import {_loadFriends, loadFriends} from './store/friends'
 import {loadChallenges} from './store/levelup'
 import { loadAllFriendRequests } from './store/loadFriendRequests'
 
+import MyProfile from './components/MyProfile'
 import SingleProfile from './components/SingleProfile'
 import UpdateProfile from './components/UpdateProfile'
 import LookingFor from "./components/LookingFor";
@@ -61,8 +62,8 @@ class Routes extends Component {
             <Route path="/lookingfor" exact component={ LookingFor } />
             <Route path="/levelup" exact component={ LevelUp } />
             <Route exact path="/messages" exact component={ MyPeers } />
-
-            <Route exact path="/viewProfile" component={SingleProfile}/>
+            <Route exact path="/myProfile" component={MyProfile}/>
+            <Route exact path="/viewProfile/:id?" component={SingleProfile}/>
             <Route exact path="/updateProfile" component={UpdateProfile}/>
             <Route exact path="/lookingFor" component={LookingFor}/>
             <Route exact path='/profileResults/:filter?' component={ProfileResults}/>
