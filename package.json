@@ -57,6 +57,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "esm": "^3.2.25",
+    "html-loader": "^3.0.1",
     "mocha": "^6.2.3",
     "mochawesome": "^7.0.1",
     "nodemon": "^1.19.4",

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import AceEditor from 'react-ace';
 import axios from 'axios';
+// import specPage from '../../mochawesome-report/mochawesome.html';
+import ReactDOM from 'react-dom';
 
 // import brace from 'brace';
 import 'brace/mode/javascript';
@@ -12,31 +14,41 @@ import { Grid, Button, Typography, CardContent } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import DoubleArrowSharpIcon from '@mui/icons-material/DoubleArrowSharp';
 
-const LevelUp = ({ username, userlevel, levelup }) => {
+const LevelUp = ({ userId, username, userlevel, levelup }) => {
   const currentChallenge = levelup.find(challenge => challenge.level == userlevel);
 
-  // const { username } = props;
   const [ userSolution, setUserSolution ] = useState('');
+  const [ userOutput, setUserOutput ] = useState('');
 
-  // var userCode = "";
   const onChange = (newValue) => {
-    // userCode = newValue;
     setUserSolution(newValue);
   }
-
+  
   const onClick = async () => {
-    await axios.post(`/api/levelup`, {
+    const {data} = await axios.post(`/api/levelup`, {
       userSolution: userSolution,
-      // challengeId: challengeId
+      userlevel: userlevel,
+      userId: userId
     });
+    console.log('this is data:')
+    console.log(typeof data)
+    console.log(data)
+
+    setUserOutput(data);
+
+    // console.log('this is userOutput:')
+    // console.log(userOutput)
+
+    // setUserOutput(htmlDecode(data));
     // dispatch(gotResults(data))
     // var result = eval(userSolution);
     // console.log(result);
   }
 
-  // useEffect(() => {
-  //   console.log(userSolution)
-  // },[userSolution]); 
+  useEffect(() => {
+    console.log(userOutput)
+  },[userOutput]);
+
   
   return (
     <div>
@@ -86,23 +98,27 @@ const LevelUp = ({ username, userlevel, levelup }) => {
             // setOptions={{
               //   showLineNumbers: this.props.showLineNumbers
               // }}
-              width = '100%'
+            width = '100%'
               // height = '100%'
-              />
+          />
         </Grid>
+
         <Button variant="contained" color="primary" size="medium" style={{ height: 40 }} startIcon={<DoubleArrowSharpIcon sx={{ fontSize: 40 }} />} onClick = { onClick }>
             RUN CODE
         </Button>
       </Grid>
+        <div dangerouslySetInnerHTML={{__html: userOutput}} />
+        {/* <iframe src='http://localhost:8080/home' title="Iframe Example"></iframe> */}
+        {/* <iframe srcDoc={testVar} title="Iframe Example"></iframe> */}
     </div>
   )
-
 }
 
 const mapState = state => {
   console.log('in mapState')
   console.log(state)
   return {
+    userId: state.auth.id,
     username: state.auth.username,
     userlevel: state.auth.challenge_points,
     levelup: state.levelup
