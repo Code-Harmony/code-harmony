@@ -56,7 +56,7 @@ class MyProfile extends Component {
                 <Grid item xs={12} sm={12} lg={12} p="1.5em">
                   <GitHubIcon />
                 </Grid>
-                <Grid item xs={12} sm={2} lg={2} p="1.5em">
+                <Grid item xs={12} sm={2} lg={2} p="1.5em" alignSelf="flex-start">
                   <Typography variant="caption" display="block" gutterBottom>
                     GitHub:
                   </Typography>
@@ -70,7 +70,7 @@ class MyProfile extends Component {
                   alignSelf="flex-end"
                   sx={{ mb: "15px" }}
                 >
-                  <Typography variant="body1" gutterBottom>
+                  <Typography variant="body1" sx={{mb: '4px'}}>
                     {account.github}
                   </Typography>
                 </Grid>
