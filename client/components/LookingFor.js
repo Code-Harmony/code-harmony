@@ -80,7 +80,7 @@ class LookingFor extends Component{
         return(
             <div>
                 {/* <form> */}
-                <Grid container spacing={1} columns={16}>
+                <Grid container spacing={1} columns={16} padding={10}>
                     <Grid item xs={8}>
                             <Accordion>
                                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">

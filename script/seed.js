@@ -101,6 +101,7 @@ async function seed() {
       challenge_points: 3,
       zipcode: 10025,
       role: "Member",
+      photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPo69yq6FXK9QzWg6itX0zVTBYY7ZsCpkuw10KcGT_hPPbmTuIgSvXCzP6n0lJTXRVTN8&usqp=CAU',
     }),
     User.create({
       username: "murphy",
@@ -115,6 +116,7 @@ async function seed() {
       challenge_points: 1,
       zipcode: 19610,
       role: "Member",
+      photoUrl:'https://static01.nyt.com/images/2019/09/29/arts/29eddie-murphy10/29eddie-murphy10-superJumbo-v2.jpg'
     }),
     User.create({
       username: "bill",
@@ -144,6 +146,7 @@ async function seed() {
       challenge_points: 3,
       zipcode: 12345,
       role: "Member",
+      photoUrl: 'https://static.wikia.nocookie.net/rio/images/0/0b/Jamie_Foxx.jpg/revision/latest?cb=20180504203411'
     }),
     User.create({
       username: "stephen",
@@ -200,6 +203,7 @@ async function seed() {
       challenge_points: 2,
       zipcode: 90210,
       role: "Member",
+      photoUrl: 'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F7438633d-db0e-4de1-9798-088526c6715e.jpg?fit=scale-down&source=next&width=700'
     }),
     User.create({
       username: "lucy",
@@ -243,6 +247,7 @@ async function seed() {
       challenge_points: 4,
       zipcode: 11123,
       role: "Member",
+      photoUrl: 'https://ca.slack-edge.com/T024FPYBQ-U07DRD24A-g120f32133d9-512'
     })
     User.create({
       username: "sean",
@@ -257,6 +262,7 @@ async function seed() {
       challenge_points: 6,
       zipcode: 10013,
       role: "Member",
+      photoUrl: 'https://www.thewrap.com/wp-content/uploads/2020/10/sean.jpg'
     })    
     User.create({
       username: "leslie",
@@ -271,7 +277,7 @@ async function seed() {
       challenge_points: 2,
       zipcode: 12345,
       role: "Member",
-      photoUrl: "https://media.gettyimages.com/photos/studio-portraits-of-nonbinary-androgynous-looking-person-picture-id953910550?s=2048x2048"
+      photoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/34/Leslie_Knope_%28played_by_Amy_Poehler%29.png'
     })
     User.create({
       username: "justice",
@@ -317,18 +323,19 @@ async function seed() {
       photoUrl: "https://media.istockphoto.com/photos/portrait-of-a-taiwanese-man-picture-id1149504274"
     })
     User.create({
-      username: "Michael",
+      username: "michael",
       password: "123",
-      name: "Michael",
-      email: "Michael@gmail.com",
+      name: "michael",
+      email: "michael@gmail.com",
       industry: "tech",
-      github: "@Michael",
+      github: "@michael",
       description: "software engineer",
       info: "software engineer",
       looking_for: "software engineers",
       challenge_points: 2,
       zipcode: 22222,
       role: "Member",
+      photoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
     })
     User.create({
       username: "abey",
@@ -373,6 +380,68 @@ async function seed() {
       zipcode: 44444,
       role: "Member",
     })
+    User.create({
+      username: "dwight",
+      password: "123",
+      name: "dwight",
+      email: "dwight@gmail.com",
+      industry: "consulting",
+      github: "@dwight",
+      description: "consultant",
+      info: "consultant",
+      looking_for: "engineers",
+      challenge_points: 1,
+      zipcode: 11203,
+      role: "Member",
+      photoUrl: "https://static.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest?cb=20170701082424"
+    })
+    User.create({
+      username: "stanley",
+      password: "123",
+      name: "stanley",
+      email: "stanley@gmail.com",
+      industry: "consulting",
+      github: "@stanley",
+      description: "consultant",
+      info: "consultant",
+      looking_for: "engineers",
+      challenge_points: 1,
+      zipcode: 11201,
+      role: "Member",
+      photoUrl: "https://static.wikia.nocookie.net/theoffice/images/2/23/Stanley_Hudson.jpg/revision/latest?cb=20170701085445"
+    })
+    User.create({
+      username: "monica",
+      password: "123",
+      name: "monica",
+      email: "monica@gmail.com",
+      industry: "consulting",
+      github: "@monica",
+      description: "consultant",
+      info: "consultant",
+      looking_for: "engineers",
+      challenge_points: 1,
+      zipcode: 11201,
+      role: "Member",
+      photoUrl: "http://images.fanpop.com/images/image_uploads/Monica-monica-geller-86879_576_824.jpg"
+    })
+    User.create({
+      username: "chandler",
+      password: "123",
+      name: "chandler",
+      email: "chandler@gmail.com",
+      industry: "consulting",
+      github: "@chandler",
+      description: "consultant",
+      info: "consultant",
+      looking_for: "engineers",
+      challenge_points: 4,
+      zipcode: 11204,
+      role: "Member",
+      photoUrl: "https://pyxis.nymag.com/v1/imgs/079/792/3ed0d94be0a9bd3d023f00532889bab152-30-chandler-bing.rsquare.w330.jpg"
+    })
+
+
   //creating one friends link
   const friendslist = await Promise.all([
     Friend.create({ user1id: 2, user2id: 1 }),

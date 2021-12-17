@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+
+
+import ErrorIcon from '@mui/icons-material/Error';
+import BugReportIcon from '@mui/icons-material/BugReport';
+
+import { Typography } from '@mui/material';
 
 class ProfileResults extends Component{
     constructor(props){
@@ -23,12 +30,21 @@ class ProfileResults extends Component{
 
         if(userIndustries.length === 0){
             return(
-            <div>No userIndustries found here :(</div>
+            <div>
+            <BugReportIcon/>
+            <Typography variant="h5" gutterBottom component="div">
+                No userIndustries found here :(
+            </Typography></div>
             )
         }
         if(userSkills.length === 0){
             return(
-            <div>No userSkills found here :(</div>
+                <div>
+                    <BugReportIcon/>
+                    <Typography variant="h5" gutterBottom component="div">
+                        No userSkills found here :(
+                    </Typography>
+                </div>
             )
         }
 
@@ -91,6 +107,9 @@ class ProfileResults extends Component{
             })
         })
 
+        console.log('skillUserId', skillUserId)
+        
+        
         //Takes arr of industry ids - matches to UserId of users with that industry
         const industryUserId = []
         userIndustries.map(userIndustryPair =>{
@@ -101,7 +120,9 @@ class ProfileResults extends Component{
                 }
             })
         })
-        
+        console.log('industryUserId', industryUserId)
+
+
         //Check which user is in both filters.
         let both = []
         if(skillUserId.length === 0 && industryUserId.length !== 0){
@@ -112,16 +133,31 @@ class ProfileResults extends Component{
         }
         else{
             skillUserId.map(userSkillId =>{
-                industryUserId.map(userIndustryId =>{
-                    if(userSkillId === userIndustryId){
-                        both.push(userSkillId)
-                        console.log(both)
-                    }
-                })
+                if(!both.includes(userSkillId)){
+                    both.push(userSkillId)
+                    console.log(both)
+                }
             })
+            industryUserId.map(userIndustryId =>{
+                if(!both.includes(userIndustryId)){
+                    both.push(userIndustryId)
+                    console.log(both)
+                } 
+            })
+            
         }
         console.log(both)
 
+        if(both.length === 0){
+            return(
+            <div>
+            <ErrorIcon/>
+            <Typography variant="h5" gutterBottom component="div">
+                No users found... try searching again!
+            </Typography>
+            </div>)
+            
+        }
         return(
             <div>
                 <div>
@@ -129,19 +165,23 @@ class ProfileResults extends Component{
                     {accounts.map(singleAccount =>{
                         return(
                         both.map(userId =>{
-                            console.log("singleAccount", singleAccount)
-                            console.log("userId", userId)
                             if(singleAccount.id *1 === userId*1 ){
                                 return(
                                 <li>
                                     <div>
-                                    Image: {singleAccount.image}
+                                    Image: <img className='accountImg' src={singleAccount.photoUrl ? singleAccount.photoUrl : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}/>
                                     </div>
                                     <div>
                                     Name: {singleAccount.name}
                                     </div>
                                     <div>
+                                    GitHub: {singleAccount.github}
+                                    </div>
+                                    <div>
                                     Description: {singleAccount.description}
+                                    </div>
+                                    <div>
+                                        <Link to={`/viewProfile/${userId}`}>View Profile</Link>
                                     </div>
                                 </li>
                                 )
