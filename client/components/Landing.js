@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from "@mui/material/styles";
 import { CardActionArea } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Group";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
@@ -92,22 +92,26 @@ export const Landing = (props) => {
             </div>
           </Grid>
           <Grid item xs={12} md={3} lg={3}>
-            <Button
-              fullWidth
-              variant="cta"
-              sx={{ mt: 3, mb: 2, minWidth: "15%" }}
-            >
-              login
-            </Button>
+            <Link to="/login">
+              <Button
+                fullWidth
+                variant="cta"
+                sx={{ mt: 3, mb: 2, minWidth: "15%" }}
+              >
+                login
+              </Button>
+            </Link>
           </Grid>
           <Grid item xs={12} md={3} lg={3}>
-          <Button
-              fullWidth
-              variant="cta"
-              sx={{ mt: 3, mb: 2, minWidth: "15%" }}
-            >
-              sign up
-            </Button>
+            <Link to="/signup">
+              <Button
+                fullWidth
+                variant="cta"
+                sx={{ mt: 3, mb: 2, minWidth: "15%" }}
+              >
+                sign up
+              </Button>
+            </Link>
           </Grid>
         </Grid>
         {/* <h3
