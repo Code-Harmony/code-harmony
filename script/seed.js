@@ -161,7 +161,7 @@ async function seed() {
       description: paragraph,
       info: "Web Communications Developer",
       looking_for: "backend developer",
-      challenge_points: 2,
+      challenge_points: 1,
       zipcode: 54321,
       role: "Member",
     }),
