@@ -46,8 +46,8 @@ const LevelUp = ({ userId, username, userlevel, levelup }) => {
       <Grid container spacing={2} ml={3} mr={3} mt={2}>
         {/* BOX AT TOP */}
           <Grid mr={6} item xs={12} md={12} align="center">
-            <Card sx={{ maxWidth: 3 / 5 }}>
-              <CardContent height={500} style={{backgroundColor: "white", border:"3px solid #258ea6" }} align='center'>
+            <Card height={100} sx={{ maxWidth: 3 / 5 }}>
+              <CardContent style={{backgroundColor: "white", border:"3px solid #258ea6" }} align='center'>
                 <PersonIcon
                   fontSize="large"
                   className="cardIcon cardLabel"
