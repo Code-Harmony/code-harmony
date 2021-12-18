@@ -16,6 +16,12 @@ describe('useMapToUpperCase', () => {
       expect(array[2]).to.equal('SIMPLE');
     });
 
+    it('returns an array and uppercases each word', () => {
+      const array = useMapToUpperCase('Hello World!');
+      expect(array[0]).to.equal('HELLO');
+      expect(array[1]).to.equal('WORLD!');
+    });
+
     // it('uses Array.prototype.map', () => {
     //   spyOn(Array.prototype, 'map').and.callThrough();
   
