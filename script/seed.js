@@ -463,7 +463,7 @@ async function seed() {
 
   const friendhelper = new Array(24).fill(1)
   friendhelper.forEach((num, idx) =>{
-    let friendhelper2 = new Array(Math.ceil(Math.random()*10))
+    let friendhelper2 = new Array(Math.ceil(Math.random()*15))
     let friendhelper3 = []
     for(let i = 0; i<friendhelper2.length; i++){
       let friendNum = Math.ceil(Math.random()*23)+1

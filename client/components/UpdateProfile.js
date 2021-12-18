@@ -205,7 +205,7 @@ class UpdateProfile extends Component {
                         fullWidth
                         className="editField"
                         id="outlined-helperText"
-                        label="Info"
+                        label="Job Title"
                         value={info}
                         name="info"
                         onChange={onChange}
