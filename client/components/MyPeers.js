@@ -91,11 +91,11 @@ const MyPeers = (props) => {
                         Message
                       </Button>
                     </div>
-                    <div className="user-action">
+                    {/* <div className="user-action">
                       <button onClick={(userId) => handleClick(user.id)}>
                         Message
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </li>
               );

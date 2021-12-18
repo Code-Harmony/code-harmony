@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 /**
  * COMPONENT
@@ -43,9 +44,7 @@ export const AllUsers = (props) => {
         </Typography>
         {pathname === "/lookingfor" ? (
           <>
-            <Typography variant="h6">
-              Browse Users
-            </Typography>
+            <Typography variant="h6">Browse Users</Typography>
           </>
         ) : (
           <>
@@ -92,13 +91,42 @@ export const AllUsers = (props) => {
                 <CardActions
                   sx={{ textAlign: "center", marginLeft: "auto", mr: "auto" }}
                 >
-                  <Button
-                    sx={{ ml: "auto", mr: "auto" }}
-                    variant="contained"
-                    onClick={(userId) => handleAddPeer(user.id)}
+                  <Grid
+                    container
+                    spacing={2}
+                    align="center"
+                    direction='column'
                   >
-                    Add Friend ID: {user.id}
-                  </Button>
+                    <Grid
+                      item
+                      xs={12}
+                      lg={6}
+                      key={Math.random() * user.id * 100}
+                      align="center"
+                    >
+                      <Typography className="viewProfile" variant="body1">
+                        <Link to={`/viewProfile/${user.id}`}>
+                          <span className="viewProfileText">View Profile </span>
+                          <ArrowForwardIcon className="goArrow" />
+                        </Link>
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      lg={6}
+                      key={Math.random() * user.id * 100}
+                      align="center"
+                    >
+                      <Button
+                        sx={{ ml: "auto", mr: "auto" }}
+                        variant="contained"
+                        onClick={(userId) => handleAddPeer(user.id)}
+                      >
+                        Add Friend
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </CardActions>
               </Card>
             </Grid>

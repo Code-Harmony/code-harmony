@@ -257,17 +257,16 @@ export const PeerRequests = (props) => {
                                   bigScreen === false ? "center" : "flex-start"
                                 }
                               >
-                                <Typography variant="body1">Skills</Typography>
-                                {skillNames.map((skillName) => {
-                                  return (
-                                    <Typography
-                                      color="primary.main"
-                                      variant="body2"
-                                    >
-                                      {skillName}
-                                    </Typography>
-                                  );
-                                })}
+                                <Typography variant="body1">
+                                  Industry
+                                </Typography>
+
+                                <Typography
+                                  color="primary.main"
+                                  variant="body2"
+                                >
+                                  {user.industry}
+                                </Typography>
                               </Grid>
                             </Grid>
                           </Grid>

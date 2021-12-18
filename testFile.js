@@ -1,37 +1,47 @@
-console.log('hi')
+function findObjKeys(obj){return Object.keys(obj).map(key =>{return `${key}`}).join(', ')}
 const {expect} = require('chai')
 
-  //use Filter level 2
-  describe('useFilter', () => {
-    /*it('takes an array and returns an array', () => {
-      const array = useFilter(['kdsd@aol.com', 'test@apple.com']);
-      expect(Array.isArray(array)).toBe(true);
-    }); */
-    it('returns all words in the array that have an @', () => {
-      const array = useFilter([
-        'emilie.io',
-        'trace.google.com',
-        'kellyscott2@aol.com',
-        'helloWorld.com',
-        'test@apple.com',
-        'snowman@iceland.com',
-      ]);
-        expect(array[0]).to.equal('kellyscott2@aol.com');
-        expect(array[1]).to.equal('test@apple.com');
-        expect(array[2]).to.equal('snowman@iceland.com');
-      });
-      
-    it('uses Array.prototype.filter', () => {
-      // spyOn(Array.prototype, 'filter').and.callThrough();
+  //find object keys level 3
+  describe('findObjKeys', () => {
+    const rectanglePrototype = {
+      getArea: function () {
+        return this.height * this.width;
+      },
+    };
+    function rectangle(color, height, width) {
+      const rectangleInstance = Object.create(rectanglePrototype);
   
-      const array = useFilter([
-        'omri@aol.com',
-        'jess@fs.com',
-        'test.com',
-        'myEmail.com',
-      ]);
-      //expect(Array.prototype.filter).toHaveBeenCalled();
-      expect(array[0]).to.equal('omri@aol.com');
-      expect(array[1]).to.equal('jess@fs.com');
+      rectangleInstance.color = color;
+      rectangleInstance.height = height;
+      rectangleInstance.width = width;
+  
+      return rectangleInstance;
+    }
+    it('prints out the key', () => {
+      const greenRectangle = { color: 'green' };
+  
+      expect(findObjKeys(greenRectangle)).to.equal('color');
     });
+  
+    it("prints out the object's keys, comma delimited", () => {
+      const yelloRectangle = { color: 'yellow', height: 8, width: 5 };
+  
+      expect(findObjKeys(yelloRectangle)).to.equal('color, height, width');
+    });
+  
+    it("prints the keys belonging to the instance object, it excludes properties in the object's prototype chain", () => {
+      const blueRectangle = rectangle('blue', 5, 3);
+  
+      expect(findObjKeys(blueRectangle)).to.equal('color, height, width');
+    });
+  
+    // it('it uses `Object.keys`', () => {
+    //   const purpleRectangle = rectangle('purple', 7, 2);
+    //   // spyOn(Object, 'keys').and.callThrough(); // checks if Object.keys is called
+  
+    //   findObjKeys(purpleRectangle);
+  
+    //   expect(Object.keys).to.have.been.called();
+    //   // Note: do no use Object.hasOwnProperty.call(purpleRectangle);
+    // });
   });

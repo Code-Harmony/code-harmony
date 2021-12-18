@@ -269,21 +269,6 @@ const ProfileResults = (props) => {
                 }
               });
 
-              const industryIds = [];
-              const industriesPairs = userIndustries.filter(
-                (userIndustryPair) => userIndustryPair.userId === user.id
-              );
-              industriesPairs.map((userIndustryPair) =>
-                industryIds.push(userIndustryPair.industryId)
-              );
-
-              const industryNames = [];
-
-              industries.map((industry) => {
-                if (industryIds.includes(industry.id)) {
-                  return industryNames.push(industry.name);
-                }
-              });
               return both.map((userId) => {
                 // change thisone too
                 if (user.id * 1 === userId * 1) {
