@@ -27,12 +27,13 @@ const _loadAccounts = (accounts) =>{
     }
 }
 
-const updateAccount = (id, photoUrl, name, email, industry, description, zipcode) =>{
+const updateAccount = (id, photoUrl, name, email, industry, description, zipcode, history) =>{
     return async (dispatch) =>{
         const account = (await axios.put(`/api/account/${id}`, {photoUrl, name, email, industry, description, zipcode})).data;
         dispatch(_updateAccount(account));
     }
 }
+
 
 const _updateAccount = (account) =>{
     return {
@@ -41,19 +42,19 @@ const _updateAccount = (account) =>{
     }
 }
 
-const createProfileAccount = (id, name, email, industry, description, zipcode) =>{
-    return async (dispatch) =>{
-        const account = (await axios.put(`/api/account/${id}`, {name, email, industry, description, zipcode})).data;
-        dispatch(_updateAccount(account));
-    }
-}
+// const createProfileAccount = (id, name, email, industry, description, zipcode) =>{
+//     return async (dispatch) =>{
+//         const account = (await axios.put(`/api/account/${id}`, {name, email, industry, description, zipcode})).data;
+//         dispatch(_updateAccount(account));
+//     }
+// }
 
-const _createProfileAccount = (account) =>{
-    return {
-        type: UPDATE_ACCOUNT,
-        account
-    }
-}
+// const _createProfileAccount = (account) =>{
+//     return {
+//         type: UPDATE_ACCOUNT,
+//         account
+//     }
+// }
 
 
 

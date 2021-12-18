@@ -75,7 +75,8 @@ class UpdateProfile extends Component{
         const {photoUrl, name, github, email, industry, description, zipcode} = this.state;
         const {industries, auth, accounts} = this.props;
         const {onChange, onSubmit} = this
-        // console.log(accounts)
+        console.log(auth)
+        console.log(accounts)
         return(
             <div>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} align="center" direction="column" padding={15} paddingTop={5}>

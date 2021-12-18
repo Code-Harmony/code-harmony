@@ -99,7 +99,7 @@ async function seed() {
       industry: "Art and Design",
       github: "@cody",
       description: paragraph,
-      info: "Fullstack engineer",
+      info: 'Lead UX Designer',
       looking_for: "product designer",
       challenge_points: 3,
       zipcode: 10025,
@@ -114,7 +114,7 @@ async function seed() {
       industry: "Technology",
       github: "@murphy",
       description: paragraph,
-      info: "Fullstack engineer",
+      info: "Fullstack Engineer",
       looking_for: "product designer",
       challenge_points: 1,
       zipcode: 19610,
@@ -129,7 +129,7 @@ async function seed() {
       industry: "Real Estate",
       github: "@bill",
       description: paragraph,
-      info: "Fullstack engineer",
+      info: "Head Sales",
       looking_for: "product designer",
       challenge_points: 1,
       zipcode: 111100,
@@ -144,7 +144,7 @@ async function seed() {
       industry: "Technology",
       github: "@jamieha",
       description: paragraph,
-      info: "real estate consultant",
+      info: "Senior Cost Seg Engineer",
       looking_for: "backend developer",
       challenge_points: 3,
       zipcode: 12345,
@@ -159,7 +159,7 @@ async function seed() {
       industry: "Technology",
       github: "@stephen",
       description: paragraph,
-      info: "web communications developer",
+      info: "Web Communications Developer",
       looking_for: "backend developer",
       challenge_points: 5,
       zipcode: 54321,
@@ -173,7 +173,7 @@ async function seed() {
       industry: "Technology",
       github: "@amata",
       description: paragraph,
-      info: "data engineer",
+      info: "Data Engineer",
       looking_for: "front end engineer",
       challenge_points: 3,
       zipcode: 13579,
@@ -187,7 +187,7 @@ async function seed() {
       industry: "Technology",
       github: "@patricia",
       description: paragraph,
-      info: "structural engineer",
+      info: "Structural Engineer",
       looking_for: "ux researcher",
       challenge_points: 4,
       zipcode: 30293,
@@ -216,7 +216,7 @@ async function seed() {
       industry: "Government",
       github: "@lucy",
       description: paragraph,
-      info: "Biomedical Engineer",
+      info: "Social Secuirty Admin",
       looking_for: "back end engineer",
       challenge_points: 6,
       zipcode: 11111,
@@ -231,7 +231,7 @@ async function seed() {
       industry: "Technology",
       github: "@stannie-lim",
       description: paragraph,
-      info: "fullstack engineer",
+      info: "Fullstack Engineer",
       looking_for: "students",
       challenge_points: 5,
       zipcode: 30928,
@@ -246,7 +246,7 @@ async function seed() {
       industry: "Education",
       github: "@prof",
       description: paragraph,
-      info: "instructor",
+      info: "Instructor",
       looking_for: "students",
       challenge_points: 4,
       zipcode: 11123,
@@ -261,7 +261,7 @@ async function seed() {
       industry: "Art and Design",
       github: "@sean",
       description: paragraph,
-      info: "software engineer",
+      info: "UX Designer",
       looking_for: "product managers",
       challenge_points: 6,
       zipcode: 10013,
@@ -276,7 +276,7 @@ async function seed() {
       industry: "Social Science",
       github: "@leslie",
       description: paragraph,
-      info: "UX researcher",
+      info: "Psychology Resercher",
       looking_for: "fullstack engineers",
       challenge_points: 2,
       zipcode: 12345,
@@ -291,7 +291,7 @@ async function seed() {
       industry: "Entertainment and Sports",
       github: "@justice",
       description: paragraph,
-      info: "QA engineer",
+      info: "Football Analytics",
       looking_for: "product designers",
       challenge_points: 4,
       zipcode: 19610,
@@ -306,7 +306,7 @@ async function seed() {
       industry: "Entertainment and Sports",
       github: "@betty",
       description: paragraph,
-      info: "intern",
+      info: "Data Engineer",
       looking_for: "software engineers",
       challenge_points: 1,
       zipcode: 19043,
@@ -320,7 +320,7 @@ async function seed() {
       industry: "Finance",
       github: "@luka",
       description: paragraph,
-      info: "consultant",
+      info: "Data Analytics",
       looking_for: "engineers",
       challenge_points: 3,
       zipcode: 11111,
@@ -335,7 +335,7 @@ async function seed() {
       industry: "Finance",
       github: "@michael",
       description: paragraph,
-      info: "software engineer",
+      info: "Data Scientist",
       looking_for: "software engineers",
       challenge_points: 2,
       zipcode: 22222,
@@ -350,7 +350,7 @@ async function seed() {
       industry: "Sales",
       github: "@abey",
       description: paragraph,
-      info: "backend engineer",
+      info: "Backend Engineer",
       looking_for: "frontend engineers",
       challenge_points: 6,
       zipcode: 11123,
@@ -365,7 +365,7 @@ async function seed() {
       industry: "Legal",
       github: "@bfong",
       description: paragraph,
-      info: "data analyst",
+      info: "Data analyst",
       looking_for: "data engineers",
       challenge_points: 4,
       zipcode: 12343,
@@ -379,7 +379,7 @@ async function seed() {
       industry: "Sales",
       github: "@qinke",
       description: paragraph,
-      info: "consultant",
+      info: "Sales Consultant",
       looking_for: "engineers",
       challenge_points: 4,
       zipcode: 44444,
@@ -393,7 +393,7 @@ async function seed() {
       industry: "Finance",
       github: "@dwight",
       description: paragraph,
-      info: "consultant",
+      info: "Resercher",
       looking_for: "engineers",
       challenge_points: 1,
       zipcode: 11203,
@@ -408,7 +408,7 @@ async function seed() {
       industry: "Sales",
       github: "@stanley",
       description: paragraph,
-      info: "consultant",
+      info: "Head Sales Rep",
       looking_for: "engineers",
       challenge_points: 1,
       zipcode: 11201,
@@ -423,7 +423,7 @@ async function seed() {
       industry: "Legal",
       github: "@monica",
       description: paragraph,
-      info: "consultant",
+      info: "Researcher",
       looking_for: "engineers",
       challenge_points: 1,
       zipcode: 11201,
@@ -438,7 +438,7 @@ async function seed() {
       industry: "Government",
       github: "@chandler",
       description: paragraph,
-      info: "consultant",
+      info: "Fullstack Engineer",
       looking_for: "engineers",
       challenge_points: 4,
       zipcode: 11204,
@@ -448,24 +448,34 @@ async function seed() {
 
 
   //creating one friends link
-   const friendslist = await Promise.all([
-    Friend.create({ user1id: 2, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 2 }),
-    Friend.create({ user1id: 1, user2id: 3 }),
-    Friend.create({ user1id: 3, user2id: 1 }),
-    Friend.create({ user1id: 4, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 4 }),
-    Friend.create({ user1id: 5, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 5 }),
-    Friend.create({ user1id: 6, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 6 }),
-    Friend.create({ user1id: 7, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 7 }),
-    Friend.create({ user1id: 8, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 8 }),
-    Friend.create({ user1id: 9, user2id: 1 }),
-    Friend.create({ user1id: 1, user2id: 9 }),
-  ]);
+  //  const friendslist = await Promise.all([
+  //   Friend.create({ user1id: 1, user2id: 2 }),
+  //   Friend.create({ user1id: 1, user2id: 2 }),
+  //   Friend.create({ user1id: 1, user2id: 2 }),
+  //   Friend.create({ user1id: 1, user2id: 2 }),
+  //   Friend.create({ user1id: 1, user2id: 2 }),
+  //   Friend.create({ user1id: 1, user2id: 2 }),
+  // ]);
+
+  async function friendsListCreater(user1idD, user2idD) {
+    await Friend.create({user1id: user1idD, user2id: user2idD})
+  }
+
+  const friendhelper = new Array(24).fill(1)
+  friendhelper.forEach((num, idx) =>{
+    let friendhelper2 = new Array(Math.ceil(Math.random()*10))
+    let friendhelper3 = []
+    for(let i = 0; i<friendhelper2.length; i++){
+      let friendNum = Math.ceil(Math.random()*23)+1
+      if(!friendhelper3.includes(friendNum)){
+        friendhelper3.push(friendNum)
+      }
+    }
+    friendhelper3.forEach(num3 =>{
+      friendsListCreater(idx+1,num3)
+    })
+  })
+
 
   //Creating industries
   await Promise.all(
