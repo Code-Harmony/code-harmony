@@ -110,9 +110,6 @@ export const PeerRequests = (props) => {
               }
             });
 
-            console.log("skills", skills);
-            console.log("skillNames", skillNames);
-
             return (
               <Grid item xs={12} lg={6} key={user.id} align="center">
                 <Card align="center">
