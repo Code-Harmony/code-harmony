@@ -52,7 +52,7 @@ const AuthForm = props => {
             <LockOutlinedIcon />
           </Avatar>
       <Typography component="h1" variant="h5">
-          Sign in
+          Sign Up
       </Typography>
     <Box component="form" onSubmit={handleSubmit} name={name} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -60,7 +60,7 @@ const AuthForm = props => {
               required
               fullWidth
               id="username"
-              label="username"
+              label=" Username"
               name="username"
               autoComplete="username"
               autoFocus
@@ -70,7 +70,7 @@ const AuthForm = props => {
               required
               fullWidth
               name="password"
-              label="Password"
+              label=" Password"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -88,16 +88,6 @@ const AuthForm = props => {
             {displayName}
                 </Button>       
                 <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
             </Grid>
           </Box>
         </Box>
@@ -107,14 +97,6 @@ const AuthForm = props => {
   )
 }
   
-const mapLogin = state => {
-  return {
-    name: 'login',
-    displayName: 'Login',
-    error: state.auth.error
-  }
-}
-
 const mapSignup = state => {
   return {
     name: 'signup',
@@ -135,5 +117,4 @@ const mapDispatch = dispatch => {
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
