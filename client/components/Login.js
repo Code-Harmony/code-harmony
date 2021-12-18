@@ -60,7 +60,7 @@ const AuthForm = props => {
               required
               fullWidth
               id="username"
-              label="username"
+              label="Username"
               name="Username"
               autoComplete="username"
               autoFocus

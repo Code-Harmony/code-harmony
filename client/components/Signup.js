@@ -64,7 +64,6 @@ const AuthForm = props => {
               name="username"
               autoComplete="username"
               autoFocus
-              value={this.state.name || ''}
           />
           <TextField
               margin="normal"
