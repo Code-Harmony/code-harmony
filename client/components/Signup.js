@@ -86,9 +86,16 @@ const AuthForm = props => {
               sx={{ mt: 3, mb: 2 }}
             >
             {displayName}
-                </Button>       
+                </Button>   
                 <Grid container>
-            </Grid>
+              <Grid item xs>
+              </Grid>
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  {"Have an account? Log in"}
+                </Link>
+              </Grid>
+            </Grid>    
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
