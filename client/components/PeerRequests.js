@@ -303,10 +303,12 @@ export const PeerRequests = (props) => {
                             }
                           >
                             <Typography className="viewProfile" variant="body1">
-                              <span className="viewProfileText">
-                                View Profile{" "}
-                              </span>
-                              <ArrowForwardIcon className="goArrow" />
+                              <Link to={`/viewProfile/${user.id}`}>
+                                <span className="viewProfileText">
+                                  View Profile{" "}
+                                </span>
+                                <ArrowForwardIcon className="goArrow" />
+                              </Link>
                             </Typography>
                           </Grid>
                         </Grid>

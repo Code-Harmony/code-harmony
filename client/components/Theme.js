@@ -72,6 +72,30 @@ const theme = createTheme({
           textTransform: "none",
         },
       },
+      variants: [
+      { 
+        props: { variant: 'cta'}, 
+        style: {
+          background: 'transparent',
+          fontFamily: ["Spartan", "sans-serif"].join(","),
+          width: '250px',
+          color: 'white',
+          '&:hover': {
+            background: "#258ea6"
+          }
+        }
+      },
+      { 
+        props: { variant: 'cta-alt'}, 
+        style: {
+          background: 'transparent',
+          fontFamily: ["Spartan", "sans-serif"].join(","),
+          width: '250px',
+          color: 'white',
+        }
+      }
+
+      ]
     },
     MuiListItemIcon: {
       styleOverrides: {

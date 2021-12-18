@@ -281,3 +281,29 @@ li {
 .friendButton{
   width: 55%;
 }
+
+.editField{
+  min-width: 40%;
+}
+
+#hero{
+  background-image: url("https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-size: cover;
+  width: 100%;
+  min-height: 1300px;
+  background-blend-mode: multiply;
+  background-color: rgb(55, 56, 61);
+}
+
+#hero-action{
+  position: relative;
+  height: 10em;
+}
+
+/* #hero-action div{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  right: auto;
+} */

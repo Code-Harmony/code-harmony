@@ -1,82 +1,37 @@
-const twice = (func) => {et count = 1; return function() {if (count <= 2){ count++;return func();} else { return 0;}};};
+console.log('hi')
 const {expect} = require('chai')
 
-//level 6
-
-describe('twice', () => {
-    /*
-    it('should return a function object', () => {
-      const funcReturned = twice(() => {
-        return "I'm happy I completed Foundations!";
-      });
-      expect(typeof funcReturned === 'function').toBe(true);
+  //use Filter level 2
+  describe('useFilter', () => {
+    /*it('takes an array and returns an array', () => {
+      const array = useFilter(['kdsd@aol.com', 'test@apple.com']);
+      expect(Array.isArray(array)).toBe(true);
     }); */
-  
-    it('calls the function argument a maximum of two times', () => {
-      const returnTen = jasmine.createSpy('returnTen', () => {
-        return 10;
+    it('returns all words in the array that have an @', () => {
+      const array = useFilter([
+        'emilie.io',
+        'trace.google.com',
+        'kellyscott2@aol.com',
+        'helloWorld.com',
+        'test@apple.com',
+        'snowman@iceland.com',
+      ]);
+        expect(array[0]).to.equal('kellyscott2@aol.com');
+        expect(array[1]).to.equal('test@apple.com');
+        expect(array[2]).to.equal('snowman@iceland.com');
       });
+      
+    it('uses Array.prototype.filter', () => {
+      // spyOn(Array.prototype, 'filter').and.callThrough();
   
-      const returnVal = twice(returnTen);
-  
-      returnVal();
-      returnVal();
-      returnVal();
-  
-      expect(returnTen.calls.count()).toBe(2);
-    });
-  
-    it('returns the number value 10 when called', () => {
-      const returnTen = twice(() => {
-        return 10;
-      });
-  
-      expect(returnTen()).to.be(10);
-    });
-  
-    it('can be called twice', () => {
-      let total = 0;
-      const returnTen = twice(() => {
-        return 10;
-      });
-      total += returnTen();
-      total += returnTen();
-      expect(total).to.be(20);
-    });
-  
-    it('returns 0 if called more than 2 times', () => {
-      let total = 0;
-      const returnTen = twice(() => {
-        return 10;
-      });
-      let calledMoreThanTwoTimes;
-  
-      total += returnTen();
-      total += returnTen();
-      total += returnTen();
-      total += returnTen();
-      calledMoreThanTwoTimes = returnTen();
-  
-      expect(total).toBe(20);
-      expect(calledMoreThanTwoTimes).to.be(0);
-    });
-  
-    it('works on functions that return a random number (instead of just 10) ', () => {
-      const randomNumber = Math.floor(Math.random() * 1000) + 1;
-      let total = 0;
-      let calledMoreThanTwoTimes;
-  
-      const returnRandomNum = twice(() => {
-        return randomNumber;
-      });
-  
-      total += returnRandomNum();
-      total += returnRandomNum();
-      total += returnRandomNum();
-      total += returnRandomNum();
-      calledMoreThanTwoTimes = returnRandomNum();
-  
-      expect(total).toBe(randomNumber * 2);
-      expect(calledMoreThanTwoTimes).to.be(0);
+      const array = useFilter([
+        'omri@aol.com',
+        'jess@fs.com',
+        'test.com',
+        'myEmail.com',
+      ]);
+      //expect(Array.prototype.filter).toHaveBeenCalled();
+      expect(array[0]).to.equal('omri@aol.com');
+      expect(array[1]).to.equal('jess@fs.com');
     });
   });

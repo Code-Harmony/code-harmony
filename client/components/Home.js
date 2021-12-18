@@ -49,7 +49,7 @@ export const Home = (props) => {
   const classes = useStyles();
   return (
     <div style={{padding: '1em .5em 1em .5em'}}>
-      <Typography variant="h6">
+      <Typography variant="h6" sx={{marginLeft: '2.75em', marginBottom: '1em', marginTop: '.8em'}}>
         Welcome, {name}
       </Typography>
       {/* <h3

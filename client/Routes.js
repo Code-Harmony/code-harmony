@@ -24,6 +24,7 @@ import LookingFor from "./components/LookingFor";
 import ProfileResults from "./components/ProfileResults";
 import MyPeers from "./components/MyPeers";
 import PeerRequests from "./components/PeerRequests";
+import Landing from "./components/Landing";
 
 /**
  * COMPONENT
@@ -73,6 +74,7 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
+            <Route path="/home" component={ Landing } />
             <Route path="/" exact component={ Login } />
             <Route path="/login" component={ Login } />
             <Route path="/signup" component={ Signup } />

@@ -26,7 +26,7 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-import { addFriend } from "../store"
+import { addFriend } from "../store";
 
 // class ProfileResults extends Component {
 //   constructor(props) {
@@ -36,6 +36,7 @@ const ProfileResults = (props) => {
   //   render() {
   const { accounts, userIndustries, userSkills, industries, skills, match } =
     props;
+
   //const { industries, skills, match} = this.props;
 
   const matchFilter = match.params.filter;
@@ -77,6 +78,19 @@ const ProfileResults = (props) => {
       // )
     }
   });
+
+  const industryArrNames = [];
+  arr.map((item) => {
+    const industryFound = industries.find((industry) => industry.name === item);
+    if (industryFound) {
+      industryArrNames.push(industryFound.name);
+      // return(
+      //     // console.log(industryFound.name)
+      // )
+    }
+  });
+
+  console.log("industryArrNames", industryArrNames);
 
   // matches the skill name from match param to the skillId - put in arr
   const skillsArrId = [];
@@ -133,7 +147,7 @@ const ProfileResults = (props) => {
     industryArrId.map((industryId) => {
       if (userIndustryPair.industryId === industryId) {
         industryUserId.push(userIndustryPair.userId);
-        console.log(userIndustryPair.userId);
+        //  console.log(userIndustryPair.userId)
       }
     });
   });
@@ -141,25 +155,41 @@ const ProfileResults = (props) => {
 
   //Check which user is in both filters.
   let both = [];
-  if (skillUserId.length === 0 && industryUserId.length !== 0) {
-    both = industryUserId;
-  } else if (industryUserId.length === 0 && skillUserId !== 0) {
-    both = skillUserId;
-  } else {
+  // if(skillUserId.length === 0 && industryUserId.length !== 0){
+  //     if(!both.includes(industryUserId)){
+  //         both.push(industryUserId)
+  //         console.log(both)
+  //     }
+  // }
+  // else if(industryUserId.length === 0 && skillUserId !== 0){
+  //     both = skillUserId
+  //     console.log(both)
+  // }
+  {
     skillUserId.map((userSkillId) => {
       if (!both.includes(userSkillId)) {
         both.push(userSkillId);
         console.log(both);
       }
     });
-    industryUserId.map((userIndustryId) => {
-      if (!both.includes(userIndustryId)) {
-        both.push(userIndustryId);
-        console.log(both);
-      }
+    // industryUserId.map(userIndustryId =>{
+    //     if(!both.includes(userIndustryId)){
+    //         both.push(userIndustryId)
+    //         console.log(both)
+    //     }
+    // })
+    accounts.map((account) => {
+      industryArrNames.map((industryName) => {
+        console.log("account.industry", account.industry);
+        console.log("industryName", industryName);
+
+        if (account.industry === industryName) {
+          both.push(account.id);
+        }
+      });
     });
   }
-  console.log(both);
+  // console.log(both)
 
   if (both.length === 0) {
     return (
@@ -171,6 +201,8 @@ const ProfileResults = (props) => {
       </div>
     );
   }
+  // ---- BEGIN STEPHEN'S EXTRA CODE
+
   const { username } = props;
   // const { friendRequests } = props;
 
@@ -241,8 +273,9 @@ const ProfileResults = (props) => {
               const industriesPairs = userIndustries.filter(
                 (userIndustryPair) => userIndustryPair.userId === user.id
               );
-              industriesPairs.map((userIndustryPair) => industryIds.push(userIndustryPair.industryId));
-
+              industriesPairs.map((userIndustryPair) =>
+                industryIds.push(userIndustryPair.industryId)
+              );
 
               const industryNames = [];
 
@@ -258,7 +291,7 @@ const ProfileResults = (props) => {
                     // ---------- BEGIN stephen's code
                     // {singleAccount.name}
                     <Grid item xs={12} lg={6} key={user.id} align="center">
-                      <Card align="center">
+                      <Card align="center" sx={{ minHeight: "25em" }}>
                         <CardContent>
                           <Grid
                             container
@@ -438,19 +471,15 @@ const ProfileResults = (props) => {
                                       }
                                     >
                                       <Typography variant="body1">
-                                        Industries
+                                        Industry
                                       </Typography>
-                                      {industryNames.map((industryName) => {
-                                        return (
-                                          <Typography
-                                            color="primary.main"
-                                            variant="body2"
-                                            key={industryName + user.id}
-                                          >
-                                            {industryName}
-                                          </Typography>
-                                        );
-                                      })}
+                                      <Typography
+                                        color="primary.main"
+                                        variant="body2"
+                                        key={user.industry + user.id}
+                                      >
+                                        {user.industry}
+                                      </Typography>
                                     </Grid>
                                   </Grid>
                                 </Grid>
@@ -501,10 +530,12 @@ const ProfileResults = (props) => {
                                     className="viewProfile"
                                     variant="body1"
                                   >
-                                    <span className="viewProfileText">
-                                      View Profile{" "}
-                                    </span>
-                                    <ArrowForwardIcon className="goArrow" />
+                                    <Link to={`/viewProfile/${user.id}`}>
+                                      <span className="viewProfileText">
+                                        View Profile{" "}
+                                      </span>
+                                      <ArrowForwardIcon className="goArrow" />
+                                    </Link>
                                   </Typography>
                                 </Grid>
                               </Grid>
@@ -517,6 +548,7 @@ const ProfileResults = (props) => {
                             marginLeft: "auto",
                             mr: "auto",
                           }}
+                          alignSelf={"flex-end"}
                         >
                           <Button
                             sx={
@@ -580,9 +612,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatch = (dispatch) => {
-    return {
-        addFriend: (myId, otherId) => dispatch(addFriend(myId, otherId))
-    }
-}
+  return {
+    addFriend: (myId, otherId) => dispatch(addFriend(myId, otherId)),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatch)(ProfileResults);
