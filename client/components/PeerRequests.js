@@ -37,8 +37,7 @@ export const PeerRequests = (props) => {
   // const { friendRequests } = props;
 
   const { auth } = props;
-  const { loadFriendRequests } = props;
-  const { loadAllFriendRequests } = props;
+  const { loadFriendRequests, userSkills, userIndustries, skills } = props;
 
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
@@ -73,7 +72,7 @@ export const PeerRequests = (props) => {
     mr: "-.3em",
     mt: "0",
     color: "#f9a03f",
-    fontSize: "1.7em"
+    fontSize: "1.7em",
   };
 
   const bigScreen = useMediaQuery(theme.breakpoints.up("sm"));
@@ -81,7 +80,7 @@ export const PeerRequests = (props) => {
   return (
     <div className="main-content">
       <ThemeProvider theme={theme}>
-      <Typography align="center" pt=".3em" variant="body1">
+        <Typography align="center" pt=".3em" variant="body1">
           {auth.name}
         </Typography>
         <Typography align="center" pt=".3em" variant="h4">
@@ -96,6 +95,24 @@ export const PeerRequests = (props) => {
         >
           {loadFriendRequests.map((user) => {
             // {accounts.map((user) => {
+            const skillIds = [];
+            const skillsPairs = userSkills.filter(
+              (userSkillPair) => userSkillPair.userId === user.id
+            );
+            skillsPairs.map((skillPair) => skillIds.push(skillPair.skillId));
+            console.log("skillIds:", skillIds);
+
+            const skillNames = [];
+
+            skills.map((skill) => {
+              if (skillIds.includes(skill.id)) {
+                return skillNames.push(skill.name);
+              }
+            });
+
+            console.log("skills", skills);
+            console.log("skillNames", skillNames);
+
             return (
               <Grid item xs={12} lg={6} key={user.id} align="center">
                 <Card align="center">
@@ -189,10 +206,85 @@ export const PeerRequests = (props) => {
                           <Grid
                             item
                             xs={12}
+                            sm={12}
+                            pb={".5em"}
+                            align={bigScreen === false ? "center" : "left"}
+                            alignSelf={
+                              bigScreen === false ? "center" : "flex-start"
+                            }
+                            justifyContent={
+                              bigScreen === false ? "center" : "flex-start"
+                            }
+                          >
+                            <Grid
+                              container
+                              spacing={1}
+                              alignItems="flex-start"
+                              justifyContent="space-between"
+                            >
+                              <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                pb={".5em"}
+                                align={bigScreen === false ? "center" : "left"}
+                                alignSelf={
+                                  bigScreen === false ? "center" : "flex-end"
+                                }
+                                justifyContent={
+                                  bigScreen === false ? "center" : "flex-start"
+                                }
+                              >
+                                <Typography variant="body1">Skills</Typography>
+                                {skillNames.map((skillName) => {
+                                  return (
+                                    <Typography
+                                      color="primary.main"
+                                      variant="body2"
+                                    >
+                                      {skillName}
+                                    </Typography>
+                                  );
+                                })}
+                              </Grid>
+                              <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                pb={".5em"}
+                                align={bigScreen === false ? "center" : "left"}
+                                alignSelf={
+                                  bigScreen === false ? "center" : "flex-start"
+                                }
+                                justifyContent={
+                                  bigScreen === false ? "center" : "flex-start"
+                                }
+                              >
+                                <Typography variant="body1">Skills</Typography>
+                                {skillNames.map((skillName) => {
+                                  return (
+                                    <Typography
+                                      color="primary.main"
+                                      variant="body2"
+                                    >
+                                      {skillName}
+                                    </Typography>
+                                  );
+                                })}
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Grid
+                            item
+                            xs={12}
                             sm={6}
                             align={bigScreen === false ? "center" : "left"}
-                            alignSelf={bigScreen === false ? "center" : "flex-start"}
-                            justifyContent={bigScreen === false ? "center" : "flex-start"}
+                            alignSelf={
+                              bigScreen === false ? "center" : "flex-start"
+                            }
+                            justifyContent={
+                              bigScreen === false ? "center" : "flex-start"
+                            }
                           >
                             <Typography variant="body1">
                               Info: {user.info}
@@ -206,8 +298,12 @@ export const PeerRequests = (props) => {
                             xs={12}
                             sm={6}
                             align={bigScreen === false ? "center" : "left"}
-                            alignSelf={bigScreen === false ? "center" : "flex-start"}
-                            justifyContent={bigScreen === false ? "center" : "flex-start"}
+                            alignSelf={
+                              bigScreen === false ? "center" : "flex-start"
+                            }
+                            justifyContent={
+                              bigScreen === false ? "center" : "flex-start"
+                            }
                           >
                             <Typography className="viewProfile" variant="body1">
                               <span className="viewProfileText">
@@ -231,7 +327,7 @@ export const PeerRequests = (props) => {
                               mr: "auto",
                               boxShadow: "3px 3px 1px #f9a03f",
                             }
-                          : { ml: "auto", mr: "auto",}
+                          : { ml: "auto", mr: "auto" }
                       }
                       variant="contained"
                       className="friendButton"
@@ -254,9 +350,11 @@ export const PeerRequests = (props) => {
                           : false
                       }
                     >
-                      {success === user.id
-                        ? <Typography variant="body2">Friend Added!</Typography>
-                        : <Typography variant="body2">Add Friend</Typography>}
+                      {success === user.id ? (
+                        <Typography variant="body2">Friend Added!</Typography>
+                      ) : (
+                        <Typography variant="body2">Add Friend</Typography>
+                      )}
                     </Button>
                   </CardActions>
                 </Card>
@@ -284,6 +382,9 @@ const mapState = (state) => {
       { id: 6, name: "liana" },
     ],
     friendRequests: state.friendRequests,
+    userSkills: state.userSkills,
+    userIndustries: state.userIndustries,
+    skills: state.skills,
   };
 };
 
