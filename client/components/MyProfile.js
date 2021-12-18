@@ -9,8 +9,15 @@ import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import WorkIcon from "@mui/icons-material/Work";
 import InfoIcon from "@mui/icons-material/Info";
+import SchoolIcon from "@mui/icons-material/School";
 
 import Grid from "@mui/material/Grid";
+
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 class MyProfile extends Component {
   constructor(props) {
@@ -30,24 +37,39 @@ class MyProfile extends Component {
         <Grid container p={2} spacing={1}>
           <Grid item xs={12} lg={12} p="1.5em">
             <Card p={1} sx={{ minWidth: 275, p: "1em" }}>
-              <img
-                className="accountImg"
-                src={
-                  account.photoUrl
-                    ? account.photoUrl
-                    : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                }
-              />
-              <Typography variant="h4" gutterBottom component="div">
-                {account.name}
-              </Typography>
-              <EmailIcon />
-              <Typography variant="caption" display="block" gutterBottom>
-                Email:
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                {account.email}
-              </Typography>
+              <Grid container p={2} spacing={1}>
+
+              <Grid item xs={12} md={6} lg={6} p="1.5em">
+                <img
+                  className="accountImg"
+                  src={
+                    account.photoUrl
+                      ? account.photoUrl
+                      : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                  }
+                />
+                <Typography variant="h4" gutterBottom component="div">
+                  {account.name}
+                </Typography>
+                <EmailIcon />
+                <Typography variant="caption" display="block" gutterBottom>
+                  Email:
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {account.email}
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={6} lg={6} p="1.5em" align="center">
+                <div>
+                  <Typography align="center" variant="h3">
+                    <ChevronLeftIcon style={{ fontSize: ".5em" }} />
+                    <FavoriteBorderIcon style={{ fontSize: ".5em" }} />
+                    <ChevronRightIcon style={{ fontSize: ".5em" }} />
+                  </Typography>
+                  <Typography variant="body">code harmony</Typography>
+                </div>
+              </Grid>
+              </Grid>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} p="1.5em">
@@ -56,7 +78,14 @@ class MyProfile extends Component {
                 <Grid item xs={12} sm={12} lg={12} p="1.5em">
                   <GitHubIcon />
                 </Grid>
-                <Grid item xs={12} sm={2} lg={2} p="1.5em" alignSelf="flex-start">
+                <Grid
+                  item
+                  xs={12}
+                  sm={2}
+                  lg={2}
+                  p="1.5em"
+                  alignSelf="flex-start"
+                >
                   <Typography variant="caption" display="block" gutterBottom>
                     GitHub:
                   </Typography>
@@ -70,7 +99,7 @@ class MyProfile extends Component {
                   alignSelf="flex-end"
                   sx={{ mb: "15px" }}
                 >
-                  <Typography variant="body1" sx={{mb: '4px'}}>
+                  <Typography variant="body1" sx={{ mb: "4px" }}>
                     {account.github}
                   </Typography>
                 </Grid>
