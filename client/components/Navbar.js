@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
 // We may be able to remove line 7 and bring theme in from props, now that the Theme Provider is wrapping our entire app in index.js
 import theme from "./Theme";
@@ -23,7 +23,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Logout from "@mui/icons-material/Logout";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -70,16 +73,21 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 </MenuItem>
                 <Divider />
                 <MenuItem>
-                <Link to="/messages">Messages</Link>
+                  <Link to="/messages">Messages</Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem>
-                <Link to="/requests">Friend Requests</Link>
+                  <Link to="/requests">Friend Requests</Link>
                 </MenuItem>
               </Paper>
             </Menu>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/home" className="h1">Code Harmony</Link>
+              <Link to="/home" className="h1">
+                <ChevronLeftIcon style={{fontSize: '.9em'}}/>
+                <FavoriteBorderIcon style={{fontSize: '.9em'}}/>
+                <ChevronRightIcon style={{fontSize: '.9em'}}/>
+                Code Harmony
+              </Link>
             </Typography>
             {isLoggedIn ? (
               <div>
@@ -94,18 +102,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   onClick={handleClose}
                 >
                   <Paper>
-                    <MenuItem >
-                      <ListItemIcon>
-                        <AccountCircleOutlinedIcon/>
-                      </ListItemIcon>
-                      <Link to="/myProfile"> My Profile</Link>
-                    </MenuItem> 
                     <MenuItem>
                       <ListItemIcon>
-                        <ManageAccountsIcon/>
+                        <AccountCircleOutlinedIcon />
+                      </ListItemIcon>
+                      <Link to="/myProfile"> My Profile</Link>
+                    </MenuItem>
+                    <MenuItem>
+                      <ListItemIcon>
+                        <ManageAccountsIcon />
                       </ListItemIcon>
                       <Link to="/updateProfile"> Edit Profile</Link>
-                    </MenuItem> 
+                    </MenuItem>
                     <MenuItem onClick={handleClick}>
                       <ListItemIcon>
                         <Logout />
