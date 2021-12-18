@@ -60,6 +60,20 @@ class ProfileResults extends Component{
             }
         })
 
+        const industryArrNames = []
+        arr.map(item=>{
+            const industryFound = industries.find(industry => industry.name === item)
+            if(industryFound){
+                industryArrNames.push(industryFound.name)
+                // return(
+                //     // console.log(industryFound.name)
+                // )
+            }
+        })
+
+        console.log('industryArrNames', industryArrNames)
+
+
         // matches the skill name from match param to the skillId - put in arr
         const skillsArrId = []
         arr.map(item =>{
@@ -116,7 +130,7 @@ class ProfileResults extends Component{
             industryArrId.map(industryId =>{
                 if(userIndustryPair.industryId === industryId){
                     industryUserId.push(userIndustryPair.userId)
-                    console.log(userIndustryPair.userId)
+                //  console.log(userIndustryPair.userId)
                 }
             })
         })
@@ -125,28 +139,42 @@ class ProfileResults extends Component{
 
         //Check which user is in both filters.
         let both = []
-        if(skillUserId.length === 0 && industryUserId.length !== 0){
-            both = industryUserId
-        }
-        else if(industryUserId.length === 0 && skillUserId !== 0){
-            both = skillUserId
-        }
-        else{
+        // if(skillUserId.length === 0 && industryUserId.length !== 0){
+        //     if(!both.includes(industryUserId)){
+        //         both.push(industryUserId)
+        //         console.log(both)
+        //     }
+        // }
+        // else if(industryUserId.length === 0 && skillUserId !== 0){
+        //     both = skillUserId
+        //     console.log(both)
+        // }
+        {
             skillUserId.map(userSkillId =>{
                 if(!both.includes(userSkillId)){
                     both.push(userSkillId)
                     console.log(both)
                 }
             })
-            industryUserId.map(userIndustryId =>{
-                if(!both.includes(userIndustryId)){
-                    both.push(userIndustryId)
-                    console.log(both)
-                } 
+            // industryUserId.map(userIndustryId =>{
+            //     if(!both.includes(userIndustryId)){
+            //         both.push(userIndustryId)
+            //         console.log(both)
+            //     } 
+            // })
+            accounts.map(account =>{
+                industryArrNames.map(industryName =>{
+                    console.log('account.industry', account.industry)
+                    console.log('industryName', industryName)
+
+                    if(account.industry === industryName){
+                        both.push(account.id)
+                    }
+                })
             })
             
         }
-        console.log(both)
+        // console.log(both)
 
         if(both.length === 0){
             return(
