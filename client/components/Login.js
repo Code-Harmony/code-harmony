@@ -52,7 +52,7 @@ const AuthForm = props => {
             <LockOutlinedIcon />
           </Avatar>
       <Typography component="h1" variant="h5">
-          Sign in
+          Log in
       </Typography>
     <Box component="form" onSubmit={handleSubmit} name={name} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -61,7 +61,7 @@ const AuthForm = props => {
               fullWidth
               id="username"
               label="username"
-              name="username"
+              name="Username"
               autoComplete="username"
               autoFocus
           />
@@ -115,14 +115,6 @@ const mapLogin = state => {
   }
 }
 
-const mapSignup = state => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.auth.error
-  }
-}
-
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
@@ -136,4 +128,3 @@ const mapDispatch = dispatch => {
 }
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
