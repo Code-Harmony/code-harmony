@@ -1,4 +1,4 @@
-console.log("hello");
+const useMapToUpperCase = str => {return str.split(' ').map((word) => {return word.toUpperCase();})}
 const {expect} = require('chai')
 // const chai = require('chai')
 // chai.use(require('sinon-chai'));

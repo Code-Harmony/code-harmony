@@ -18,6 +18,10 @@ module.exports = {
             '@babel/preset-react'
           ]
         }
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
       }
     ]
   },
