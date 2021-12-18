@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { addFriend } from "../store";
 import { friendRequests } from "../store";
 
+import { withRouter } from "react-router-dom";
+
 import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -15,30 +17,45 @@ import CardActions from "@mui/material/CardActions";
 /**
  * COMPONENT
  */
-export const PeerRequests = (props) => {
+export const AllUsers = (props) => {
   const { username } = props;
   // const { friendRequests } = props;
   const { auth } = props;
   const { loadFriendRequests } = props;
   const { accounts } = props;
+  const {
+    history: {
+      location: { pathname },
+    },
+  } = props;
 
   const handleAddPeer = (userId) => {
     const { addFriend } = props;
     addFriend(auth.id, userId);
   };
+  console.log(pathname, "history!!");
 
   return (
     <div>
-      <div style={{textAlign: 'center'}}>
-
-      <Typography sx={{textAlign: 'center'}} variant="h6">
-        ...
-      </Typography>
-      <Typography variant="body2">End of Friend Requests</Typography>
-      <Typography variant="h6">
-        <br />
-        Temporary Helper Component to Add Friends
-      </Typography>
+      <div style={{ textAlign: "center" }}>
+        <Typography sx={{ textAlign: "center" }} variant="h6">
+          ...
+        </Typography>
+        {pathname === "/lookingfor" ? (
+          <>
+            <Typography variant="h6">
+              Browse Users
+            </Typography>
+          </>
+        ) : (
+          <>
+            <Typography variant="body2">End of Friend Requests</Typography>
+            <Typography variant="h6">
+              <br />
+              People You May Know
+            </Typography>
+          </>
+        )}
       </div>
 
       <Grid
@@ -116,4 +133,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(PeerRequests);
+export default withRouter(connect(mapState, mapDispatch)(AllUsers));
