@@ -252,8 +252,8 @@ li {
 }
 
 .goArrow{
-  transition: 1s ease-out;
-  padding-top: .4em;
+  padding-top: .6em;
+  transition: .1s ease-out;
 }
 .viewProfileText{
   transition: .1s ease-out;
