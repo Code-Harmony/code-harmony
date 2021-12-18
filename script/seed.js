@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path')
+const faker = require('faker');
 
 const {
   db,
@@ -88,14 +89,16 @@ async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
 
+  const paragraph = faker.lorem.paragraph()
+
     User.create({
       username: "cody",
       password: "123",
       name: "cody",
       email: "cody@gmail.com",
-      industry: "HR",
+      industry: "Art and Design",
       github: "@cody",
-      description: "Fullstack engineer",
+      description: paragraph,
       info: "Fullstack engineer",
       looking_for: "product designer",
       challenge_points: 3,
@@ -108,9 +111,9 @@ async function seed() {
       password: "123",
       name: "murphy",
       email: "murphy@gmail.com",
-      industry: "FinanceBro",
+      industry: "Technology",
       github: "@murphy",
-      description: "Fullstack engineer",
+      description: paragraph,
       info: "Fullstack engineer",
       looking_for: "product designer",
       challenge_points: 1,
@@ -123,9 +126,9 @@ async function seed() {
       password: "123",
       name: "Bill",
       email: "bill@gmail.com",
-      industry: "Health",
+      industry: "Real Estate",
       github: "@bill",
-      description: "Fullstack engineer",
+      description: paragraph,
       info: "Fullstack engineer",
       looking_for: "product designer",
       challenge_points: 1,
@@ -138,24 +141,24 @@ async function seed() {
       password: "123",
       name: "jamie",
       email: "jamie@gmail.com",
-      industry: "real estate mortgage thing",
+      industry: "Technology",
       github: "@jamieha",
-      description: "real estate consultant",
+      description: paragraph,
       info: "real estate consultant",
       looking_for: "backend developer",
       challenge_points: 3,
       zipcode: 12345,
       role: "Member",
-      photoUrl: 'https://static.wikia.nocookie.net/rio/images/0/0b/Jamie_Foxx.jpg/revision/latest?cb=20180504203411'
+      photoUrl: 'https://media.istockphoto.com/photos/portrait-business-woman-asian-on-blue-background-picture-id1166423321?k=20&m=1166423321&s=612x612&w=0&h=NBAjIIoCtSlT1e2lRRaFN5K0v7wq3mQLXJOEz0MgTYs='
     }),
     User.create({
       username: "stephen",
       password: "123",
       name: "stephen",
       email: "stephen@gmail.com",
-      industry: "college marketing?",
+      industry: "Technology",
       github: "@stephen",
-      description: "web communications developer",
+      description: paragraph,
       info: "web communications developer",
       looking_for: "backend developer",
       challenge_points: 5,
@@ -167,9 +170,9 @@ async function seed() {
       password: "123",
       name: "amata",
       email: "amata@gmail.com",
-      industry: "data",
+      industry: "Technology",
       github: "@amata",
-      description: "data engineer",
+      description: paragraph,
       info: "data engineer",
       looking_for: "front end engineer",
       challenge_points: 3,
@@ -181,9 +184,9 @@ async function seed() {
       password: "123",
       name: "patricia",
       email: "patricia@gmail.com",
-      industry: "structural engineer",
+      industry: "Technology",
       github: "@patricia",
-      description: "structural engineer",
+      description: paragraph,
       info: "structural engineer",
       looking_for: "ux researcher",
       challenge_points: 4,
@@ -195,9 +198,9 @@ async function seed() {
       password: "123",
       name: "sam",
       email: "sam@gmail.com",
-      industry: "Sports",
+      industry: "Technology",
       github: "@sam",
-      description: "Professional Athletic Trainer",
+      description: paragraph,
       info: "Professional Athletic Trainer",
       looking_for: "front end engineer",
       challenge_points: 2,
@@ -210,9 +213,9 @@ async function seed() {
       password: "123",
       name: "lucy",
       email: "lucy@gmail.com",
-      industry: "Biomedical",
+      industry: "Government",
       github: "@lucy",
-      description: "Biomedical Engineer",
+      description: paragraph,
       info: "Biomedical Engineer",
       looking_for: "back end engineer",
       challenge_points: 6,
@@ -225,23 +228,24 @@ async function seed() {
       password: "123",
       name: "Stanley",
       email: "Stanley@gmail.com",
-      industry: "software",
+      industry: "Technology",
       github: "@stannie-lim",
-      description: "fullstack engineer",
+      description: paragraph,
       info: "fullstack engineer",
       looking_for: "students",
       challenge_points: 5,
       zipcode: 30928,
       role: "Member",
+      photoUrl:'https://ca.slack-edge.com/T024FPYBQ-USKKA6KT6-511cb9f287f4-512'
     }),
     User.create({
       username: "prof",
       password: "123",
       name: "prof?",
       email: "prof@gmail.com",
-      industry: "education",
+      industry: "Education",
       github: "@prof",
-      description: "instructor",
+      description: paragraph,
       info: "instructor",
       looking_for: "students",
       challenge_points: 4,
@@ -254,9 +258,9 @@ async function seed() {
       password: "123",
       name: "sean",
       email: "sean@gmail.com",
-      industry: "tech",
+      industry: "Art and Design",
       github: "@sean",
-      description: "software engineer",
+      description: paragraph,
       info: "software engineer",
       looking_for: "product managers",
       challenge_points: 6,
@@ -269,9 +273,9 @@ async function seed() {
       password: "123",
       name: "leslie",
       email: "leslie@gmail.com",
-      industry: "healthcare",
+      industry: "Social Science",
       github: "@leslie",
-      description: "UX researcher",
+      description: paragraph,
       info: "UX researcher",
       looking_for: "fullstack engineers",
       challenge_points: 2,
@@ -284,23 +288,24 @@ async function seed() {
       password: "123",
       name: "Justice",
       email: "justice@gmail.com",
-      industry: "tech",
+      industry: "Entertainment and Sports",
       github: "@justice",
-      description: "QA engineer",
+      description: paragraph,
       info: "QA engineer",
       looking_for: "product designers",
       challenge_points: 4,
       zipcode: 19610,
       role: "Member",
+      photoUrl:'https://t3.ftcdn.net/jpg/02/99/03/56/360_F_299035676_iRQZfxrwzPFdRVRhCGAwyByXBlgNktpI.jpg'
     })
     User.create({
       username: "betty",
       password: "123",
       name: "Betty",
       email: "prof@gmail.com",
-      industry: "education",
-      github: "@prof",
-      description: "intern",
+      industry: "Entertainment and Sports",
+      github: "@betty",
+      description: paragraph,
       info: "intern",
       looking_for: "software engineers",
       challenge_points: 1,
@@ -312,9 +317,9 @@ async function seed() {
       password: "123",
       name: "Luka",
       email: "luka@gmail.com",
-      industry: "consulting",
+      industry: "Finance",
       github: "@luka",
-      description: "consultant",
+      description: paragraph,
       info: "consultant",
       looking_for: "engineers",
       challenge_points: 3,
@@ -327,9 +332,9 @@ async function seed() {
       password: "123",
       name: "michael",
       email: "michael@gmail.com",
-      industry: "tech",
+      industry: "Finance",
       github: "@michael",
-      description: "software engineer",
+      description: paragraph,
       info: "software engineer",
       looking_for: "software engineers",
       challenge_points: 2,
@@ -342,24 +347,24 @@ async function seed() {
       password: "123",
       name: "Abey",
       email: "abey@gmail.com",
-      industry: "tech",
+      industry: "Sales",
       github: "@abey",
-      description: "backend engineer",
+      description: paragraph,
       info: "backend engineer",
       looking_for: "frontend engineers",
       challenge_points: 6,
       zipcode: 11123,
       role: "Member",
-      photoUrl: "https://media.gettyimages.com/photos/confident-businesswoman-over-gray-background-picture-id682897825?s=2048x2048"
+      photoUrl: "https://t3.ftcdn.net/jpg/02/22/10/62/360_F_222106228_NP5f0gXi3JOCgmaTsEyg7RuyKgwDLGuY.jpg"
     })
     User.create({
       username: "bfong",
       password: "123",
       name: "Brian",
       email: "bfong@gmail.com",
-      industry: "finance",
+      industry: "Legal",
       github: "@bfong",
-      description: "data analyst",
+      description: paragraph,
       info: "data analyst",
       looking_for: "data engineers",
       challenge_points: 4,
@@ -371,9 +376,9 @@ async function seed() {
       password: "123",
       name: "Kiki",
       email: "kiki@gmail.com",
-      industry: "consulting",
+      industry: "Sales",
       github: "@qinke",
-      description: "consultant",
+      description: paragraph,
       info: "consultant",
       looking_for: "engineers",
       challenge_points: 4,
@@ -385,39 +390,39 @@ async function seed() {
       password: "123",
       name: "dwight",
       email: "dwight@gmail.com",
-      industry: "consulting",
+      industry: "Finance",
       github: "@dwight",
-      description: "consultant",
+      description: paragraph,
       info: "consultant",
       looking_for: "engineers",
       challenge_points: 1,
       zipcode: 11203,
       role: "Member",
-      photoUrl: "https://static.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest?cb=20170701082424"
+      photoUrl: "https://cdn.theatlantic.com/thumbor/qf3OZxABtwdkxsPxNl_l-pbFyYY=/2733x1:4028x1296/1080x1080/media/img/mt/2020/10/Dwight_comop/original.jpg"
     })
     User.create({
       username: "stanley",
       password: "123",
       name: "stanley",
       email: "stanley@gmail.com",
-      industry: "consulting",
+      industry: "Sales",
       github: "@stanley",
-      description: "consultant",
+      description: paragraph,
       info: "consultant",
       looking_for: "engineers",
       challenge_points: 1,
       zipcode: 11201,
       role: "Member",
-      photoUrl: "https://static.wikia.nocookie.net/theoffice/images/2/23/Stanley_Hudson.jpg/revision/latest?cb=20170701085445"
+      photoUrl: "https://www.indiewire.com/wp-content/uploads/2020/07/Screen-Shot-2020-07-06-at-10.39.06-AM.png"
     })
     User.create({
       username: "monica",
       password: "123",
       name: "monica",
       email: "monica@gmail.com",
-      industry: "consulting",
+      industry: "Legal",
       github: "@monica",
-      description: "consultant",
+      description: paragraph,
       info: "consultant",
       looking_for: "engineers",
       challenge_points: 1,
@@ -430,9 +435,9 @@ async function seed() {
       password: "123",
       name: "chandler",
       email: "chandler@gmail.com",
-      industry: "consulting",
+      industry: "Government",
       github: "@chandler",
-      description: "consultant",
+      description: paragraph,
       info: "consultant",
       looking_for: "engineers",
       challenge_points: 4,
@@ -443,7 +448,7 @@ async function seed() {
 
 
   //creating one friends link
-  const friendslist = await Promise.all([
+   const friendslist = await Promise.all([
     Friend.create({ user1id: 2, user2id: 1 }),
     Friend.create({ user1id: 1, user2id: 2 }),
     Friend.create({ user1id: 1, user2id: 3 }),
@@ -494,13 +499,23 @@ await Promise.all(
   joinUserIndustry(1,9)
   joinUserIndustry(5,6)
 
-  joinUserSkill(1,1)
-  joinUserSkill(1,2)
-  joinUserSkill(2,2)
-  joinUserSkill(5,3)
-  joinUserSkill(1,9)
-  joinUserSkill(2,12)
+
+  const helper = new Array(24).fill(1)
+  helper.forEach((num, idx) =>{
+    let helper2 = new Array(Math.ceil(Math.random()*6))
+    let helper3 = []
+    for(let i = 0; i<helper2.length; i++){
+      let skillNum = Math.ceil(Math.random()*18)+1
+      if(!helper3.includes(skillNum)){
+        helper3.push(skillNum)
+      }
+    }
+    helper3.forEach(num3 =>{
+      joinUserSkill(idx+1,num3)
+    })
+  })
   
+
  //Creating coding challenges
  const codingChallenges = await Promise.all([
   CodingChallenge.create({ level: 1, prompt: 'Create the useMapToUpperCase function - use the Array.protoype.map within the useMapToUpperCase function', description:"Remember, the map method can only be called on arrays (so you may need to convert the argument to an array). Map each element so the strings are all upper case.", solution: "const useMapToUpperCase = str => {return str.split(' ').map((word) => {return word.toUpperCase();})}", codespec: useMapToUpperCase_spec, title: 'useMapToUpperCase', example: `useMapToUpperCase('Keep It Simple')/n returns ['KEEP', 'IT', 'SIMPLE']`
